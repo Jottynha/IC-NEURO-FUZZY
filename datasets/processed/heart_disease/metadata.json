@@ -1,0 +1,12 @@
+{
+  "dataset": "heart_disease",
+  "uci_id": 45,
+  "n_samples": 303,
+  "n_features": 13,
+  "n_classes": 5,
+  "split": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  }
+}

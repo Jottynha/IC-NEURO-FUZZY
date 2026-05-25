@@ -1,0 +1,12 @@
+{
+  "dataset": "adult",
+  "uci_id": 2,
+  "n_samples": 48842,
+  "n_features": 100,
+  "n_classes": 4,
+  "split": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  }
+}
