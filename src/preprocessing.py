@@ -111,6 +111,62 @@ def main() -> None:
     print(f"\n{'='*60}")
     print("Pré-processamento concluído para todas as 4 bases")
     print(f"{'='*60}\n")
+    # Análise exploratória simples dos datasets processados
+    results_dir = Path("resultados")
+    results_dir.mkdir(parents=True, exist_ok=True)
+    for name in datasets.keys():
+        ds_dir = output_root / name
+        if not ds_dir.exists():
+            print(f"Pular {name}: não encontrado em {ds_dir}")
+            continue
+        try:
+            X_train = np.load(ds_dir / "X_train.npy")
+            y_train = np.load(ds_dir / "y_train.npy")
+            X_val = np.load(ds_dir / "X_val.npy")
+            y_val = np.load(ds_dir / "y_val.npy")
+            X_test = np.load(ds_dir / "X_test.npy")
+            y_test = np.load(ds_dir / "y_test.npy")
+        except Exception as e:
+            print(f"Erro carregando arrays de {name}: {e}")
+            continue
+        lines = []
+        lines.append("=" * 60)
+        lines.append(f"Análise exploratória - {name.upper()}")
+        lines.append("=" * 60)
+        meta_file = ds_dir / "metadata.json"
+        if meta_file.exists():
+            try:
+                meta = json.loads(meta_file.read_text(encoding="utf-8"))
+                lines.append(f"Descrição: {meta.get('dataset', '')}")
+                lines.append(f"UCI id: {meta.get('uci_id', '')}")
+            except Exception:
+                pass
+        total_samples = int(X_train.shape[0] + X_val.shape[0] + X_test.shape[0])
+        lines.append(f"Amostras (treino/val/test): {X_train.shape[0]}/{X_val.shape[0]}/{X_test.shape[0]} (total {total_samples})")
+        lines.append(f"Atributos (features): {X_train.shape[1]}")
+        classes, counts = np.unique(np.concatenate([y_train, y_val, y_test]), return_counts=True)
+        lines.append(f"Classes: {classes.tolist()}")
+        counts_list = counts.tolist()
+        lines.append(f"Contagem por classe: {counts_list}")
+        props = (counts / counts.sum()).tolist()
+        lines.append(f"Proporção por classe: {[round(p,4) for p in props]}")
+        # Medidas simples das features (usar treino)
+        n_features = X_train.shape[1]
+        show_n = min(10, n_features)
+        lines.append(f"Estatísticas (train) - mostrar primeiras {show_n} features:")
+        means = np.mean(X_train, axis=0)
+        stds = np.std(X_train, axis=0)
+        mins = np.min(X_train, axis=0)
+        maxs = np.max(X_train, axis=0)
+        for i in range(show_n):
+            lines.append(f"  feat_{i}: mean={means[i]:.4f}, std={stds[i]:.4f}, min={mins[i]:.4f}, max={maxs[i]:.4f}")
+        # Informação sobre balanceamento
+        majority_prop = max(props)
+        lines.append(f"Maioria de classe (proporção): {majority_prop:.4f}")
+        txt_path = results_dir / f"exploratory_{name}.txt"
+        txt_path.write_text("\n".join(lines), encoding="utf-8")
+        print(f"Análise exploratória salva em: {txt_path}")
+    print("\nAnálises exploratórias concluídas.")
 
 if __name__ == "__main__":
     main()

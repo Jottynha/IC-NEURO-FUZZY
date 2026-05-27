@@ -1,0 +1,22 @@
+============================================================
+Análise exploratória - BANK_MARKETING
+============================================================
+Descrição: bank_marketing
+UCI id: 222
+Amostras (treino/val/test): 27126/9042/9043 (total 45211)
+Atributos (features): 38
+Classes: [0, 1]
+Contagem por classe: [39922, 5289]
+Proporção por classe: [0.883, 0.117]
+Estatísticas (train) - mostrar primeiras 10 features:
+  feat_0: mean=0.0000, std=1.0000, min=-2.1484, max=5.0906
+  feat_1: mean=-0.0000, std=1.0000, min=-3.0719, max=32.9993
+  feat_2: mean=-0.0000, std=1.0000, min=-1.7765, max=1.8291
+  feat_3: mean=-0.0000, std=1.0000, min=-0.9936, max=17.8742
+  feat_4: mean=-0.0000, std=0.9999, min=-0.5713, max=19.6665
+  feat_5: mean=0.0000, std=1.0000, min=-0.4100, max=8.3249
+  feat_6: mean=-0.0000, std=0.9999, min=-0.2264, max=106.6830
+  feat_7: mean=0.0000, std=0.9999, min=-0.5274, max=1.8961
+  feat_8: mean=-0.0000, std=0.9999, min=-0.1833, max=5.4548
+  feat_9: mean=0.0000, std=1.0002, min=-0.1741, max=5.7439
+Maioria de classe (proporção): 0.8830

@@ -1,0 +1,22 @@
+============================================================
+Análise exploratória - ADULT
+============================================================
+Descrição: adult
+UCI id: 2
+Amostras (treino/val/test): 29305/9768/9769 (total 48842)
+Atributos (features): 100
+Classes: [0, 1, 2, 3]
+Contagem por classe: [24720, 12435, 7841, 3846]
+Proporção por classe: [0.5061, 0.2546, 0.1605, 0.0787]
+Estatísticas (train) - mostrar primeiras 10 features:
+  feat_0: mean=0.0000, std=1.0000, min=-1.5776, max=3.7267
+  feat_1: mean=-0.0000, std=1.0000, min=-1.6620, max=12.2696
+  feat_2: mean=0.0000, std=1.0000, min=-3.5106, max=2.2998
+  feat_3: mean=-0.0000, std=1.0001, min=-0.1446, max=13.4503
+  feat_4: mean=-0.0000, std=1.0000, min=-0.2167, max=10.5945
+  feat_5: mean=0.0000, std=1.0001, min=-3.1710, max=4.7112
+  feat_6: mean=-0.0000, std=0.9999, min=-0.1777, max=5.6276
+  feat_7: mean=0.0000, std=0.9999, min=-0.2654, max=3.7672
+  feat_8: mean=0.0000, std=0.9999, min=-0.0155, max=64.6949
+  feat_9: mean=-0.0000, std=1.0000, min=-1.5505, max=0.6450
+Maioria de classe (proporção): 0.5061

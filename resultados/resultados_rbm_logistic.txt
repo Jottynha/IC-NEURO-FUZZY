@@ -1,0 +1,100 @@
+======================================================================
+RESULTADOS - BERNOULLI RBM + REGRESSÃO LOGÍSTICA
+======================================================================
+
+Dataset: ADULT
+Algoritmo: Bernoulli RBM + Regressão Logística
+----------------------------------------------------------------------
+
+TRAIN:
+  Accuracy:  0.5528
+  Precision: 0.4514
+  Recall:    0.5528
+  F1-Score:  0.4380
+
+VAL:
+  Accuracy:  0.5502
+  Precision: 0.3990
+  Recall:    0.5502
+  F1-Score:  0.4358
+
+TEST:
+  Accuracy:  0.5557
+  Precision: 0.4525
+  Recall:    0.5557
+  F1-Score:  0.4405
+
+======================================================================
+
+Dataset: BANK_MARKETING
+Algoritmo: Bernoulli RBM + Regressão Logística
+----------------------------------------------------------------------
+
+TRAIN:
+  Accuracy:  0.8865
+  Precision: 0.8580
+  Recall:    0.8865
+  F1-Score:  0.8585
+
+VAL:
+  Accuracy:  0.8873
+  Precision: 0.8596
+  Recall:    0.8873
+  F1-Score:  0.8593
+
+TEST:
+  Accuracy:  0.8914
+  Precision: 0.8684
+  Recall:    0.8914
+  F1-Score:  0.8643
+
+======================================================================
+
+Dataset: HEART_DISEASE
+Algoritmo: Bernoulli RBM + Regressão Logística
+----------------------------------------------------------------------
+
+TRAIN:
+  Accuracy:  0.5414
+  Precision: 0.2932
+  Recall:    0.5414
+  F1-Score:  0.3804
+
+VAL:
+  Accuracy:  0.5410
+  Precision: 0.2927
+  Recall:    0.5410
+  F1-Score:  0.3798
+
+TEST:
+  Accuracy:  0.5410
+  Precision: 0.2927
+  Recall:    0.5410
+  F1-Score:  0.3798
+
+======================================================================
+
+Dataset: MUSHROOM
+Algoritmo: Bernoulli RBM + Regressão Logística
+----------------------------------------------------------------------
+
+TRAIN:
+  Accuracy:  0.9984
+  Precision: 0.9984
+  Recall:    0.9984
+  F1-Score:  0.9984
+
+VAL:
+  Accuracy:  0.9963
+  Precision: 0.9963
+  Recall:    0.9963
+  F1-Score:  0.9963
+
+TEST:
+  Accuracy:  0.9988
+  Precision: 0.9988
+  Recall:    0.9988
+  F1-Score:  0.9988
+
+======================================================================
+

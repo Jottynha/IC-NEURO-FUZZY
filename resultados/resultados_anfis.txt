@@ -1,0 +1,100 @@
+======================================================================
+RESULTADOS [ANFIS (ADAPTIVE NEURO-FUZZY INFERENCE SYSTEM)]
+======================================================================
+
+Dataset: ADULT
+Algoritmo: ANFIS (Adaptive Neuro-Fuzzy Inference System)
+----------------------------------------------------------------------
+
+TRAIN:
+-> Accuracy:  0.4867
+-> Precision: 0.2368
+-> Recall:    0.4867
+-> F1-Score:  0.3186
+
+VAL:
+-> Accuracy:  0.5061
+-> Precision: 0.2562
+-> Recall:    0.5061
+-> F1-Score:  0.3402
+
+TEST:
+-> Accuracy:  0.5061
+-> Precision: 0.2561
+-> Recall:    0.5061
+-> F1-Score:  0.3401
+
+======================================================================
+
+Dataset: BANK_MARKETING
+Algoritmo: ANFIS (Adaptive Neuro-Fuzzy Inference System)
+----------------------------------------------------------------------
+
+TRAIN:
+-> Accuracy:  0.9067
+-> Precision: 0.8220
+-> Recall:    0.9067
+-> F1-Score:  0.8623
+
+VAL:
+-> Accuracy:  0.8830
+-> Precision: 0.7797
+-> Recall:    0.8830
+-> F1-Score:  0.8281
+
+TEST:
+-> Accuracy:  0.8830
+-> Precision: 0.7797
+-> Recall:    0.8830
+-> F1-Score:  0.8281
+
+======================================================================
+
+Dataset: HEART_DISEASE
+Algoritmo: ANFIS (Adaptive Neuro-Fuzzy Inference System)
+----------------------------------------------------------------------
+
+TRAIN:
+-> Accuracy:  0.5414
+-> Precision: 0.2932
+-> Recall:    0.5414
+-> F1-Score:  0.3804
+
+VAL:
+-> Accuracy:  0.5410
+-> Precision: 0.2927
+-> Recall:    0.5410
+-> F1-Score:  0.3798
+
+TEST:
+-> Accuracy:  0.5410
+-> Precision: 0.2927
+-> Recall:    0.5410
+-> F1-Score:  0.3798
+
+======================================================================
+
+Dataset: MUSHROOM
+Algoritmo: ANFIS (Adaptive Neuro-Fuzzy Inference System)
+----------------------------------------------------------------------
+
+TRAIN:
+-> Accuracy:  0.5200
+-> Precision: 0.2704
+-> Recall:    0.5200
+-> F1-Score:  0.3558
+
+VAL:
+-> Accuracy:  0.5175
+-> Precision: 0.2678
+-> Recall:    0.5175
+-> F1-Score:  0.3530
+
+TEST:
+-> Accuracy:  0.5182
+-> Precision: 0.2685
+-> Recall:    0.5182
+-> F1-Score:  0.3537
+
+======================================================================
+

@@ -1,0 +1,100 @@
+======================================================================
+RESULTADOS - SISTEMA FUZZY DE MAMDANI
+======================================================================
+
+Dataset: ADULT
+Algoritmo: Sistema Fuzzy de Mamdani
+----------------------------------------------------------------------
+
+TRAIN:
+-> Accuracy:  1.0000
+-> Precision: 1.0000
+-> Recall:    1.0000
+-> F1-Score:  1.0000
+
+VAL:
+-> Accuracy:  0.3920
+-> Precision: 0.3918
+-> Recall:    0.3920
+-> F1-Score:  0.3916
+
+TEST:
+-> Accuracy:  0.4006
+-> Precision: 0.4027
+-> Recall:    0.4006
+-> F1-Score:  0.4014
+
+======================================================================
+
+Dataset: BANK_MARKETING
+Algoritmo: Sistema Fuzzy de Mamdani
+----------------------------------------------------------------------
+
+TRAIN:
+-> Accuracy:  1.0000
+-> Precision: 1.0000
+-> Recall:    1.0000
+-> F1-Score:  1.0000
+
+VAL:
+-> Accuracy:  0.8217
+-> Precision: 0.8183
+-> Recall:    0.8217
+-> F1-Score:  0.8200
+
+TEST:
+-> Accuracy:  0.8248
+-> Precision: 0.8241
+-> Recall:    0.8248
+-> F1-Score:  0.8245
+
+======================================================================
+
+Dataset: HEART_DISEASE
+Algoritmo: Sistema Fuzzy de Mamdani
+----------------------------------------------------------------------
+
+TRAIN:
+-> Accuracy:  1.0000
+-> Precision: 1.0000
+-> Recall:    1.0000
+-> F1-Score:  1.0000
+
+VAL:
+-> Accuracy:  0.5082
+-> Precision: 0.5306
+-> Recall:    0.5082
+-> F1-Score:  0.5185
+
+TEST:
+-> Accuracy:  0.3934
+-> Precision: 0.3826
+-> Recall:    0.3934
+-> F1-Score:  0.3859
+
+======================================================================
+
+Dataset: MUSHROOM
+Algoritmo: Sistema Fuzzy de Mamdani
+----------------------------------------------------------------------
+
+TRAIN:
+-> Accuracy:  1.0000
+-> Precision: 1.0000
+-> Recall:    1.0000
+-> F1-Score:  1.0000
+
+VAL:
+-> Accuracy:  0.9969
+-> Precision: 0.9969
+-> Recall:    0.9969
+-> F1-Score:  0.9969
+
+TEST:
+-> Accuracy:  0.9963
+-> Precision: 0.9963
+-> Recall:    0.9963
+-> F1-Score:  0.9963
+
+======================================================================
+
