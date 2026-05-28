@@ -12,11 +12,11 @@ Estatísticas (train) - mostrar primeiras 10 features:
   feat_0: mean=0.0000, std=1.0000, min=-2.1613, max=2.4255
   feat_1: mean=-0.0000, std=1.0000, min=-1.4940, max=0.6693
   feat_2: mean=-0.0000, std=1.0000, min=-2.2941, max=0.9000
-  feat_3: mean=-0.0000, std=1.0000, min=-2.2003, max=3.5476
+  feat_3: mean=0.0000, std=1.0000, min=-2.2003, max=3.5476
   feat_4: mean=0.0000, std=1.0000, min=-2.2988, max=5.6194
   feat_5: mean=-0.0000, std=1.0000, min=-0.4368, max=2.2894
   feat_6: mean=0.0000, std=1.0000, min=-1.0111, max=1.0000
-  feat_7: mean=-0.0000, std=1.0000, min=-3.6287, max=2.0507
+  feat_7: mean=0.0000, std=1.0000, min=-3.6287, max=2.0507
   feat_8: mean=-0.0000, std=1.0000, min=-0.6867, max=1.4563
   feat_9: mean=-0.0000, std=1.0000, min=-0.8809, max=4.3084
 Maioria de classe (proporção): 0.5413

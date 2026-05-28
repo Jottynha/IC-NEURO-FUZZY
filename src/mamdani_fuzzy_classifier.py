@@ -1,153 +1,195 @@
-# Carrega dataset, aplica Mamdani, resultados_mamdani_fuzzy.txt
+# Experimentos com Sistema Fuzzy de Mamdani: grade, 21 execuções e matriz de confusão.
 
 from pathlib import Path
+from typing import Any, Dict, Tuple
+
 import numpy as np
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-import json
+
+from experiment_utils import (
+    DATASETS,
+    DEFAULT_RANDOM_STATES,
+    load_dataset,
+    run_parameter_search_experiment,
+    save_global_summary,
+    write_report,
+)
+
+ALGORITHM_NAME = "Sistema Fuzzy de Mamdani"
+
+PARAM_GRID = [
+    {"n_membership_functions": 2, "max_train_samples": 300},
+    {"n_membership_functions": 3, "max_train_samples": 300},
+    {"n_membership_functions": 5, "max_train_samples": 300},
+    {"n_membership_functions": 3, "max_train_samples": 500},
+]
+
 
 class MamdaniFuzzyClassifier:
+    """Classificador fuzzy Mamdani simplificado baseado em similaridade fuzzy.
+
+    A implementação cria funções de pertinência triangulares por atributo e usa
+    uma estratégia de vizinho mais similar no espaço fuzificado. É simples, mas
+    suficiente para comparação experimental com os demais classificadores.
+    """
+
     def __init__(self, n_membership_functions: int = 3, random_state: int = 42):
         self.n_mf = n_membership_functions
         self.random_state = random_state
-        self.membership_params = None  # Parâmetros das funções de pertinência
-        self.class_rules = None  # Regras fuzzy por classe        
-    def _triangular_mf(self, x, a, b, c):
+        self.membership_params = None
+        self.X_train_fuzzified = None
+        self.y_train = None
+
+    def _triangular_mf(self, x: float, a: float, b: float, c: float) -> float:
+        if b == a and x == b:
+            return 1.0
+        if c == b and x == b:
+            return 1.0
         if x <= a or x >= c:
             return 0.0
-        elif a < x <= b:
-            return (x - a) / (b - a)
-        else:
-            return (c - x) / (c - b)
-    def _create_membership_functions(self, X_train):
+        if a < x <= b:
+            return float((x - a) / (b - a + 1e-12))
+        return float((c - x) / (c - b + 1e-12))
+
+    def _create_membership_functions(self, X_train: np.ndarray) -> None:
         self.membership_params = {}
         for feature_idx in range(X_train.shape[1]):
             feature_values = X_train[:, feature_idx]
-            min_val = feature_values.min()
-            max_val = feature_values.max()
-            range_val = max_val - min_val + 1e-6
+            min_val = float(feature_values.min())
+            max_val = float(feature_values.max())
+            if np.isclose(min_val, max_val):
+                self.membership_params[feature_idx] = [(min_val - 1.0, min_val, min_val + 1.0)] * self.n_mf
+                continue
+
+            centers = np.linspace(min_val, max_val, self.n_mf)
+            step = centers[1] - centers[0] if self.n_mf > 1 else max_val - min_val
             params = []
-            for i in range(self.n_mf):
-                a = min_val + (range_val * i / (self.n_mf - 1)) if self.n_mf > 1 else min_val
-                b = min_val + (range_val * (i + 0.5) / self.n_mf)
-                c = min_val + (range_val * (i + 1) / (self.n_mf - 1)) if self.n_mf > 1 else max_val
-                params.append((a, b, c))
+            for center in centers:
+                params.append((float(center - step), float(center), float(center + step)))
             self.membership_params[feature_idx] = params
-    def _fuzzify(self, x):
+
+    def _fuzzify(self, x: np.ndarray) -> np.ndarray:
         fuzzified = []
         for feature_idx, feature_val in enumerate(x):
-            mf_values = []
             for a, b, c in self.membership_params[feature_idx]:
-                mf_val = self._triangular_mf(feature_val, a, b, c)
-                mf_values.append(mf_val)
-            fuzzified.extend(mf_values)
-        return np.array(fuzzified)
-    def _defuzzify(self, fuzzy_rules):
-        if len(fuzzy_rules) == 0 or np.sum(fuzzy_rules) == 0:
-            return 0.0
-        return np.average(np.arange(len(fuzzy_rules)), weights=fuzzy_rules + 1e-10)
-    def fit(self, X_train, y_train):
+                fuzzified.append(self._triangular_mf(float(feature_val), a, b, c))
+        return np.array(fuzzified, dtype=np.float32)
+
+    def fit(self, X_train: np.ndarray, y_train: np.ndarray) -> "MamdaniFuzzyClassifier":
         self._create_membership_functions(X_train)
-        # Armazenar classe para cada amostra fuzificada (simples estratégia de regras)
-        self.X_train_fuzzified = np.array([self._fuzzify(x) for x in X_train])
+        self.X_train_fuzzified = np.array([self._fuzzify(x) for x in X_train], dtype=np.float32)
         self.y_train = y_train
-        
-    def predict(self, X_test):
+        return self
+
+    def predict(self, X_test: np.ndarray) -> np.ndarray:
         predictions = []
         for x in X_test:
             x_fuzzified = self._fuzzify(x)
-            similarities = []
-            for x_train_fuzz in self.X_train_fuzzified:
-                # mínimo
-                sim = np.min(np.maximum(x_fuzzified, x_train_fuzz))
-                similarities.append(sim)
-            similarities = np.array(similarities)
-            # Se todas as similaridades são muito baixas, usar vizinho mais próximo
-            if np.max(similarities) < 0.1:
+            # Similaridade fuzzy por interseção/união, com fallback por distância.
+            intersection = np.minimum(self.X_train_fuzzified, x_fuzzified).sum(axis=1)
+            union = np.maximum(self.X_train_fuzzified, x_fuzzified).sum(axis=1) + 1e-12
+            similarities = intersection / union
+            if float(np.max(similarities)) <= 1e-12:
                 distances = np.linalg.norm(self.X_train_fuzzified - x_fuzzified, axis=1)
-                nearest_idx = np.argmin(distances)
-                pred = self.y_train[nearest_idx]
+                nearest_idx = int(np.argmin(distances))
             else:
-                # Predizer a classe do vizinho mais similar
-                nearest_idx = np.argmax(similarities)
-                pred = self.y_train[nearest_idx]
-            predictions.append(pred)
+                nearest_idx = int(np.argmax(similarities))
+            predictions.append(self.y_train[nearest_idx])
         return np.array(predictions)
 
-def load_dataset(dataset_path: Path):
-    X_train = np.load(dataset_path / "X_train.npy")
-    X_val = np.load(dataset_path / "X_val.npy")
-    X_test = np.load(dataset_path / "X_test.npy")
-    y_train = np.load(dataset_path / "y_train.npy")
-    y_val = np.load(dataset_path / "y_val.npy")
-    y_test = np.load(dataset_path / "y_test.npy")
-    return X_train, X_val, X_test, y_train, y_val, y_test
 
-def train_and_evaluate_mamdani(dataset_name: str, dataset_path: Path):
-    print(f"\n[Treinando Fuzzy Mamdani para {dataset_name}]")
-    X_train, X_val, X_test, y_train, y_val, y_test = load_dataset(dataset_path)
-    # Para datasets muito grandes, usar subsample
-    if X_train.shape[0] > 500:
-        indices = np.random.choice(X_train.shape[0], size=500, replace=False)
-        X_train = X_train[indices]
-        y_train = y_train[indices]
-        print(f"  (Dataset reduzido para 500 amostras para treinamento mais rápido)")
-    classifier = MamdaniFuzzyClassifier(n_membership_functions=3, random_state=42)
-    classifier.fit(X_train, y_train)
-    y_pred_train = classifier.predict(X_train)
-    y_pred_val = classifier.predict(X_val)
-    y_pred_test = classifier.predict(X_test)
-    results = {
-        "dataset": dataset_name,
-        "algoritmo": "Sistema Fuzzy de Mamdani",
-        "train": {
-            "accuracy": float(accuracy_score(y_train, y_pred_train)),
-            "precision": float(precision_score(y_train, y_pred_train, average='weighted', zero_division=0)),
-            "recall": float(recall_score(y_train, y_pred_train, average='weighted', zero_division=0)),
-            "f1": float(f1_score(y_train, y_pred_train, average='weighted', zero_division=0))
-        },
-        "val": {
-            "accuracy": float(accuracy_score(y_val, y_pred_val)),
-            "precision": float(precision_score(y_val, y_pred_val, average='weighted', zero_division=0)),
-            "recall": float(recall_score(y_val, y_pred_val, average='weighted', zero_division=0)),
-            "f1": float(f1_score(y_val, y_pred_val, average='weighted', zero_division=0))
-        },
-        "test": {
-            "accuracy": float(accuracy_score(y_test, y_pred_test)),
-            "precision": float(precision_score(y_test, y_pred_test, average='weighted', zero_division=0)),
-            "recall": float(recall_score(y_test, y_pred_test, average='weighted', zero_division=0)),
-            "f1": float(f1_score(y_test, y_pred_test, average='weighted', zero_division=0))
-        }
-    }
-    return results
+def subsample_training(data: Tuple[np.ndarray, ...], seed: int, max_train_samples: int) -> Tuple[np.ndarray, ...]:
+    X_train, X_val, X_test, y_train, y_val, y_test = data
+    if X_train.shape[0] <= max_train_samples:
+        return data
+    rng = np.random.default_rng(seed)
+    idx = rng.choice(X_train.shape[0], size=max_train_samples, replace=False)
+    return X_train[idx], X_val, X_test, y_train[idx], y_val, y_test
 
-def main():
+
+def build_model(params: Dict[str, Any], random_state: int) -> MamdaniFuzzyClassifier:
+    return MamdaniFuzzyClassifier(
+        n_membership_functions=params["n_membership_functions"],
+        random_state=random_state,
+    )
+
+
+def run_mamdani_for_params(data: Tuple[np.ndarray, ...], seed: int, params: Dict[str, Any]) -> Tuple[np.ndarray, ...]:
+    return subsample_training(data, seed, int(params["max_train_samples"]))
+
+
+def main() -> None:
     datasets_root = Path("datasets/processed")
-    datasets = ["adult", "bank_marketing", "heart_disease", "mushroom"]
-    all_results = []
-    for dataset_name in datasets:
+    experiments = []
+
+    # Como o tamanho do subconjunto de treino faz parte dos parâmetros, precisamos
+    # aplicar a transformação dentro do model_builder. Para isso, usamos uma função
+    # de experimento específica abaixo.
+    from experiment_utils import evaluate_model, aggregate_runs, flatten_params
+    import time
+
+    for dataset_name in DATASETS:
         dataset_path = datasets_root / dataset_name
-        if dataset_path.exists():
-            result = train_and_evaluate_mamdani(dataset_name, dataset_path)
-            all_results.append(result)
-        else:
+        if not dataset_path.exists():
             print(f"Dataset {dataset_name} não encontrado em {dataset_path}")
-    output_file = Path("resultados/resultados_mamdani_fuzzy.txt")
-    with open(output_file, "w") as f:
-        f.write("="*70 + "\n")
-        f.write("RESULTADOS - SISTEMA FUZZY DE MAMDANI\n")
-        f.write("="*70 + "\n\n")
-        for result in all_results:
-            f.write(f"Dataset: {result['dataset'].upper()}\n")
-            f.write(f"Algoritmo: {result['algoritmo']}\n")
-            f.write("-"*70 + "\n")
-            for split in ["train", "val", "test"]:
-                metrics = result[split]
-                f.write(f"\n{split.upper()}:\n")
-                f.write(f"-> Accuracy:  {metrics['accuracy']:.4f}\n")
-                f.write(f"-> Precision: {metrics['precision']:.4f}\n")
-                f.write(f"-> Recall:    {metrics['recall']:.4f}\n")
-                f.write(f"-> F1-Score:  {metrics['f1']:.4f}\n")
-            f.write("\n" + "="*70 + "\n\n")
-    print(f"\nResultados salvos em {output_file}")
+            continue
+        print(f"\n[Treinando Fuzzy Mamdani para {dataset_name}]")
+        original_data = load_dataset(dataset_path)
+        labels = np.unique(np.concatenate([original_data[3], original_data[4], original_data[5]])).tolist()
+        run_results = []
+        tried_results = []
+
+        for run_idx, seed in enumerate(DEFAULT_RANDOM_STATES, start=1):
+            best_candidate = None
+            print(f"  Execução {run_idx:02d}/{len(DEFAULT_RANDOM_STATES)} | seed={seed}")
+            for params in PARAM_GRID:
+                data = run_mamdani_for_params(original_data, seed, params)
+                current_labels = np.unique(np.concatenate([data[3], data[4], data[5]])).tolist()
+                start = time.perf_counter()
+                model = build_model(params, seed)
+                model.fit(data[0], data[3])
+                metrics = evaluate_model(model, data, current_labels)
+                elapsed = time.perf_counter() - start
+                candidate = {
+                    "dataset": dataset_name,
+                    "algorithm": ALGORITHM_NAME,
+                    "run": run_idx,
+                    "random_state": seed,
+                    "params": params,
+                    "params_text": flatten_params(params),
+                    "elapsed_seconds": float(elapsed),
+                    **metrics,
+                }
+                tried_results.append(candidate)
+                if best_candidate is None or metrics["val"]["f1"] > best_candidate["val"]["f1"]:
+                    best_candidate = candidate
+            run_results.append(best_candidate)
+            print(
+                "    melhor F1_val="
+                f"{best_candidate['val']['f1']:.4f} | F1_test={best_candidate['test']['f1']:.4f} "
+                f"| params={best_candidate['params_text']}"
+            )
+
+        experiments.append({
+            "dataset": dataset_name,
+            "algorithm": ALGORITHM_NAME,
+            "labels": labels,
+            "param_grid": PARAM_GRID,
+            "runs": run_results,
+            "tried": tried_results,
+            "summary": aggregate_runs(run_results),
+        })
+
+    write_report(
+        title="RESULTADOS - SISTEMA FUZZY DE MAMDANI",
+        experiments=experiments,
+        output_txt=Path("resultados/resultados_mamdani_fuzzy.txt"),
+        output_csv=Path("resultados/resultados_mamdani_fuzzy_melhores_execucoes.csv"),
+        output_all_params_csv=Path("resultados/resultados_mamdani_fuzzy_todos_parametros.csv"),
+        output_json=Path("resultados/resultados_mamdani_fuzzy_detalhado.json"),
+    )
+    save_global_summary(experiments, Path("resultados/resumo_mamdani_fuzzy.csv"))
+    print("\nResultados do Mamdani salvos em resultados/")
+
+
 if __name__ == "__main__":
     main()

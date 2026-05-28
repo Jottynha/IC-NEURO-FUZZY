@@ -1,100 +1,289 @@
-======================================================================
-RESULTADOS [ANFIS (ADAPTIVE NEURO-FUZZY INFERENCE SYSTEM)]
-======================================================================
+==========================================================================================
+RESULTADOS - ANFIS (ADAPTIVE NEURO-FUZZY INFERENCE SYSTEM)
+==========================================================================================
+Metodologia experimental:
+- Para cada dataset, são feitas 21 execuções independentes por random_state.
+- Em cada execução, todos os parâmetros da grade são testados.
+- A melhor configuração é escolhida pelo maior F1-score no conjunto de validação.
+- As métricas finais são calculadas em treino, validação e teste.
+- As matrizes de confusão abaixo são somas das 21 execuções selecionadas.
 
+==========================================================================================
 Dataset: ADULT
 Algoritmo: ANFIS (Adaptive Neuro-Fuzzy Inference System)
-----------------------------------------------------------------------
+Classes: [0, 1, 2, 3]
+Tamanho da grade de parâmetros: 5
+Parâmetros testados:
+  1. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  2. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  3. {"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  4. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  5. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+
+Resumo das 21 execuções selecionadas:
 
 TRAIN:
--> Accuracy:  0.4867
--> Precision: 0.2368
--> Recall:    0.4867
--> F1-Score:  0.3186
+  Accuracy  : 0.5116 ± 0.0249
+  Precision : 0.2787 ± 0.0592
+  Recall    : 0.5116 ± 0.0249
+  F1        : 0.3470 ± 0.0280
+  Matriz de confusão agregada:
+    [3221, 0, 0, 0]
+    [1550, 0, 0, 0]
+    [1025, 0, 2, 0]
+    [502, 0, 0, 0]
 
 VAL:
--> Accuracy:  0.5061
--> Precision: 0.2562
--> Recall:    0.5061
--> F1-Score:  0.3402
+  Accuracy  : 0.5064 ± 0.0005
+  Precision : 0.3046 ± 0.0608
+  Recall    : 0.5064 ± 0.0005
+  F1        : 0.3409 ± 0.0013
+  Matriz de confusão agregada:
+    [103815, 0, 9, 0]
+    [52223, 0, 4, 0]
+    [32861, 0, 67, 0]
+    [16119, 0, 30, 0]
 
 TEST:
--> Accuracy:  0.5061
--> Precision: 0.2561
--> Recall:    0.5061
--> F1-Score:  0.3401
+  Accuracy  : 0.5064 ± 0.0006
+  Precision : 0.3132 ± 0.0888
+  Recall    : 0.5064 ± 0.0006
+  F1        : 0.3408 ± 0.0016
+  Matriz de confusão agregada:
+    [103811, 0, 13, 0]
+    [52222, 1, 4, 0]
+    [32883, 0, 66, 0]
+    [16121, 0, 28, 0]
 
-======================================================================
+Tempo médio por execução selecionada: 0.85s ± 0.08s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.3404, F1_test=0.3404, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=02, seed=2, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=03, seed=3, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=04, seed=4, F1_val=0.3404, F1_test=0.3401, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=05, seed=5, F1_val=0.3423, F1_test=0.3420, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=06, seed=6, F1_val=0.3406, F1_test=0.3401, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=07, seed=7, F1_val=0.3422, F1_test=0.3408, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=08, seed=8, F1_val=0.3402, F1_test=0.3404, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=09, seed=9, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=10, seed=10, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=11, seed=11, F1_val=0.3428, F1_test=0.3457, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=12, seed=12, F1_val=0.3404, F1_test=0.3404, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=13, seed=13, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=14, seed=14, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=15, seed=15, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=16, seed=16, F1_val=0.3427, F1_test=0.3417, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=17, seed=17, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=18, seed=18, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=19, seed=19, F1_val=0.3452, F1_test=0.3449, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=20, seed=20, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=21, seed=21, F1_val=0.3402, F1_test=0.3401, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
 
+==========================================================================================
 Dataset: BANK_MARKETING
 Algoritmo: ANFIS (Adaptive Neuro-Fuzzy Inference System)
-----------------------------------------------------------------------
+Classes: [0, 1]
+Tamanho da grade de parâmetros: 5
+Parâmetros testados:
+  1. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  2. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  3. {"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  4. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  5. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+
+Resumo das 21 execuções selecionadas:
 
 TRAIN:
--> Accuracy:  0.9067
--> Precision: 0.8220
--> Recall:    0.9067
--> F1-Score:  0.8623
+  Accuracy  : 0.8770 ± 0.0237
+  Precision : 0.7696 ± 0.0417
+  Recall    : 0.8770 ± 0.0237
+  F1        : 0.8197 ± 0.0340
+  Matriz de confusão agregada:
+    [5525, 0]
+    [775, 0]
 
 VAL:
--> Accuracy:  0.8830
--> Precision: 0.7797
--> Recall:    0.8830
--> F1-Score:  0.8281
+  Accuracy  : 0.8830 ± 0.0000
+  Precision : 0.7797 ± 0.0000
+  Recall    : 0.8830 ± 0.0000
+  F1        : 0.8281 ± 0.0000
+  Matriz de confusão agregada:
+    [167664, 0]
+    [22218, 0]
 
 TEST:
--> Accuracy:  0.8830
--> Precision: 0.7797
--> Recall:    0.8830
--> F1-Score:  0.8281
+  Accuracy  : 0.8830 ± 0.0000
+  Precision : 0.7797 ± 0.0000
+  Recall    : 0.8830 ± 0.0000
+  F1        : 0.8281 ± 0.0000
+  Matriz de confusão agregada:
+    [167685, 0]
+    [22218, 0]
 
-======================================================================
+Tempo médio por execução selecionada: 0.71s ± 0.02s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=02, seed=2, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=03, seed=3, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=04, seed=4, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=05, seed=5, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=06, seed=6, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=07, seed=7, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=08, seed=8, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=09, seed=9, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=10, seed=10, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=11, seed=11, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=12, seed=12, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=13, seed=13, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=14, seed=14, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=15, seed=15, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=16, seed=16, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=17, seed=17, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=18, seed=18, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=19, seed=19, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=20, seed=20, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=21, seed=21, F1_val=0.8281, F1_test=0.8281, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
 
+==========================================================================================
 Dataset: HEART_DISEASE
 Algoritmo: ANFIS (Adaptive Neuro-Fuzzy Inference System)
-----------------------------------------------------------------------
+Classes: [0, 1, 2, 3, 4]
+Tamanho da grade de parâmetros: 5
+Parâmetros testados:
+  1. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  2. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  3. {"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  4. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  5. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+
+Resumo das 21 execuções selecionadas:
 
 TRAIN:
--> Accuracy:  0.5414
--> Precision: 0.2932
--> Recall:    0.5414
--> F1-Score:  0.3804
+  Accuracy  : 0.5414 ± 0.0000
+  Precision : 0.2932 ± 0.0000
+  Recall    : 0.5414 ± 0.0000
+  F1        : 0.3804 ± 0.0000
+  Matriz de confusão agregada:
+    [2058, 0, 0, 0, 0]
+    [693, 0, 0, 0, 0]
+    [441, 0, 0, 0, 0]
+    [441, 0, 0, 0, 0]
+    [168, 0, 0, 0, 0]
 
 VAL:
--> Accuracy:  0.5410
--> Precision: 0.2927
--> Recall:    0.5410
--> F1-Score:  0.3798
+  Accuracy  : 0.5410 ± 0.0000
+  Precision : 0.2927 ± 0.0000
+  Recall    : 0.5410 ± 0.0000
+  F1        : 0.3798 ± 0.0000
+  Matriz de confusão agregada:
+    [693, 0, 0, 0, 0]
+    [231, 0, 0, 0, 0]
+    [147, 0, 0, 0, 0]
+    [147, 0, 0, 0, 0]
+    [63, 0, 0, 0, 0]
 
 TEST:
--> Accuracy:  0.5410
--> Precision: 0.2927
--> Recall:    0.5410
--> F1-Score:  0.3798
+  Accuracy  : 0.5410 ± 0.0000
+  Precision : 0.2927 ± 0.0000
+  Recall    : 0.5410 ± 0.0000
+  F1        : 0.3798 ± 0.0000
+  Matriz de confusão agregada:
+    [693, 0, 0, 0, 0]
+    [231, 0, 0, 0, 0]
+    [168, 0, 0, 0, 0]
+    [147, 0, 0, 0, 0]
+    [42, 0, 0, 0, 0]
 
-======================================================================
+Tempo médio por execução selecionada: 0.10s ± 0.00s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=02, seed=2, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=03, seed=3, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=04, seed=4, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=05, seed=5, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=06, seed=6, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=07, seed=7, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=08, seed=8, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=09, seed=9, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=10, seed=10, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=11, seed=11, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=12, seed=12, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=13, seed=13, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=14, seed=14, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=15, seed=15, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=16, seed=16, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=17, seed=17, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=18, seed=18, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=19, seed=19, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=20, seed=20, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  run=21, seed=21, F1_val=0.3798, F1_test=0.3798, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
 
+==========================================================================================
 Dataset: MUSHROOM
 Algoritmo: ANFIS (Adaptive Neuro-Fuzzy Inference System)
-----------------------------------------------------------------------
+Classes: [0, 1]
+Tamanho da grade de parâmetros: 5
+Parâmetros testados:
+  1. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  2. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  3. {"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  4. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  5. {"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+
+Resumo das 21 execuções selecionadas:
 
 TRAIN:
--> Accuracy:  0.5200
--> Precision: 0.2704
--> Recall:    0.5200
--> F1-Score:  0.3558
+  Accuracy  : 0.8925 ± 0.0167
+  Precision : 0.9054 ± 0.0147
+  Recall    : 0.8925 ± 0.0167
+  F1        : 0.8911 ± 0.0174
+  Matriz de confusão agregada:
+    [3196, 60]
+    [617, 2427]
 
 VAL:
--> Accuracy:  0.5175
--> Precision: 0.2678
--> Recall:    0.5175
--> F1-Score:  0.3530
+  Accuracy  : 0.8965 ± 0.0042
+  Precision : 0.9077 ± 0.0043
+  Recall    : 0.8965 ± 0.0042
+  F1        : 0.8954 ± 0.0045
+  Matriz de confusão agregada:
+    [17287, 374]
+    [3158, 13306]
 
 TEST:
--> Accuracy:  0.5182
--> Precision: 0.2685
--> Recall:    0.5182
--> F1-Score:  0.3537
+  Accuracy  : 0.9013 ± 0.0039
+  Precision : 0.9115 ± 0.0053
+  Recall    : 0.9013 ± 0.0039
+  F1        : 0.9004 ± 0.0040
+  Matriz de confusão agregada:
+    [17312, 370]
+    [2997, 13446]
 
-======================================================================
+Tempo médio por execução selecionada: 0.44s ± 0.09s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.8910, F1_test=0.8961, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=02, seed=2, F1_val=0.8977, F1_test=0.9034, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  run=03, seed=3, F1_val=0.8942, F1_test=0.8980, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=04, seed=4, F1_val=0.8972, F1_test=0.9035, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  run=05, seed=5, F1_val=0.8949, F1_test=0.9006, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=06, seed=6, F1_val=0.9092, F1_test=0.9104, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+  run=07, seed=7, F1_val=0.8954, F1_test=0.9005, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  run=08, seed=8, F1_val=0.8936, F1_test=0.8993, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=09, seed=9, F1_val=0.8920, F1_test=0.8970, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  run=10, seed=10, F1_val=0.8950, F1_test=0.9001, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+  run=11, seed=11, F1_val=0.8933, F1_test=0.9035, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+  run=12, seed=12, F1_val=0.8931, F1_test=0.8980, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=13, seed=13, F1_val=0.8918, F1_test=0.8974, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=14, seed=14, F1_val=0.8908, F1_test=0.8927, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+  run=15, seed=15, F1_val=0.8972, F1_test=0.9041, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  run=16, seed=16, F1_val=0.8903, F1_test=0.8966, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=17, seed=17, F1_val=0.9004, F1_test=0.9061, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+  run=18, seed=18, F1_val=0.9014, F1_test=0.8995, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  run=19, seed=19, F1_val=0.8997, F1_test=0.9041, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+  run=20, seed=20, F1_val=0.8921, F1_test=0.8978, params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  run=21, seed=21, F1_val=0.8942, F1_test=0.9000, params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
 
+Arquivos complementares gerados:
+- resultados\resultados_anfis_melhores_execucoes.csv
+- resultados\resultados_anfis_todos_parametros.csv
+- resultados\resultados_anfis_detalhado.json

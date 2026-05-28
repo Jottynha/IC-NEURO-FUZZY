@@ -88,3 +88,9 @@ datasets/processed/<dataset>/
 ├── scaler_scale.npy  # Desvio padrão do escaler
 └── metadata.json     # Informações do dataset
 ```
+
+---
+
+## Atualização experimental
+
+Esta versão inclui comparação de parâmetros, 21 execuções independentes por algoritmo/dataset e matrizes de confusão. Para detalhes, consulte o arquivo `COMO_RODAR_EXPERIMENTOS.md`.

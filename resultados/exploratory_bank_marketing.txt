@@ -9,7 +9,7 @@ Classes: [0, 1]
 Contagem por classe: [39922, 5289]
 Proporção por classe: [0.883, 0.117]
 Estatísticas (train) - mostrar primeiras 10 features:
-  feat_0: mean=0.0000, std=1.0000, min=-2.1484, max=5.0906
+  feat_0: mean=-0.0000, std=1.0000, min=-2.1484, max=5.0906
   feat_1: mean=-0.0000, std=1.0000, min=-3.0719, max=32.9993
   feat_2: mean=-0.0000, std=1.0000, min=-1.7765, max=1.8291
   feat_3: mean=-0.0000, std=1.0000, min=-0.9936, max=17.8742

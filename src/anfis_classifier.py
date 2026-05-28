@@ -1,205 +1,229 @@
-# Carrega datasets, treina ANFIS, resultados_anfis.txt
+# Experimentos com ANFIS simplificado: grade, 21 execuções e matriz de confusão.
 
 from pathlib import Path
+from typing import Any, Dict, Tuple
+
 import numpy as np
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-# import json
+from sklearn.decomposition import PCA
+
+from experiment_utils import (
+    DATASETS,
+    DEFAULT_RANDOM_STATES,
+    evaluate_model,
+    aggregate_runs,
+    flatten_params,
+    load_dataset,
+    save_global_summary,
+    write_report,
+)
+
+ALGORITHM_NAME = "ANFIS (Adaptive Neuro-Fuzzy Inference System)"
+
+PARAM_GRID = [
+    {"n_membership_functions": 2, "learning_rate": 0.01, "n_epochs": 10, "pca_components": 6, "max_train_samples": 300},
+    {"n_membership_functions": 2, "learning_rate": 0.01, "n_epochs": 25, "pca_components": 6, "max_train_samples": 300},
+    {"n_membership_functions": 2, "learning_rate": 0.05, "n_epochs": 25, "pca_components": 6, "max_train_samples": 300},
+    {"n_membership_functions": 3, "learning_rate": 0.01, "n_epochs": 10, "pca_components": 6, "max_train_samples": 300},
+    {"n_membership_functions": 2, "learning_rate": 0.01, "n_epochs": 25, "pca_components": 8, "max_train_samples": 300},
+]
+
 
 class ANFISClassifier:
+    """ANFIS simplificado para classificação multiclasse.
+
+    A camada fuzzy usa funções gaussianas por atributo. As ativações das regras
+    alimentam uma camada consequente treinada por atualização tipo gradiente em
+    classificação one-vs-rest/softmax.
     """
-    ANFIS (Adaptive Neuro-Fuzzy Inference System) para classificação.
-    Combina lógica fuzzy com aprendizado neural para adaptação automática das regras.
-    Implementação simplificada com 2 camadas fuzzy e adaptação por backpropagation.
-    """
-    def __init__(self, n_membership_functions: int = 2, learning_rate: float = 0.01, 
-                 n_epochs: int = 10, random_state: int = 42):
+
+    def __init__(
+        self,
+        n_membership_functions: int = 2,
+        learning_rate: float = 0.01,
+        n_epochs: int = 10,
+        random_state: int = 42,
+    ):
         self.n_mf = n_membership_functions
         self.lr = learning_rate
         self.n_epochs = n_epochs
-        self.random_state = random_state        
-        # Parâmetros adaptativos
-        self.mf_params = None  # Parâmetros das funções de pertinência (adaptáveis)
-        self.weights = None    # Pesos das regras fuzzy (adaptáveis)
-        self.y_train = None
-        self.X_train = None
-    def _gaussian_mf(self, x, mean, sigma):
-        return np.exp(-((x - mean) ** 2) / (2 * sigma ** 2 + 1e-10))
-    def _init_parameters(self, X_train):
-        np.random.seed(self.random_state)
+        self.random_state = random_state
+        self.mf_params = None
+        self.weights = None
+        self.classes_ = None
+
+    def _gaussian_mf(self, x: float, mean: float, sigma: float) -> float:
+        sigma = max(float(sigma), 1e-6)
+        return float(np.exp(-((x - mean) ** 2) / (2 * sigma ** 2)))
+
+    def _init_parameters(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        rng = np.random.default_rng(self.random_state)
+        self.classes_ = np.unique(y_train)
         self.mf_params = {}
         for feature_idx in range(X_train.shape[1]):
-            feature_values = X_train[:, feature_idx]
-            min_val = feature_values.min()
-            max_val = feature_values.max()
-            means = np.linspace(min_val, max_val, self.n_mf)
-            sigmas = np.ones(self.n_mf) * (max_val - min_val) / (2 * self.n_mf + 1e-10)
-            self.mf_params[feature_idx] = {
-                'means': means.astype(np.float32),
-                'sigmas': sigmas.astype(np.float32)
-            }        
+            values = X_train[:, feature_idx]
+            min_val = float(values.min())
+            max_val = float(values.max())
+            if np.isclose(min_val, max_val):
+                means = np.array([min_val] * self.n_mf, dtype=np.float32)
+                sigmas = np.ones(self.n_mf, dtype=np.float32)
+            else:
+                means = np.linspace(min_val, max_val, self.n_mf).astype(np.float32)
+                sigmas = np.ones(self.n_mf, dtype=np.float32) * ((max_val - min_val) / max(self.n_mf, 1))
+            self.mf_params[feature_idx] = {"means": means, "sigmas": sigmas}
+
         n_rules = self.n_mf ** X_train.shape[1]
-        self.weights = np.random.randn(n_rules) * 0.1
-    def _fuzzify(self, x):
+        self.weights = rng.normal(loc=0.0, scale=0.01, size=(len(self.classes_), n_rules)).astype(np.float32)
+
+    def _fuzzify(self, x: np.ndarray):
         fuzzified = []
         for feature_idx, feature_val in enumerate(x):
-            mf_activations = []
+            activations = []
             for i in range(self.n_mf):
-                mean = self.mf_params[feature_idx]['means'][i]
-                sigma = self.mf_params[feature_idx]['sigmas'][i]
-                activation = self._gaussian_mf(feature_val, mean, sigma)
-                mf_activations.append(activation)
-            fuzzified.append(np.array(mf_activations))
+                mean = self.mf_params[feature_idx]["means"][i]
+                sigma = self.mf_params[feature_idx]["sigmas"][i]
+                activations.append(self._gaussian_mf(float(feature_val), float(mean), float(sigma)))
+            fuzzified.append(np.array(activations, dtype=np.float32))
         return fuzzified
-    def _generate_rules(self, fuzzified_input):
-        # mínimo para combinação de antecedentes
-        rule_activations = []
-        # Gerar todas as combinações possíveis
-        def generate_combinations(idx, current_activation, activations):
-            if idx >= len(fuzzified_input):
-                rule_activations.append(current_activation)
-                return
-            for i in range(self.n_mf):
-                new_activation = min(current_activation, fuzzified_input[idx][i])
-                generate_combinations(idx + 1, new_activation, fuzzified_input)
-        generate_combinations(0, 1.0, fuzzified_input)
-        return np.array(rule_activations)
-    def _inference(self, rule_activations):
-        # Saída agregada máximo ponderado
-        output = np.dot(rule_activations, self.weights)
-        return output
-    def _defuzzify_output(self, output):
-        return int(np.round(np.clip(output, 0, 1)))
-    def fit(self, X_train, y_train):
-        self.X_train = X_train
-        self.y_train = y_train
-        self._init_parameters(X_train)
-        # Treinamento: ajustar pesos para minimizar erro de classificação
-        for epoch in range(self.n_epochs):
-            total_error = 0
-            for i in range(min(X_train.shape[0], 100)):  # Limitar a 100 amostras por época para velocidade
-                x = X_train[i]
-                y_true = y_train[i]
-                fuzzified = self._fuzzify(x)
-                rule_activations = self._generate_rules(fuzzified)
-                output = self._inference(rule_activations)
-                output = np.tanh(output)  
-                error = y_true - output
-                total_error += error ** 2
-                # Backpropagation: ajustar pesos
-                self.weights += self.lr * error * rule_activations
-            if epoch % 5 == 0:
-                avg_error = total_error / min(X_train.shape[0], 100)
-        # Após treinamento, ajustar pesos para problema multi-classe
-        # Usar estratégia de votação: cada classe tem seus pesos
-        self.class_weights = {}
-        for class_label in np.unique(y_train):
-            self.class_weights[class_label] = self.weights.copy()
-    def predict(self, X_test):
+
+    def _generate_rules(self, fuzzified_input) -> np.ndarray:
+        # Produto das pertinências, calculado por produto cartesiano iterativo.
+        activations = np.array([1.0], dtype=np.float32)
+        for feature_activations in fuzzified_input:
+            activations = (activations[:, None] * feature_activations[None, :]).ravel()
+        total = activations.sum()
+        if total > 0:
+            activations = activations / total
+        return activations.astype(np.float32)
+
+    def _softmax(self, scores: np.ndarray) -> np.ndarray:
+        scores = scores - np.max(scores)
+        exp_scores = np.exp(scores)
+        return exp_scores / (exp_scores.sum() + 1e-12)
+
+    def fit(self, X_train: np.ndarray, y_train: np.ndarray) -> "ANFISClassifier":
+        self._init_parameters(X_train, y_train)
+        class_to_idx = {label: idx for idx, label in enumerate(self.classes_)}
+        rng = np.random.default_rng(self.random_state)
+
+        for _epoch in range(self.n_epochs):
+            order = rng.permutation(X_train.shape[0])
+            for i in order:
+                rules = self._generate_rules(self._fuzzify(X_train[i]))
+                scores = self.weights @ rules
+                probs = self._softmax(scores)
+                target = np.zeros(len(self.classes_), dtype=np.float32)
+                target[class_to_idx[y_train[i]]] = 1.0
+                error = target - probs
+                self.weights += self.lr * np.outer(error, rules).astype(np.float32)
+        return self
+
+    def predict(self, X_test: np.ndarray) -> np.ndarray:
         predictions = []
         for x in X_test:
-            fuzzified = self._fuzzify(x)
-            rule_activations = self._generate_rules(fuzzified)
-            output = self._inference(rule_activations)
-            # Classificação por votação fuzzy
-            class_scores = {}
-            for class_label in self.class_weights.keys():
-                score = np.dot(rule_activations, self.class_weights[class_label])
-                class_scores[class_label] = score
-            # Selecionar classe com maior score
-            predicted_class = max(class_scores, key=class_scores.get)
-            predictions.append(predicted_class)
+            rules = self._generate_rules(self._fuzzify(x))
+            scores = self.weights @ rules
+            predictions.append(self.classes_[int(np.argmax(scores))])
         return np.array(predictions)
-def load_dataset(dataset_path: Path):
-    X_train = np.load(dataset_path / "X_train.npy")
-    X_val = np.load(dataset_path / "X_val.npy")
-    X_test = np.load(dataset_path / "X_test.npy")
-    y_train = np.load(dataset_path / "y_train.npy")
-    y_val = np.load(dataset_path / "y_val.npy")
-    y_test = np.load(dataset_path / "y_test.npy")
-    return X_train, X_val, X_test, y_train, y_val, y_test
 
-def train_and_evaluate_anfis(dataset_name: str, dataset_path: Path):
-    print(f"\n[Treinando ANFIS para {dataset_name}]")
-    X_train, X_val, X_test, y_train, y_val, y_test = load_dataset(dataset_path)
-    # Para datasets com muitas features, fazer seleção
-    if X_train.shape[1] > 10:
-        # Usar PCA para reduzir dimensionalidade
-        from sklearn.decomposition import PCA
-        pca = PCA(n_components=min(10, X_train.shape[1]))
+
+def prepare_data(data: Tuple[np.ndarray, ...], seed: int, params: Dict[str, Any]) -> Tuple[np.ndarray, ...]:
+    X_train, X_val, X_test, y_train, y_val, y_test = data
+
+    n_components = min(int(params["pca_components"]), X_train.shape[1])
+    if X_train.shape[1] > n_components:
+        pca = PCA(n_components=n_components, random_state=seed)
         X_train = pca.fit_transform(X_train)
         X_val = pca.transform(X_val)
         X_test = pca.transform(X_test)
-        print(f"  (Reduzidas para {X_train.shape[1]} features via PCA)")
-    # Para datasets muito grandes, usar subsample
-    if X_train.shape[0] > 300:
-        indices = np.random.choice(X_train.shape[0], size=300, replace=False)
-        X_train = X_train[indices]
-        y_train = y_train[indices]
-        print(f"  (Dataset reduzido para 300 amostras para treinamento mais rápido)")
-    # Normalizar y para o intervalo [0, 1]
-    y_unique = np.unique(y_train)
-    y_train_norm = (y_train - y_unique.min()) / (y_unique.max() - y_unique.min() + 1e-10)
-    classifier = ANFISClassifier(n_membership_functions=2, learning_rate=0.01, 
-                                 n_epochs=10, random_state=42)
-    classifier.fit(X_train, y_train)    
-    # Predições
-    y_pred_train = classifier.predict(X_train)
-    y_pred_val = classifier.predict(X_val)
-    y_pred_test = classifier.predict(X_test)
-    # Métricas
-    results = {
-        "dataset": dataset_name,
-        "algoritmo": "ANFIS (Adaptive Neuro-Fuzzy Inference System)",
-        "train": {
-            "accuracy": float(accuracy_score(y_train, y_pred_train)),
-            "precision": float(precision_score(y_train, y_pred_train, average='weighted', zero_division=0)),
-            "recall": float(recall_score(y_train, y_pred_train, average='weighted', zero_division=0)),
-            "f1": float(f1_score(y_train, y_pred_train, average='weighted', zero_division=0))
-        },
-        "val": {
-            "accuracy": float(accuracy_score(y_val, y_pred_val)),
-            "precision": float(precision_score(y_val, y_pred_val, average='weighted', zero_division=0)),
-            "recall": float(recall_score(y_val, y_pred_val, average='weighted', zero_division=0)),
-            "f1": float(f1_score(y_val, y_pred_val, average='weighted', zero_division=0))
-        },
-        "test": {
-            "accuracy": float(accuracy_score(y_test, y_pred_test)),
-            "precision": float(precision_score(y_test, y_pred_test, average='weighted', zero_division=0)),
-            "recall": float(recall_score(y_test, y_pred_test, average='weighted', zero_division=0)),
-            "f1": float(f1_score(y_test, y_pred_test, average='weighted', zero_division=0))
-        }
-    }
-    return results
 
-def main():
+    max_samples = int(params["max_train_samples"])
+    if X_train.shape[0] > max_samples:
+        rng = np.random.default_rng(seed)
+        idx = rng.choice(X_train.shape[0], size=max_samples, replace=False)
+        X_train = X_train[idx]
+        y_train = y_train[idx]
+
+    return X_train, X_val, X_test, y_train, y_val, y_test
+
+
+def build_model(params: Dict[str, Any], random_state: int) -> ANFISClassifier:
+    return ANFISClassifier(
+        n_membership_functions=params["n_membership_functions"],
+        learning_rate=params["learning_rate"],
+        n_epochs=params["n_epochs"],
+        random_state=random_state,
+    )
+
+
+def main() -> None:
     datasets_root = Path("datasets/processed")
-    datasets = ["adult", "bank_marketing", "heart_disease", "mushroom"]
-    all_results = []
-    for dataset_name in datasets:
+    experiments = []
+
+    for dataset_name in DATASETS:
         dataset_path = datasets_root / dataset_name
-        if dataset_path.exists():
-            result = train_and_evaluate_anfis(dataset_name, dataset_path)
-            all_results.append(result)
-        else:
+        if not dataset_path.exists():
             print(f"Dataset {dataset_name} não encontrado em {dataset_path}")
-    # Salvar resultados em txt
-    output_file = Path("resultados/resultados_anfis.txt")
-    with open(output_file, "w") as f:
-        f.write("="*70 + "\n")
-        f.write("RESULTADOS [ANFIS (ADAPTIVE NEURO-FUZZY INFERENCE SYSTEM)]\n")
-        f.write("="*70 + "\n\n")        
-        for result in all_results:
-            f.write(f"Dataset: {result['dataset'].upper()}\n")
-            f.write(f"Algoritmo: {result['algoritmo']}\n")
-            f.write("-"*70 + "\n")
-            for split in ["train", "val", "test"]:
-                metrics = result[split]
-                f.write(f"\n{split.upper()}:\n")
-                f.write(f"-> Accuracy:  {metrics['accuracy']:.4f}\n")
-                f.write(f"-> Precision: {metrics['precision']:.4f}\n")
-                f.write(f"-> Recall:    {metrics['recall']:.4f}\n")
-                f.write(f"-> F1-Score:  {metrics['f1']:.4f}\n")
-            f.write("\n" + "="*70 + "\n\n")
-    print(f"\nResultados salvos em {output_file}")
+            continue
+        print(f"\n[Treinando ANFIS para {dataset_name}]")
+        original_data = load_dataset(dataset_path)
+        labels = np.unique(np.concatenate([original_data[3], original_data[4], original_data[5]])).tolist()
+        run_results = []
+        tried_results = []
+
+        import time
+
+        for run_idx, seed in enumerate(DEFAULT_RANDOM_STATES, start=1):
+            best_candidate = None
+            print(f"  Execução {run_idx:02d}/{len(DEFAULT_RANDOM_STATES)} | seed={seed}")
+            for params in PARAM_GRID:
+                data = prepare_data(original_data, seed, params)
+                current_labels = np.unique(np.concatenate([data[3], data[4], data[5]])).tolist()
+                start = time.perf_counter()
+                model = build_model(params, seed)
+                model.fit(data[0], data[3])
+                metrics = evaluate_model(model, data, current_labels)
+                elapsed = time.perf_counter() - start
+                candidate = {
+                    "dataset": dataset_name,
+                    "algorithm": ALGORITHM_NAME,
+                    "run": run_idx,
+                    "random_state": seed,
+                    "params": params,
+                    "params_text": flatten_params(params),
+                    "elapsed_seconds": float(elapsed),
+                    **metrics,
+                }
+                tried_results.append(candidate)
+                if best_candidate is None or metrics["val"]["f1"] > best_candidate["val"]["f1"]:
+                    best_candidate = candidate
+            run_results.append(best_candidate)
+            print(
+                "    melhor F1_val="
+                f"{best_candidate['val']['f1']:.4f} | F1_test={best_candidate['test']['f1']:.4f} "
+                f"| params={best_candidate['params_text']}"
+            )
+
+        experiments.append({
+            "dataset": dataset_name,
+            "algorithm": ALGORITHM_NAME,
+            "labels": labels,
+            "param_grid": PARAM_GRID,
+            "runs": run_results,
+            "tried": tried_results,
+            "summary": aggregate_runs(run_results),
+        })
+
+    write_report(
+        title="RESULTADOS - ANFIS (ADAPTIVE NEURO-FUZZY INFERENCE SYSTEM)",
+        experiments=experiments,
+        output_txt=Path("resultados/resultados_anfis.txt"),
+        output_csv=Path("resultados/resultados_anfis_melhores_execucoes.csv"),
+        output_all_params_csv=Path("resultados/resultados_anfis_todos_parametros.csv"),
+        output_json=Path("resultados/resultados_anfis_detalhado.json"),
+    )
+    save_global_summary(experiments, Path("resultados/resumo_anfis.csv"))
+    print("\nResultados do ANFIS salvos em resultados/")
+
+
 if __name__ == "__main__":
     main()
