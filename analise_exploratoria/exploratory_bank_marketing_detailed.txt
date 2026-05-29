@@ -1,0 +1,51 @@
+================================================================================
+Análise exploratória detalhada - BANK_MARKETING
+================================================================================
+
+Metadados:
+{
+  "dataset": "bank_marketing",
+  "uci_id": 222,
+  "n_samples": 45211,
+  "n_features": 38,
+  "n_classes": 2,
+  "split": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  }
+}
+
+Amostras (treino/val/test): 27126/9042/9043 (total=45211)
+Número de features: 38
+Classes encontradas: [0, 1]
+Contagens por classe: [39922, 5289]
+Proporções por classe: [0.883, 0.117]
+
+Estatísticas (primeiras 10 features do treino):
+  feat_0: mean=-0.0000, std=1.0000, min=-2.1484, max=5.0906
+  feat_1: mean=-0.0000, std=1.0000, min=-3.0719, max=32.9993
+  feat_2: mean=-0.0000, std=1.0000, min=-1.7765, max=1.8291
+  feat_3: mean=-0.0000, std=1.0000, min=-0.9936, max=17.8742
+  feat_4: mean=-0.0000, std=0.9999, min=-0.5713, max=19.6665
+  feat_5: mean=0.0000, std=1.0000, min=-0.4100, max=8.3249
+  feat_6: mean=-0.0000, std=0.9999, min=-0.2264, max=106.6830
+  feat_7: mean=0.0000, std=0.9999, min=-0.5274, max=1.8961
+  feat_8: mean=-0.0000, std=0.9999, min=-0.1833, max=5.4548
+  feat_9: mean=0.0000, std=1.0002, min=-0.1741, max=5.7439
+
+Gráficos gerados:
+ - analise_exploratoria/plots/bank_marketing/class_distribution.png
+ - analise_exploratoria/plots/bank_marketing/feature_correlation.png
+ - analise_exploratoria/plots/bank_marketing/pca_scree.png
+
+O que esperar de cada algoritmo (breve, com referências):
+
+MLP: Bishop, C. M. (1995). Neural Networks for Pattern Recognition.
+RBM: Hinton, G. E. (2002). Training products of experts by minimizing contrastive divergence (RBMs).
+Mamdani: Mamdani, E. H. (1975). Application of fuzzy algorithms for control of simple dynamic plant.
+ANFIS: Jang, J.-S. R. (1993). ANFIS: Adaptive-network-based fuzzy inference system.
+
+Observações específicas para este dataset:
+Bank Marketing: problema de negócio binário, dados estruturados, desbalanceado.
+Expectativa: MLP e modelos lineares ou RBM+Logistic tendem a performar bem; fuzzy/ANFIS podem fornecer interpretabilidade.

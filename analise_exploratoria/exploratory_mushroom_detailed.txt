@@ -1,0 +1,51 @@
+================================================================================
+Análise exploratória detalhada - MUSHROOM
+================================================================================
+
+Metadados:
+{
+  "dataset": "mushroom",
+  "uci_id": 73,
+  "n_samples": 8124,
+  "n_features": 94,
+  "n_classes": 2,
+  "split": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  }
+}
+
+Amostras (treino/val/test): 4874/1625/1625 (total=8124)
+Número de features: 94
+Classes encontradas: [0, 1]
+Contagens por classe: [4208, 3916]
+Proporções por classe: [0.518, 0.482]
+
+Estatísticas (primeiras 10 features do treino):
+  feat_0: mean=0.0000, std=1.0000, min=-0.0203, max=49.3559
+  feat_1: mean=-0.0000, std=1.0000, min=-0.7873, max=1.2702
+  feat_2: mean=-0.0000, std=1.0000, min=-0.3339, max=2.9945
+  feat_3: mean=-0.0000, std=1.0000, min=-0.0626, max=15.9852
+  feat_4: mean=0.0000, std=1.0000, min=-0.9161, max=1.0916
+  feat_5: mean=-0.0000, std=1.0000, min=-0.0248, max=40.2947
+  feat_6: mean=0.0000, std=1.0000, min=-0.6932, max=1.4425
+  feat_7: mean=0.0000, std=1.0000, min=-0.7890, max=1.2674
+  feat_8: mean=-0.0000, std=1.0000, min=-0.0718, max=13.9270
+  feat_9: mean=0.0000, std=1.0000, min=-0.4713, max=2.1216
+
+Gráficos gerados:
+ - results/plots/mushroom/class_distribution.png
+ - results/plots/mushroom/feature_correlation.png
+ - results/plots/mushroom/pca_scree.png
+
+O que esperar de cada algoritmo (breve, com referências):
+
+MLP: Bishop, C. M. (1995). Neural Networks for Pattern Recognition.
+RBM: Hinton, G. E. (2002). Training products of experts by minimizing contrastive divergence (RBMs).
+Mamdani: Mamdani, E. H. (1975). Application of fuzzy algorithms for control of simple dynamic plant.
+ANFIS: Jang, J.-S. R. (1993). ANFIS: Adaptive-network-based fuzzy inference system.
+
+Observações específicas para este dataset:
+Mushroom: relativamente fácil, detectável com regras simples; balanceado.
+Expectativa: Todos os métodos (MLP, RBM+Log, Mamdani) devem alcançar alta acurácia; ANFIS também se beneficiar de regras.

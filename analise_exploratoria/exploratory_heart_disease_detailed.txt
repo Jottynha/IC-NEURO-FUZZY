@@ -1,0 +1,51 @@
+================================================================================
+Análise exploratória detalhada - HEART_DISEASE
+================================================================================
+
+Metadados:
+{
+  "dataset": "heart_disease",
+  "uci_id": 45,
+  "n_samples": 303,
+  "n_features": 13,
+  "n_classes": 5,
+  "split": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  }
+}
+
+Amostras (treino/val/test): 181/61/61 (total=303)
+Número de features: 13
+Classes encontradas: [0, 1, 2, 3, 4]
+Contagens por classe: [164, 55, 36, 35, 13]
+Proporções por classe: [0.5413, 0.1815, 0.1188, 0.1155, 0.0429]
+
+Estatísticas (primeiras 10 features do treino):
+  feat_0: mean=0.0000, std=1.0000, min=-2.1613, max=2.4255
+  feat_1: mean=-0.0000, std=1.0000, min=-1.4940, max=0.6693
+  feat_2: mean=-0.0000, std=1.0000, min=-2.2941, max=0.9000
+  feat_3: mean=0.0000, std=1.0000, min=-2.2003, max=3.5476
+  feat_4: mean=0.0000, std=1.0000, min=-2.2988, max=5.6194
+  feat_5: mean=-0.0000, std=1.0000, min=-0.4368, max=2.2894
+  feat_6: mean=0.0000, std=1.0000, min=-1.0111, max=1.0000
+  feat_7: mean=0.0000, std=1.0000, min=-3.6287, max=2.0507
+  feat_8: mean=-0.0000, std=1.0000, min=-0.6867, max=1.4563
+  feat_9: mean=-0.0000, std=1.0000, min=-0.8809, max=4.3084
+
+Gráficos gerados:
+ - analise_exploratoria/plots/heart_disease/class_distribution.png
+ - analise_exploratoria/plots/heart_disease/feature_correlation.png
+ - analise_exploratoria/plots/heart_disease/pca_scree.png
+
+O que esperar de cada algoritmo (breve, com referências):
+
+MLP: Bishop, C. M. (1995). Neural Networks for Pattern Recognition.
+RBM: Hinton, G. E. (2002). Training products of experts by minimizing contrastive divergence (RBMs).
+Mamdani: Mamdani, E. H. (1975). Application of fuzzy algorithms for control of simple dynamic plant.
+ANFIS: Jang, J.-S. R. (1993). ANFIS: Adaptive-network-based fuzzy inference system.
+
+Observações específicas para este dataset:
+Heart Disease: conjunto pequeno (~300 amostras), poucas features.
+Expectativa: Algoritmos complexos (muitos parâmetros) podem overfit; preferir modelos simples/regularizados e validação robusta.

@@ -1,0 +1,51 @@
+================================================================================
+Análise exploratória detalhada - ADULT
+================================================================================
+
+Metadados:
+{
+  "dataset": "adult",
+  "uci_id": 2,
+  "n_samples": 48842,
+  "n_features": 100,
+  "n_classes": 4,
+  "split": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  }
+}
+
+Amostras (treino/val/test): 29305/9768/9769 (total=48842)
+Número de features: 100
+Classes encontradas: [0, 1, 2, 3]
+Contagens por classe: [24720, 12435, 7841, 3846]
+Proporções por classe: [0.5061, 0.2546, 0.1605, 0.0787]
+
+Estatísticas (primeiras 10 features do treino):
+  feat_0: mean=0.0000, std=1.0000, min=-1.5776, max=3.7267
+  feat_1: mean=-0.0000, std=1.0000, min=-1.6620, max=12.2696
+  feat_2: mean=0.0000, std=1.0000, min=-3.5106, max=2.2998
+  feat_3: mean=-0.0000, std=1.0001, min=-0.1446, max=13.4503
+  feat_4: mean=-0.0000, std=1.0000, min=-0.2167, max=10.5945
+  feat_5: mean=0.0000, std=1.0001, min=-3.1710, max=4.7112
+  feat_6: mean=-0.0000, std=0.9999, min=-0.1777, max=5.6276
+  feat_7: mean=0.0000, std=0.9999, min=-0.2654, max=3.7672
+  feat_8: mean=0.0000, std=0.9999, min=-0.0155, max=64.6949
+  feat_9: mean=-0.0000, std=1.0000, min=-1.5505, max=0.6450
+
+Gráficos gerados:
+ - analise_exploratoria/plots/adult/class_distribution.png
+ - analise_exploratoria/plots/adult/feature_correlation.png
+ - analise_exploratoria/plots/adult/pca_scree.png
+
+O que esperar de cada algoritmo (breve, com referências):
+
+MLP: Bishop, C. M. (1995). Neural Networks for Pattern Recognition.
+RBM: Hinton, G. E. (2002). Training products of experts by minimizing contrastive divergence (RBMs).
+Mamdani: Mamdani, E. H. (1975). Application of fuzzy algorithms for control of simple dynamic plant.
+ANFIS: Jang, J.-S. R. (1993). ANFIS: Adaptive-network-based fuzzy inference system.
+
+Observações específicas para este dataset:
+Adult: alto número de features (one-hot), mistura contínuo/categórica e desbalanceamento.
+Expectativa: MLP bem ajustado pode performar razoavelmente; RBM pode ajudar na representação; Mamdani/ANFIS precisam de redução dimensional e seleção de features para generalizar.
