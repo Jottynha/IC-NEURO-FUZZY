@@ -1,5 +1,6 @@
 # Experimentos com Sistema Fuzzy de Mamdani: grade, 21 execuções e matriz de confusão.
 
+import argparse
 from pathlib import Path
 from typing import Any, Dict, Tuple
 
@@ -117,9 +118,24 @@ def run_mamdani_for_params(data: Tuple[np.ndarray, ...], seed: int, params: Dict
     return subsample_training(data, seed, int(params["max_train_samples"]))
 
 
+def parse_datasets(value: str | None) -> list[str]:
+    if value is None:
+        return list(DATASETS)
+    selected = [item.strip() for item in value.split(",") if item.strip()]
+    invalid = [item for item in selected if item not in DATASETS]
+    if invalid:
+        raise ValueError(f"Datasets inválidos: {', '.join(invalid)}")
+    return selected
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Executa experimentos do Sistema Fuzzy de Mamdani")
+    parser.add_argument("--dataset", default=None, help="Dataset único ou lista separada por vírgula")
+    args = parser.parse_args()
+
     datasets_root = Path("datasets/processed")
     experiments = []
+    selected_datasets = parse_datasets(args.dataset)
 
     # Como o tamanho do subconjunto de treino faz parte dos parâmetros, precisamos
     # aplicar a transformação dentro do model_builder. Para isso, usamos uma função
@@ -127,7 +143,7 @@ def main() -> None:
     from experiment_utils import evaluate_model, aggregate_runs, flatten_params
     import time
 
-    for dataset_name in DATASETS:
+    for dataset_name in selected_datasets:
         dataset_path = datasets_root / dataset_name
         if not dataset_path.exists():
             print(f"Dataset {dataset_name} não encontrado em {dataset_path}")

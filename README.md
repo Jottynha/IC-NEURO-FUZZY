@@ -154,6 +154,38 @@ datasets/processed/<dataset>/
 python3 src/run_all.py
 ```
 
+**Execução singular por base e algoritmo**
+
+Cada script de algoritmo executa **21 vezes** a mesma base processada, variando apenas a semente (`random_state`) e selecionando o melhor conjunto de parâmetros por execução. Isso é útil quando você quer refinar um modelo específico sem rodar o restante.
+
+Exemplos:
+
+```bash
+# MLP rodando 21 vezes na base Adult
+python3 src/mlp_classifier.py --dataset adult
+```
+
+```bash
+# RBM + Regressão Logística rodando 21 vezes na base Bank Marketing
+python3 src/rbm_logistic_classifier.py --dataset bank_marketing
+```
+
+```bash
+# Mamdani rodando 21 vezes na base Heart Disease
+python3 src/mamdani_fuzzy_classifier.py --dataset heart_disease
+```
+
+```bash
+# ANFIS rodando 21 vezes na base Mushroom
+python3 src/anfis_classifier.py --dataset mushroom
+```
+
+Se quiser orquestrar isso pelo runner, também é possível combinar base e algoritmo de forma explícita:
+
+```bash
+python3 src/run_all.py --run adult=mlp --run bank_marketing=rbm --run heart_disease=mamdani --run mushroom=anfis
+```
+
 Ou executar individualmente:
 
 ```bash
@@ -164,10 +196,10 @@ python3 src/preprocessing.py
 python3 src/exploratory_analysis.py
 
 # Algoritmos individuais
-python3 src/mlp_classifier.py
-python3 src/rbm_logistic_classifier.py
-python3 src/mamdani_fuzzy_classifier.py
-python3 src/anfis_classifier.py
+python3 src/mlp_classifier.py --dataset adult
+python3 src/rbm_logistic_classifier.py --dataset bank_marketing
+python3 src/mamdani_fuzzy_classifier.py --dataset heart_disease
+python3 src/anfis_classifier.py --dataset mushroom
 ```
 
 **Saídas geradas:**

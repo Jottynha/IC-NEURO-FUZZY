@@ -1,5 +1,6 @@
 # Experimentos com Bernoulli RBM + Regressão Logística: grade, 21 execuções e matriz de confusão.
 
+import argparse
 from pathlib import Path
 from typing import Any, Dict, Tuple
 
@@ -54,11 +55,26 @@ def build_model(params: Dict[str, Any], random_state: int) -> Pipeline:
     return Pipeline([("rbm", rbm), ("logistic", lr)])
 
 
+def parse_datasets(value: str | None) -> list[str]:
+    if value is None:
+        return list(DATASETS)
+    selected = [item.strip() for item in value.split(",") if item.strip()]
+    invalid = [item for item in selected if item not in DATASETS]
+    if invalid:
+        raise ValueError(f"Datasets inválidos: {', '.join(invalid)}")
+    return selected
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Executa experimentos da RBM + Regressão Logística")
+    parser.add_argument("--dataset", default=None, help="Dataset único ou lista separada por vírgula")
+    args = parser.parse_args()
+
     datasets_root = Path("datasets/processed")
     experiments = []
+    selected_datasets = parse_datasets(args.dataset)
 
-    for dataset_name in DATASETS:
+    for dataset_name in selected_datasets:
         dataset_path = datasets_root / dataset_name
         if not dataset_path.exists():
             print(f"Dataset {dataset_name} não encontrado em {dataset_path}")

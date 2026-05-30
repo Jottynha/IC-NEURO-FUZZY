@@ -1,0 +1,14 @@
+{
+  "dataset": "mushroom",
+  "uci_id": 73,
+  "n_samples": 4062,
+  "n_features": 94,
+  "n_classes": 2,
+  "split": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  },
+  "sample_fraction": 0.5,
+  "sampled_n_samples": 4062
+}
