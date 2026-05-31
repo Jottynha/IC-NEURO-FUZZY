@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
-from typing import Any, Callable, Dict, Iterable, List, Sequence, Tuple
+from typing import Any, Callable, Dict, List, Sequence, Tuple
 
 import numpy as np
 import pandas as pd
@@ -35,6 +35,10 @@ def load_dataset(dataset_path: Path):
     y_val = np.load(dataset_path / "y_val.npy")
     y_test = np.load(dataset_path / "y_test.npy")
     return X_train, X_val, X_test, y_train, y_val, y_test
+
+
+def labels_from_data(data: Tuple[np.ndarray, ...]) -> list[Any]:
+    return np.unique(np.concatenate([data[3], data[4], data[5]])).tolist()
 
 
 def metric_dict(y_true: np.ndarray, y_pred: np.ndarray, labels: Sequence[Any]) -> Dict[str, Any]:
@@ -66,19 +70,27 @@ def flatten_params(params: Dict[str, Any]) -> str:
 
 def aggregate_runs(run_results: List[Dict[str, Any]]) -> Dict[str, Any]:
     """Agrega métricas e matrizes de confusão de várias execuções."""
+
+    def _mean_std(values: np.ndarray) -> tuple[float, float]:
+        mean = float(values.mean())
+        std = float(values.std(ddof=1)) if len(values) > 1 else 0.0
+        return mean, std
+
     summary: Dict[str, Any] = {}
     for split in SPLITS:
         split_summary: Dict[str, Any] = {}
         for metric in METRICS:
             values = np.array([r[split][metric] for r in run_results], dtype=float)
-            split_summary[f"{metric}_mean"] = float(values.mean())
-            split_summary[f"{metric}_std"] = float(values.std(ddof=1)) if len(values) > 1 else 0.0
+            mean, std = _mean_std(values)
+            split_summary[f"{metric}_mean"] = mean
+            split_summary[f"{metric}_std"] = std
         matrices = np.array([r[split]["confusion_matrix"] for r in run_results], dtype=int)
         split_summary["confusion_matrix_sum"] = matrices.sum(axis=0).astype(int).tolist()
         summary[split] = split_summary
     times = np.array([r["elapsed_seconds"] for r in run_results], dtype=float)
-    summary["time_seconds_mean"] = float(times.mean())
-    summary["time_seconds_std"] = float(times.std(ddof=1)) if len(times) > 1 else 0.0
+    mean, std = _mean_std(times)
+    summary["time_seconds_mean"] = mean
+    summary["time_seconds_std"] = std
     return summary
 
 
@@ -100,13 +112,13 @@ def run_parameter_search_experiment(
       3. registra métricas completas em treino, validação e teste;
       4. salva matriz de confusão de cada split.
     """
-    labels = np.unique(np.concatenate([data[3], data[4], data[5]])).tolist()
+    labels = labels_from_data(data)
     run_results: List[Dict[str, Any]] = []
     tried_results: List[Dict[str, Any]] = []
 
     for run_idx, seed in enumerate(random_states, start=1):
         current_data = fit_data_transformer(data, seed) if fit_data_transformer else data
-        current_labels = np.unique(np.concatenate([current_data[3], current_data[4], current_data[5]])).tolist()
+        current_labels = labels_from_data(current_data)
         best_candidate: Dict[str, Any] | None = None
 
         print(f"  Execução {run_idx:02d}/{len(random_states)} | seed={seed}")
@@ -162,9 +174,7 @@ def rows_from_runs(experiment: Dict[str, Any], include_all_tried: bool = False) 
             "params": r["params_text"],
             "elapsed_seconds": r["elapsed_seconds"],
         }
-        for split in SPLITS:
-            for metric in METRICS:
-                row[f"{split}_{metric}"] = r[split][metric]
+        row.update({f"{split}_{metric}": r[split][metric] for split in SPLITS for metric in METRICS})
         rows.append(row)
     return rows
 

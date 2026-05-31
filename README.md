@@ -46,7 +46,9 @@ Os dados processados (one-hot, normalização e splits estratificados) estão em
 ## 4) Algoritmos (implementação e parâmetros)
 
 4.1. MLP (Perceptron Multicamadas)
-- Implementação: `src/mlp_classifier.py` (base) e `src/mlp_classifier_fine.py` / `src/mlp_classifier_optimized.py` (variações)
+- Implementação: `src/mlp_classifier.py` (base)
+- Execução otimizada unificada: `src/optimized_experiments.py --algorithm mlp`
+- Estudo univariado unificado: `src/hyperparameter_study.py --algorithm mlp`
 - Hiperparâmetros controlados no estudo: número de camadas ocultas e neurônios, `activation`, `learning_rate_init`, `alpha` (L2), `max_iter`, `early_stopping`.
 
 Resumo das conclusões para MLP (estudo incremental e grade fina)
@@ -58,11 +60,8 @@ Resultados agregados e arquivos de estudo estão em `resultados[2]/` (ex.: `resu
 
 4.2. RBM + Regressão Logística
 - Implementação: `src/rbm_logistic_classifier.py`.
-- (Seção de hiperparâmetros otimizada — deixar vazia para preencher com resultados posteriores)
-
->> Hiperparâmetros (otimização pendente):
-- [ ] Espaço testado
-- [ ] Valores otimizados e justificativa
+- Execução otimizada unificada: `src/optimized_experiments.py --algorithm rbm`
+- Estudo univariado unificado: `src/hyperparameter_study.py --algorithm rbm`
 
 Versão otimizada e estudo concluído
 - Estudo univariado em `resultados[2]/rbm_hyperparameter_study/`.
@@ -86,6 +85,8 @@ Observações
 
 4.3. Sistema Fuzzy de Mamdani
 - Implementação: `src/mamdani_fuzzy_classifier.py` (classificador por similaridade com MFs triangulares).
+- Execução otimizada unificada: `src/optimized_experiments.py --algorithm mamdani`
+- Estudo univariado unificado: `src/hyperparameter_study.py --algorithm mamdani`
 
 Versão otimizada e estudo concluído
 - Estudo univariado em `resultados[2]/mamdani_hyperparameter_study/`.
@@ -109,6 +110,8 @@ Observações
 
 4.4. ANFIS (Adaptive Neuro-Fuzzy Inference System)
 - Implementação: `src/anfis_classifier.py` (versão simplificada com MFs gaussianas e PCA prévio opcional).
+- Execução otimizada unificada: `src/optimized_experiments.py --algorithm anfis`
+- Estudo univariado unificado: `src/hyperparameter_study.py --algorithm anfis`
 
 Versão otimizada e estudo concluído
 - Estudo univariado em `resultados[2]/anfis_hyperparameter_study/`.
@@ -176,9 +179,19 @@ python3 src/mlp_classifier.py --dataset adult
 
 4. Rodar estudo incremental (scripts específicos salvo em `src/`): consultar `resultados[2]/` para saídas resumidas.
 
-## 8_ Organização dos diretórios e arquivos importantes
+```bash
+# Exemplo: estudo rápido de hiperparâmetros (5 seeds) para ANFIS no Adult
+python3 src/hyperparameter_study.py --algorithm anfis --dataset adult --seeds 5
+
+# Exemplo: execução otimizada (21 seeds) para Mamdani em todos os datasets
+python3 src/optimized_experiments.py --algorithm mamdani
+```
+
+## 8) Organização dos diretórios e arquivos importantes
 
 - `src/` — código-fonte dos algoritmos e utilitários.
+- `src/hyperparameter_study.py` — ponto único para estudos univariados.
+- `src/optimized_experiments.py` — ponto único para execuções otimizadas.
 - `datasets/processed/` — datasets processados (npy + metadata).
 - `resultados/` — resultados originais e detalhados (`resultados[1]/`, `resultados[2]/`).
 
