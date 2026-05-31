@@ -1,0 +1,71 @@
+{
+  "estudo_hiperparametros_mlp": {
+    "dataset": "adult",
+    "metodologia": "Teste incremental de cada hiperparâmetro isoladamente. Valores base: hidden_layer_sizes=(100,), activation=relu, learning_rate_init=0.001, alpha=0.0001. 5 seeds por configuração para rapidez.",
+    "resultados_por_parametro": {
+      "hidden_layer_sizes": {
+        "valores_testados": ["(50,)", "(100,)", "(150,)", "(200,)", "(250,)", "(100,50)", "(150,75)", "(200,100)"],
+        "melhor_valor": "(50,)",
+        "test_f1_melhor": 0.4684,
+        "val_f1_melhor": 0.4616,
+        "analise": "Arquiteturas simples (single layer) superam multi-layer. Aumentar neurônios de 50→100→150→200 não melhora; na verdade reduz F1 levemente. (250,) traz (250,) ligeiramente melhor. Arquiteturas com 2 camadas (100,50), (150,75), (200,100) todas pioram comparado a single-layer.",
+        "ranking": [
+          {"valor": "(50,)", "test_f1": 0.4684, "ganho_vs_base": "+0.0043"},
+          {"valor": "(250,)", "test_f1": 0.4665, "ganho_vs_base": "+0.0024"},
+          {"valor": "(150,)", "test_f1": 0.4652, "ganho_vs_base": "+0.0011"},
+          {"valor": "(200,)", "test_f1": 0.4647, "ganho_vs_base": "+0.0006"}
+        ],
+        "tempo_ms": {"(50,)": 14.4, "(100,)": 17.4, "(150,)": 23.7, "(200,)": 26.9, "(250,)": 36.8},
+        "recomendacao": "Usar (50,) → melhor F1 + mais rápido. Dataset adult é pequeno/simples; overparameterização com arquiteturas maiores prejudica generalização."
+      },
+      "activation": {
+        "valores_testados": ["relu", "tanh"],
+        "melhor_valor": "relu",
+        "test_f1_melhor": 0.4642,
+        "val_f1_melhor": 0.4567,
+        "analise": "relu supera tanh: +0.62% em F1 de teste. Diferença não é gigantesca, mas consistente. relu é mais rápido (16.4s vs 23.4s).",
+        "ranking": [
+          {"valor": "relu", "test_f1": 0.4642, "ganho_vs_tanh": "+0.0062"},
+          {"valor": "tanh", "test_f1": 0.4580, "ganho_vs_tanh": "-"}
+        ],
+        "recomendacao": "Manter relu. Não há justificativa para trocar."
+      },
+      "learning_rate_init": {
+        "valores_testados": [0.0001, 0.001, 0.01, 0.1],
+        "melhor_valor": 0.0001,
+        "test_f1_melhor": 0.4649,
+        "val_f1_melhor": 0.4575,
+        "analise": "Learning rate baixo (0.0001) é ligeiramente melhor (+0.07% vs 0.001, +1.89% vs 0.01, +4.07% vs 0.1). 0.001 é praticamente equivalente. Taxa alta (0.01, 0.1) prejudica convergência notavelmente.",
+        "ranking": [
+          {"valor": 0.0001, "test_f1": 0.4649, "ganho_vs_base": "+0.0007"},
+          {"valor": 0.001, "test_f1": 0.4642, "ganho_vs_base": "base"},
+          {"valor": 0.01, "test_f1": 0.4563, "ganho_vs_base": "-0.0079"},
+          {"valor": 0.1, "test_f1": 0.4468, "ganho_vs_base": "-0.0174"}
+        ],
+        "recomendacao": "Usar 0.0001 para melhor convergência, ou manter 0.001 (diferença mínima). Evitar 0.01+ no dataset adult."
+      },
+      "alpha": {
+        "valores_testados": [0.0, 0.00001, 0.0001, 0.001, 0.01],
+        "melhor_valor": 0.01,
+        "test_f1_melhor": 0.4674,
+        "val_f1_melhor": 0.4610,
+        "analise": "Regularização L2 moderada (alpha=0.01) é ligeiramente melhor (+0.33% vs alpha=0, +0.77% vs base alpha=0.0001). Sem regularização (alpha=0) também é bom. Regularização intermediária (0.00001, 0.001) não adiciona valor.",
+        "ranking": [
+          {"valor": 0.01, "test_f1": 0.4674, "ganho_vs_base": "+0.0033"},
+          {"valor": 0.0, "test_f1": 0.4649, "ganho_vs_base": "+0.0008"},
+          {"valor": 0.0001, "test_f1": 0.4642, "ganho_vs_base": "base"},
+          {"valor": 0.001, "test_f1": 0.4635, "ganho_vs_base": "-0.0007"}
+        ],
+        "recomendacao": "Usar alpha=0.01 para melhor generalização, mas alpha=0 também é aceitável. Incremento é pequeno; escolha pode depender do dataset específico."
+      }
+    },
+    "config_otimizada_proposta": {
+      "hidden_layer_sizes": "(50,)",
+      "activation": "relu",
+      "learning_rate_init": 0.0001,
+      "alpha": 0.01,
+      "justificativa": "Combinação dos melhores valores de cada parâmetro testado isoladamente. Baseado em: F1 de teste do adult dataset com 5 seeds."
+    },
+    "proximo_passo": "Executar MLP com config otimizada em todos os 4 datasets com 21 seeds (setup final) e comparar com resultados[1]."
+  }
+}

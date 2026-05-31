@@ -1,0 +1,273 @@
+==========================================================================================
+RESULTADOS - MLP (PERCEPTRON MULTICAMADAS) - OTIMIZADO
+==========================================================================================
+Metodologia experimental:
+- Para cada dataset, são feitas 21 execuções independentes por random_state.
+- Em cada execução, todos os parâmetros da grade são testados.
+- A melhor configuração é escolhida pelo maior F1-score no conjunto de validação.
+- As métricas finais são calculadas em treino, validação e teste.
+- As matrizes de confusão abaixo são somas das 21 execuções selecionadas.
+
+==========================================================================================
+Dataset: ADULT
+Algoritmo: MLP (Perceptron Multicamadas) - Otimizado
+Classes: [0, 1, 2, 3]
+Tamanho da grade de parâmetros: 1
+Parâmetros testados:
+  1. {"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 0.5752 ± 0.0035
+  Precision : 0.5450 ± 0.0127
+  Recall    : 0.5752 ± 0.0035
+  F1        : 0.4822 ± 0.0075
+  Matriz de confusão agregada:
+    [283140, 6460, 21463, 409]
+    [136431, 8169, 11857, 224]
+    [35400, 1036, 61344, 1004]
+    [17717, 641, 28767, 1343]
+
+VAL:
+  Accuracy  : 0.5559 ± 0.0022
+  Precision : 0.4776 ± 0.0083
+  Recall    : 0.5559 ± 0.0022
+  F1        : 0.4615 ± 0.0035
+  Matriz de confusão agregada:
+    [92331, 3101, 8218, 174]
+    [46390, 1813, 3936, 88]
+    [12401, 449, 19574, 504]
+    [5657, 246, 9942, 304]
+
+TEST:
+  Accuracy  : 0.5634 ± 0.0017
+  Precision : 0.4841 ± 0.0069
+  Recall    : 0.5634 ± 0.0017
+  F1        : 0.4675 ± 0.0040
+  Matriz de confusão agregada:
+    [93297, 2966, 7363, 198]
+    [45929, 1894, 4278, 126]
+    [11939, 332, 20161, 517]
+    [5958, 192, 9777, 222]
+
+Tempo médio por execução selecionada: 17.44s ± 3.32s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.4598, F1_test=0.4672, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=02, seed=2, F1_val=0.4622, F1_test=0.4655, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=03, seed=3, F1_val=0.4630, F1_test=0.4683, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=04, seed=4, F1_val=0.4549, F1_test=0.4635, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=05, seed=5, F1_val=0.4597, F1_test=0.4659, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=06, seed=6, F1_val=0.4601, F1_test=0.4636, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=07, seed=7, F1_val=0.4631, F1_test=0.4721, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=08, seed=8, F1_val=0.4688, F1_test=0.4725, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=09, seed=9, F1_val=0.4624, F1_test=0.4621, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=10, seed=10, F1_val=0.4650, F1_test=0.4757, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=11, seed=11, F1_val=0.4635, F1_test=0.4700, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=12, seed=12, F1_val=0.4673, F1_test=0.4720, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=13, seed=13, F1_val=0.4597, F1_test=0.4678, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=14, seed=14, F1_val=0.4574, F1_test=0.4654, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=15, seed=15, F1_val=0.4608, F1_test=0.4663, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=16, seed=16, F1_val=0.4659, F1_test=0.4736, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=17, seed=17, F1_val=0.4634, F1_test=0.4684, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=18, seed=18, F1_val=0.4585, F1_test=0.4667, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=19, seed=19, F1_val=0.4574, F1_test=0.4650, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=20, seed=20, F1_val=0.4576, F1_test=0.4634, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=21, seed=21, F1_val=0.4616, F1_test=0.4615, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+
+==========================================================================================
+Dataset: BANK_MARKETING
+Algoritmo: MLP (Perceptron Multicamadas) - Otimizado
+Classes: [0, 1]
+Tamanho da grade de parâmetros: 1
+Parâmetros testados:
+  1. {"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 0.9094 ± 0.0028
+  Precision : 0.8993 ± 0.0040
+  Recall    : 0.9094 ± 0.0028
+  F1        : 0.9013 ± 0.0039
+  Matriz de confusão agregada:
+    [488284, 14729]
+    [36867, 29766]
+
+VAL:
+  Accuracy  : 0.9031 ± 0.0013
+  Precision : 0.8915 ± 0.0015
+  Recall    : 0.9031 ± 0.0013
+  F1        : 0.8944 ± 0.0014
+  Matriz de confusão agregada:
+    [162184, 5480]
+    [12924, 9294]
+
+TEST:
+  Accuracy  : 0.9048 ± 0.0011
+  Precision : 0.8929 ± 0.0015
+  Recall    : 0.9048 ± 0.0011
+  F1        : 0.8952 ± 0.0016
+  Matriz de confusão agregada:
+    [162726, 4959]
+    [13123, 9095]
+
+Tempo médio por execução selecionada: 17.29s ± 5.52s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.8942, F1_test=0.8940, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=02, seed=2, F1_val=0.8948, F1_test=0.8981, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=03, seed=3, F1_val=0.8955, F1_test=0.8981, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=04, seed=4, F1_val=0.8953, F1_test=0.8962, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=05, seed=5, F1_val=0.8949, F1_test=0.8948, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=06, seed=6, F1_val=0.8952, F1_test=0.8946, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=07, seed=7, F1_val=0.8959, F1_test=0.8945, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=08, seed=8, F1_val=0.8933, F1_test=0.8943, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=09, seed=9, F1_val=0.8948, F1_test=0.8969, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=10, seed=10, F1_val=0.8959, F1_test=0.8968, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=11, seed=11, F1_val=0.8963, F1_test=0.8933, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=12, seed=12, F1_val=0.8942, F1_test=0.8957, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=13, seed=13, F1_val=0.8936, F1_test=0.8959, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=14, seed=14, F1_val=0.8918, F1_test=0.8959, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=15, seed=15, F1_val=0.8946, F1_test=0.8959, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=16, seed=16, F1_val=0.8928, F1_test=0.8935, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=17, seed=17, F1_val=0.8919, F1_test=0.8936, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=18, seed=18, F1_val=0.8933, F1_test=0.8946, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=19, seed=19, F1_val=0.8937, F1_test=0.8920, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=20, seed=20, F1_val=0.8972, F1_test=0.8956, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=21, seed=21, F1_val=0.8927, F1_test=0.8946, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+
+==========================================================================================
+Dataset: HEART_DISEASE
+Algoritmo: MLP (Perceptron Multicamadas) - Otimizado
+Classes: [0, 1, 2, 3, 4]
+Tamanho da grade de parâmetros: 1
+Parâmetros testados:
+  1. {"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 0.3470 ± 0.1607
+  Precision : 0.4321 ± 0.1365
+  Recall    : 0.3470 ± 0.1607
+  F1        : 0.3258 ± 0.1645
+  Matriz de confusão agregada:
+    [969, 298, 231, 225, 335]
+    [215, 157, 114, 91, 116]
+    [101, 92, 91, 64, 93]
+    [97, 100, 86, 66, 92]
+    [36, 36, 40, 20, 36]
+
+VAL:
+  Accuracy  : 0.3224 ± 0.1711
+  Precision : 0.3461 ± 0.1936
+  Recall    : 0.3224 ± 0.1711
+  F1        : 0.2959 ± 0.1803
+  Matriz de confusão agregada:
+    [298, 130, 74, 70, 121]
+    [61, 54, 40, 26, 50]
+    [34, 35, 28, 15, 35]
+    [35, 32, 29, 20, 31]
+    [12, 14, 13, 11, 13]
+
+TEST:
+  Accuracy  : 0.3240 ± 0.1618
+  Precision : 0.3683 ± 0.1789
+  Recall    : 0.3240 ± 0.1618
+  F1        : 0.2993 ± 0.1661
+  Matriz de confusão agregada:
+    [300, 121, 83, 73, 116]
+    [74, 50, 42, 20, 45]
+    [45, 37, 35, 24, 27]
+    [33, 30, 34, 22, 28]
+    [7, 13, 9, 5, 8]
+
+Tempo médio por execução selecionada: 0.27s ± 0.14s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.2228, F1_test=0.3223, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=02, seed=2, F1_val=0.0530, F1_test=0.0551, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=03, seed=3, F1_val=0.4448, F1_test=0.4015, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=04, seed=4, F1_val=0.0485, F1_test=0.0420, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=05, seed=5, F1_val=0.5006, F1_test=0.4248, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=06, seed=6, F1_val=0.3056, F1_test=0.3332, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=07, seed=7, F1_val=0.0582, F1_test=0.0900, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=08, seed=8, F1_val=0.3564, F1_test=0.3820, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=09, seed=9, F1_val=0.5517, F1_test=0.4137, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=10, seed=10, F1_val=0.0326, F1_test=0.0353, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=11, seed=11, F1_val=0.1738, F1_test=0.1685, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=12, seed=12, F1_val=0.5072, F1_test=0.5058, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=13, seed=13, F1_val=0.3648, F1_test=0.4307, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=14, seed=14, F1_val=0.0556, F1_test=0.1107, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=15, seed=15, F1_val=0.4239, F1_test=0.4961, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=16, seed=16, F1_val=0.3990, F1_test=0.3584, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=17, seed=17, F1_val=0.4368, F1_test=0.3785, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=18, seed=18, F1_val=0.0887, F1_test=0.1169, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=19, seed=19, F1_val=0.5207, F1_test=0.5211, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=20, seed=20, F1_val=0.3358, F1_test=0.2592, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=21, seed=21, F1_val=0.3337, F1_test=0.4386, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+
+==========================================================================================
+Dataset: MUSHROOM
+Algoritmo: MLP (Perceptron Multicamadas) - Otimizado
+Classes: [0, 1]
+Tamanho da grade de parâmetros: 1
+Parâmetros testados:
+  1. {"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 0.9979 ± 0.0017
+  Precision : 0.9980 ± 0.0017
+  Recall    : 0.9979 ± 0.0017
+  F1        : 0.9979 ± 0.0017
+  Matriz de confusão agregada:
+    [26446, 56]
+    [49, 24626]
+
+VAL:
+  Accuracy  : 0.9981 ± 0.0023
+  Precision : 0.9981 ± 0.0023
+  Recall    : 0.9981 ± 0.0023
+  F1        : 0.9981 ± 0.0023
+  Matriz de confusão agregada:
+    [8823, 18]
+    [15, 8196]
+
+TEST:
+  Accuracy  : 0.9975 ± 0.0025
+  Precision : 0.9975 ± 0.0025
+  Recall    : 0.9975 ± 0.0025
+  F1        : 0.9975 ± 0.0025
+  Matriz de confusão agregada:
+    [8819, 22]
+    [21, 8211]
+
+Tempo médio por execução selecionada: 2.02s ± 0.36s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=1.0000, F1_test=1.0000, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=02, seed=2, F1_val=0.9988, F1_test=0.9988, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=03, seed=3, F1_val=0.9975, F1_test=0.9926, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=04, seed=4, F1_val=0.9975, F1_test=0.9975, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=05, seed=5, F1_val=0.9963, F1_test=0.9975, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=06, seed=6, F1_val=0.9975, F1_test=0.9988, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=07, seed=7, F1_val=1.0000, F1_test=0.9988, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=08, seed=8, F1_val=0.9951, F1_test=0.9914, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=09, seed=9, F1_val=1.0000, F1_test=1.0000, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=10, seed=10, F1_val=1.0000, F1_test=0.9963, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=11, seed=11, F1_val=1.0000, F1_test=0.9963, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=12, seed=12, F1_val=0.9951, F1_test=0.9926, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=13, seed=13, F1_val=1.0000, F1_test=0.9988, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=14, seed=14, F1_val=0.9988, F1_test=1.0000, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=15, seed=15, F1_val=0.9914, F1_test=0.9963, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=16, seed=16, F1_val=1.0000, F1_test=1.0000, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=17, seed=17, F1_val=0.9975, F1_test=0.9975, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=18, seed=18, F1_val=1.0000, F1_test=0.9975, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=19, seed=19, F1_val=1.0000, F1_test=0.9988, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=20, seed=20, F1_val=0.9975, F1_test=0.9988, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+  run=21, seed=21, F1_val=0.9963, F1_test=0.9988, params={"activation": "relu", "alpha": 0.01, "hidden_layer_sizes": [50], "learning_rate_init": 0.0001}
+
+Arquivos complementares gerados:
+- resultados[2]/mlp_optimized/resultados_mlp_otimizado_melhores.csv
+- resultados[2]/mlp_optimized/resultados_mlp_otimizado_todos.csv
+- resultados[2]/mlp_optimized/resultados_mlp_otimizado_detalhado.json

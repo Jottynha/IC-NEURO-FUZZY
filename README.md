@@ -1,214 +1,133 @@
-<p align="center"> 
+<p align="center">
   <img src="imgs/logo_azul.png" alt="CEFET-MG" width="100px" height="100px">
 </p>
 
-<h1 align="center">
-Redes Neurais Artificiais e Sistemas Neuro-Fuzzy
-</h1>
+# Redes Neurais Artificiais e Sistemas Neuro-Fuzzy
 
-<h3 align="center">
-Avaliação e comparação de diferentes algoritmos de Inteligência Computacional em tarefas de classificação.
-</h3>
-
-<div align="center">
-
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-
-</div>
-
----
+Avaliação comparativa de algoritmos de aprendizado supervisionado e sistemas neuro-fuzzy em tarefas de classificação tabular.
 
 <div align="justify">
 <p><strong>Disciplina:</strong> Inteligência Computacional<br>
 <strong>Instituição:</strong> Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG) - Campus V Divinópolis<br>
 <strong>Professor:</strong> Alisson Marques da Silva<br>
 <strong>Projeto:</strong> "Atividade 03"<br>
-<strong>Alunos:</strong> Jader Oliveira Silva e João Pedro Rodrigues Silva <br>
+<strong>Alunos:</strong> Jader Oliveira Silva e João Pedro Rodrigues Silva
+</p>
 </div>
 
-## Visão geral
+<div align="center">
+  ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+  [![UCI ML Repo](https://img.shields.io/badge/UCI-Machine%20Learning%20Repo-0052CC?style=for-the-badge)](https://archive.ics.uci.edu/)
+</div>
 
-Este repositório implementa uma avaliação e comparação de algoritmos de **Redes Neurais Artificiais (RNAs)** e **Sistemas Neuro-Fuzzy** em tarefas de **classificação** utilizando 4 bases de dados reais do UCI Machine Learning Repository.
+## Resumo 
 
-### Bases de Dados
+Este repositório implementa e compara quatro abordagens para classificação: MLP, RBM seguido de regressão logística, um sistema fuzzy de Mamdani simplificado e um ANFIS simplificado. A avaliação é realizada em quatro bases públicas com distintos perfis de dimensão e balanceamento (`adult`, `bank_marketing`, `heart_disease`, `mushroom`). Adotamos uma metodologia experimental com 60% treino / 20% validação / 20% teste e seleção por F1 no conjunto de validação, repetida em 21 sementes independentes para estimar variabilidade.
 
-| Base | ID UCI | Amostras | Atributos | Tarefa |
-|------|--------|----------|-----------|--------|
-| **Adult** | 2 | ~48,842 | 100* | Multiclasse (4 classes) |
-| **Bank Marketing** | 222 | ~45,211 | 38 | Classificação binária desbalanceada |
-| **Heart Disease** | 45 | 303 | 13 | Multiclasse (5 classes) pequeno dataset |
-| **Mushroom** | 73 | 8,124 | 94* | Classificação binária balanceada |
+## 1) Introdução
 
-*Após one-hot encoding de variáveis categóricas.
+O objetivo do estudo é comparar desempenho e custo computacional de abordagens neurais e neuro-fuzzy em problemas tabulares realistas. Além disso, investigamos o impacto de hiperparâmetros para cada algoritmo através de uma abordagem incremental (variação univariada) e de uma grade fina limitada para evitar explosão combinatória.
 
-#### Justificativa das Bases
+## 2) Bases de dados
 
-As quatro bases foram selecionadas para compor um conjunto experimental heterogêneo, variando em tamanho amostral, dimensionalidade, balanceamento e separabilidade. Essa composição permite avaliar o comportamento dos algoritmos sob cenários distintos de classificação tabular.
+- `adult`: ~48k amostras, alta dimensionalidade pós one-hot, multiclasse desbalanceada.
+- `bank_marketing`: ~45k amostras, problema binário desbalanceado.
+- `heart_disease`: ~303 amostras, baixa dimensão, multiclasses.
+- `mushroom`: ~8k amostras, alta dimensionalidade, binário balanceado.
 
-- **Adult:** base de grande porte, com alta dimensionalidade após codificação categórica e multiclasse desbalanceada. É adequada para examinar escalabilidade e robustez a heterogeneidade dos atributos.
-- **Bank Marketing:** problema binário de grande porte e fortemente desbalanceado, útil para analisar sensibilidade a assimetria de classes em dados estruturados de negócio.
-- **Heart Disease:** base pequena, com poucas observações e múltiplas classes, apropriada para investigar generalização em regime de escassez de dados e risco de sobreajuste.
-- **Mushroom:** base balanceada e altamente estruturada, com padrões relativamente separáveis. Serve como cenário de alta previsibilidade para comparar o desempenho máximo dos métodos.
+Os dados processados (one-hot, normalização e splits estratificados) estão em `datasets/processed/<dataset>/`.
 
-Em conjunto, essas bases cobrem diferentes combinações de complexidade, desbalanceamento e quantidade de dados, favorecendo uma comparação metodologicamente mais abrangente.
+## 3) Metodologia experimental
 
-## Análise Exploratória
+- Pré-processamento: `src/preprocessing.py` (one-hot, StandardScaler, split 60/20/20).
+- Para cada algoritmo: executar busca em grade limitada; para cada `random_state` testar toda a grade e escolher a configuração com maior F1 na validação. Repetir para 21 seeds (arquivo `experiment_utils.py`).
+- Métricas: Accuracy, Precision (weighted), Recall (weighted) e F1 (weighted). Matrizes de confusão agregadas são salvas.
 
-**Arquivo:** `src/exploratory_analysis.py`
+## 4) Algoritmos (implementação e parâmetros)
 
-Gera gráficos e relatórios detalhados para cada dataset:
+4.1. MLP (Perceptron Multicamadas)
+- Implementação: `src/mlp_classifier.py` (base) e `src/mlp_classifier_fine.py` / `src/mlp_classifier_optimized.py` (variações)
+- Hiperparâmetros controlados no estudo: número de camadas ocultas e neurônios, `activation`, `learning_rate_init`, `alpha` (L2), `max_iter`, `early_stopping`.
+
+Resumo das conclusões para MLP (estudo incremental e grade fina)
+- Variação univariada das camadas mostrou ganho gradual de F1 até 200 neurônios em `adult`.
+- `learning_rate_init=1e-3` é robusto; `1e-2` acelera, mas aumenta variância.
+- `alpha=1e-4` (L2) melhorou generalização levemente no `adult`.
+
+Resultados agregados e arquivos de estudo estão em `resultados[2]/` (ex.: `resumo_mlp.csv`, `comparacao_mlp_adult.json`).
+
+4.2. RBM + Regressão Logística
+- Implementação: `src/rbm_logistic_classifier.py`.
+- (Seção de hiperparâmetros otimizada — deixar vazia para preencher com resultados posteriores)
+
+>> Hiperparâmetros (otimização pendente):
+- [ ] Espaço testado
+- [ ] Valores otimizados e justificativa
+
+4.3. Sistema Fuzzy de Mamdani
+- Implementação: `src/mamdani_fuzzy_classifier.py` (classificador por similaridade com MFs triangulares).
+
+>> Hiperparâmetros (otimização pendente):
+- [ ] Espaço testado
+- [ ] Valores otimizados e justificativa
+
+4.4. ANFIS (Adaptive Neuro-Fuzzy Inference System)
+- Implementação: `src/anfis_classifier.py` (versão simplificada com MFs gaussianas e PCA prévio opcional).
+
+>> Hiperparâmetros (otimização pendente):
+- [ ] Espaço testado
+- [ ] Valores otimizados e justificativa
+
+## 5) Estudo de Hiperparâmetros (procedimento)
+
+Procedimento adotado:
+- Fixar uma configuração base (valores default ou heurísticos).
+- Variar apenas um hiperparâmetro por experimento (univariado) em uma grade reduzida.
+- Executar com 5 seeds para identificar tendências e, quando promissor, expandir para 21 seeds.
+- Manter registros compactos em `resultados[2]/` com resumos por dataset e por parâmetro.
+
+Arquivos de resultados resumidos gerados pelo estudo:
+- `resultados[2]/resumo_mlp.csv` — resumo por dataset para MLP (médias, desvios, tempo).
+- `resultados[2]/comparacao_mlp_adult.json` — comparação direta entre `resultados[1]` (original) e `resultados[2]` (fino) para `adult`.
+
+## 6) Resultados e análise (sumário)
+
+- Exemplo (MLP, dataset `adult`): grade fina apresentou melhoria marginal em F1 de validação (+0.0038) e de teste (+0.0026) com tempo médio inalterado.
+- Interpretação: pequenas melhorias indicam que a configuração original estava próxima de um ótimo local; a adição de L2 e teste de arquiteturas maiores forneceu ganho de generalização moderado.
+
+Seção completa de resultados (tabelas e gráficos) será preenchida no relatório final a partir de arquivos em `resultados/`.
+
+## 7) Reprodutibilidade
+
+Passos principais para reproduzir os experimentos:
+
+1. Instalar dependências:
 
 ```bash
-python3 src/exploratory_analysis.py
+pip install -r requirements.txt
 ```
 
-Saída (em `analise_exploratoria/`):
-- `exploratory_<dataset>_detailed.txt` - Relatório completo com estatísticas
-- `plots/<dataset>/class_distribution.png` - Distribuição de classes
-- `plots/<dataset>/feature_correlation.png` - Matriz de correlação (top 15 features)
-- `plots/<dataset>/pca_scree.png` - Variância explicada (PCA)
-
-Os relatórios sintetizam estatísticas descritivas e uma leitura preliminar da adequação de cada base aos algoritmos avaliados.
-
-## Dependências
-
-Instale os requisitos:
-
-```bash
-pip install ucimlrepo pandas numpy scikit-learn scipy matplotlib
-```
-
-## Algoritmos Avaliados
-
-Quatro algoritmos de Inteligência Computacional foram implementados e comparados:
-
-### 1. MLP (Perceptron Multicamadas)
-- **Implementação:** `src/mlp_classifier.py`
-- **Referência:** Bishop, C. M. (1995). Neural Networks for Pattern Recognition.
-- **Síntese:** rede feedforward treinada por retropropagação, capaz de modelar relações não lineares entre atributos.
-- **Justificativa:** constitui um baseline neural supervisionado apropriado para dados tabulares.
-
-### 2. RBM + Regressão Logística
-- **Implementação:** `src/rbm_logistic_classifier.py`
-- **Referência:** Hinton, G. E. (2002). Training products of experts by minimizing contrastive divergence.
-- **Síntese:** combina extração não supervisionada de representações por RBM com um classificador linear na saída.
-- **Justificativa:** permite avaliar se uma etapa de representação melhora a separabilidade das classes.
-
-### 3. Sistema Fuzzy de Mamdani
-- **Implementação:** `src/mamdani_fuzzy_classifier.py`
-- **Referência:** Mamdani, E. H. (1975). Application of fuzzy algorithms for control of simple dynamic plant.
-- **Síntese:** sistema baseado em regras linguísticas, com fuzzificação, inferência e defuzzificação.
-- **Justificativa:** oferece interpretabilidade explícita, útil para comparar desempenho e transparência.
-
-### 4. ANFIS (Adaptive Neuro-Fuzzy Inference System)
-- **Implementação:** `src/anfis_classifier.py`
-- **Referência:** Jang, J.-S. R. (1993). ANFIS: Adaptive-network-based fuzzy inference system.
-- **Síntese:** modelo neuro-fuzzy que ajusta parâmetros de pertinência e regras por aprendizagem adaptativa.
-- **Justificativa:** combina interpretabilidade da lógica fuzzy com capacidade de ajuste de modelos neurais.
-
-**Arquivo:** `src/preprocessing.py`
-
-O script realiza para cada base:
-
-1. **Carregamento** via `ucimlrepo`
-2. **Tratamento de valores faltantes** (forward fill + modo)
-3. **One-hot encoding** de variáveis categóricas
-4. **Normalização** com `StandardScaler` (fit em treino)
-5. **Split estratificado** em 60% treino / 20% validação / 20% teste
-6. **Salvamento** em `datasets/processed/<dataset>/`
-
-### Executar
+2. Gerar dados processados (one-hot, normalização):
 
 ```bash
 python3 src/preprocessing.py
 ```
 
-Com parâmetros customizados:
+3. Executar um algoritmo específico (ex.: MLP no dataset `adult`):
 
 ```bash
-python3 src/preprocessing.py --output-dir datasets/processed --random-state 42
-```
-
-### Estrutura de saída
-
-Para cada base (`adult`, `bank_marketing`, `heart_disease`, `mushroom`):
-
-```
-datasets/processed/<dataset>/
-├── X_train.npy       # Features de treino (normalizado)
-├── X_val.npy         # Features de validação (normalizado)
-├── X_test.npy        # Features de teste (normalizado)
-├── y_train.npy       # Rótulos de treino
-├── y_val.npy         # Rótulos de validação
-├── y_test.npy        # Rótulos de teste
-├── scaler_mean.npy   # Média do escaler
-├── scaler_scale.npy  # Desvio padrão do escaler
-└── metadata.json     # Informações do dataset
-```
-
-## Execução dos Algoritmos
-
-**Runner único (pré-processamento + todos os 4 algoritmos):**
-
-```bash
-python3 src/run_all.py
-```
-
-**Execução singular por base e algoritmo**
-
-Cada script de algoritmo executa **21 vezes** a mesma base processada, variando apenas a semente (`random_state`) e selecionando o melhor conjunto de parâmetros por execução. Isso é útil quando você quer refinar um modelo específico sem rodar o restante.
-
-Exemplos:
-
-```bash
-# MLP rodando 21 vezes na base Adult
 python3 src/mlp_classifier.py --dataset adult
 ```
 
-```bash
-# RBM + Regressão Logística rodando 21 vezes na base Bank Marketing
-python3 src/rbm_logistic_classifier.py --dataset bank_marketing
-```
+4. Rodar estudo incremental (scripts específicos salvo em `src/`): consultar `resultados[2]/` para saídas resumidas.
 
-```bash
-# Mamdani rodando 21 vezes na base Heart Disease
-python3 src/mamdani_fuzzy_classifier.py --dataset heart_disease
-```
+## 8_ Organização dos diretórios e arquivos importantes
 
-```bash
-# ANFIS rodando 21 vezes na base Mushroom
-python3 src/anfis_classifier.py --dataset mushroom
-```
+- `src/` — código-fonte dos algoritmos e utilitários.
+- `datasets/processed/` — datasets processados (npy + metadata).
+- `resultados/` — resultados originais e detalhados (`resultados[1]/`, `resultados[2]/`).
 
-Se quiser orquestrar isso pelo runner, também é possível combinar base e algoritmo de forma explícita:
-
-```bash
-python3 src/run_all.py --run adult=mlp --run bank_marketing=rbm --run heart_disease=mamdani --run mushroom=anfis
-```
-
-Ou executar individualmente:
-
-```bash
-# Pré-processamento (gera datasets processados e análise exploratória básica)
-python3 src/preprocessing.py
-
-# Análise exploratória detalhada (gráficos + relatórios completos)
-python3 src/exploratory_analysis.py
-
-# Algoritmos individuais
-python3 src/mlp_classifier.py --dataset adult
-python3 src/rbm_logistic_classifier.py --dataset bank_marketing
-python3 src/mamdani_fuzzy_classifier.py --dataset heart_disease
-python3 src/anfis_classifier.py --dataset mushroom
-```
-
-**Saídas geradas:**
-- `resultados/resultados_mlp.txt` - Resultados MLP
-- `resultados/resultados_rbm_logistic.txt` - Resultados RBM + Logistic
-- `resultados/resultados_mamdani_fuzzy.txt` - Resultados Mamdani
-- `resultados/resultados_anfis.txt` - Resultados ANFIS
-
-## Referências Bibliográficas
+## Referências
 
 - Bishop, C. M. (1995). *Neural Networks for Pattern Recognition*. Oxford University Press.
 - Hinton, G. E. (2002). Training products of experts by minimizing contrastive divergence. *Neural Computation*, 14(8), 1771-1800.
