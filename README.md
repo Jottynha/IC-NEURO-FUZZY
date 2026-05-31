@@ -87,9 +87,25 @@ Observações
 4.3. Sistema Fuzzy de Mamdani
 - Implementação: `src/mamdani_fuzzy_classifier.py` (classificador por similaridade com MFs triangulares).
 
->> Hiperparâmetros (otimização pendente):
-- [ ] Espaço testado
-- [ ] Valores otimizados e justificativa
+Versão otimizada e estudo concluído
+- Estudo univariado em `resultados[2]/mamdani_hyperparameter_study/`.
+- Configuração final adotada: `n_membership_functions=5`, `max_train_samples=800`.
+- Execução final salva em `resultados[2]/mamdani_optimized/`.
+
+Resumo comparativo do Mamdani otimizado
+
+| Dataset | F1 validação (orig.) | F1 validação (otim.) | F1 teste (orig.) | F1 teste (otim.) | Tempo médio orig. | Tempo médio otim. |
+|---|---:|---:|---:|---:|---:|---:|
+| Adult | 0.4360 | 0.4355 | 0.4349 | 0.4378 | 4.44s | 44.35s |
+| Bank Marketing | 0.8438 | 0.8441 | 0.8442 | 0.8450 | 1.90s | 15.90s |
+| Heart Disease | 0.5842 | 0.5842 | 0.5191 | 0.5191 | 0.03s | 0.09s |
+| Mushroom | 0.9966 | 0.9982 | 0.9983 | 0.9990 | 0.83s | 5.32s |
+
+Observações
+- Em `adult` e `bank_marketing`, os ganhos em F1 foram pequenos.
+- Em `heart_disease`, os resultados permaneceram essencialmente iguais ao baseline.
+- Em `mushroom`, houve ganho leve em validação e teste.
+- O custo computacional aumentou significativamente com `max_train_samples=800`.
 
 4.4. ANFIS (Adaptive Neuro-Fuzzy Inference System)
 - Implementação: `src/anfis_classifier.py` (versão simplificada com MFs gaussianas e PCA prévio opcional).
@@ -132,6 +148,7 @@ Arquivos de resultados resumidos gerados pelo estudo:
 - Interpretação: pequenas melhorias indicam que a configuração original estava próxima de um ótimo local; a adição de L2 e teste de arquiteturas maiores forneceu ganho de generalização moderado.
 - RBM + Logistic (estudo otimizado): o comportamento foi dependente do dataset. Houve ganhos modestos em `adult`, ganhos moderados em `bank_marketing` e `mushroom`, e ganho expressivo em `heart_disease`, com aumento de custo apenas nos datasets maiores e redução de tempo em `adult`.
 - ANFIS (estudo otimizado): houve ganho expressivo em `adult` e `heart_disease`, estabilidade em `bank_marketing` e pequena perda em `mushroom`; o custo computacional aumentou em todos os datasets devido à maior profundidade do modelo e ao número de épocas.
+- Mamdani (estudo otimizado): desempenho muito próximo ao baseline na maioria das bases, com ganhos marginais em `mushroom`; aumento de custo relevante devido ao maior número de amostras de treino usadas na similaridade fuzzy.
 
 Seção completa de resultados (tabelas e gráficos) será preenchida no relatório final a partir de arquivos em `resultados/`.
 
