@@ -1,0 +1,206 @@
+==========================================================================================
+RESULTADOS - BERNOULLI RBM + REGRESSÃO LOGÍSTICA - OTIMIZADO
+==========================================================================================
+Metodologia experimental:
+- Para cada dataset, são feitas 21 execuções independentes por random_state.
+- Em cada execução, todos os parâmetros da grade são testados.
+- A melhor configuração é escolhida pelo maior F1-score no conjunto de validação.
+- As métricas finais são calculadas em treino, validação e teste.
+- As matrizes de confusão abaixo são somas das 21 execuções selecionadas.
+
+==========================================================================================
+Dataset: BANK_MARKETING
+Algoritmo: Bernoulli RBM + Regressão Logística - Otimizado
+Classes: [0, 1]
+Tamanho da grade de parâmetros: 1
+Parâmetros testados:
+  1. {"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 0.8881 ± 0.0007
+  Precision : 0.8612 ± 0.0015
+  Recall    : 0.8881 ± 0.0007
+  F1        : 0.8594 ± 0.0014
+  Matriz de confusão agregada:
+    [495042, 7971]
+    [55758, 10875]
+
+VAL:
+  Accuracy  : 0.8884 ± 0.0007
+  Precision : 0.8618 ± 0.0016
+  Recall    : 0.8884 ± 0.0007
+  F1        : 0.8596 ± 0.0013
+  Matriz de confusão agregada:
+    [165051, 2613]
+    [18583, 3635]
+
+TEST:
+  Accuracy  : 0.8909 ± 0.0009
+  Precision : 0.8675 ± 0.0021
+  Recall    : 0.8909 ± 0.0009
+  F1        : 0.8621 ± 0.0021
+  Matriz de confusão agregada:
+    [165422, 2263]
+    [18454, 3764]
+
+Tempo médio por execução selecionada: 19.29s ± 0.56s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.8600, F1_test=0.8611, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=02, seed=2, F1_val=0.8584, F1_test=0.8601, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=03, seed=3, F1_val=0.8602, F1_test=0.8662, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=04, seed=4, F1_val=0.8611, F1_test=0.8634, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=05, seed=5, F1_val=0.8603, F1_test=0.8638, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=06, seed=6, F1_val=0.8603, F1_test=0.8575, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=07, seed=7, F1_val=0.8592, F1_test=0.8630, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=08, seed=8, F1_val=0.8586, F1_test=0.8613, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=09, seed=9, F1_val=0.8618, F1_test=0.8623, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=10, seed=10, F1_val=0.8595, F1_test=0.8606, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=11, seed=11, F1_val=0.8574, F1_test=0.8605, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=12, seed=12, F1_val=0.8599, F1_test=0.8620, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=13, seed=13, F1_val=0.8606, F1_test=0.8623, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=14, seed=14, F1_val=0.8590, F1_test=0.8626, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=15, seed=15, F1_val=0.8593, F1_test=0.8638, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=16, seed=16, F1_val=0.8592, F1_test=0.8612, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=17, seed=17, F1_val=0.8594, F1_test=0.8631, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=18, seed=18, F1_val=0.8613, F1_test=0.8661, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=19, seed=19, F1_val=0.8567, F1_test=0.8581, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=20, seed=20, F1_val=0.8612, F1_test=0.8631, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=21, seed=21, F1_val=0.8578, F1_test=0.8625, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+
+==========================================================================================
+Dataset: HEART_DISEASE
+Algoritmo: Bernoulli RBM + Regressão Logística - Otimizado
+Classes: [0, 1, 2, 3, 4]
+Tamanho da grade de parâmetros: 1
+Parâmetros testados:
+  1. {"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 0.5830 ± 0.0038
+  Precision : 0.4436 ± 0.0047
+  Recall    : 0.5830 ± 0.0038
+  F1        : 0.5008 ± 0.0041
+  Matriz de confusão agregada:
+    [1993, 63, 0, 2, 0]
+    [506, 71, 0, 116, 0]
+    [130, 140, 0, 171, 0]
+    [147, 142, 0, 152, 0]
+    [62, 54, 0, 52, 0]
+
+VAL:
+  Accuracy  : 0.5886 ± 0.0115
+  Precision : 0.4338 ± 0.0292
+  Recall    : 0.5886 ± 0.0115
+  F1        : 0.4911 ± 0.0183
+  Matriz de confusão agregada:
+    [693, 0, 0, 0, 0]
+    [177, 19, 0, 35, 0]
+    [84, 0, 0, 63, 0]
+    [53, 52, 0, 42, 0]
+    [0, 21, 0, 42, 0]
+
+TEST:
+  Accuracy  : 0.5863 ± 0.0072
+  Precision : 0.4210 ± 0.0226
+  Recall    : 0.5863 ± 0.0072
+  F1        : 0.4775 ± 0.0127
+  Matriz de confusão agregada:
+    [693, 0, 0, 0, 0]
+    [194, 16, 0, 21, 0]
+    [105, 21, 0, 42, 0]
+    [63, 42, 0, 42, 0]
+    [21, 0, 0, 21, 0]
+
+Tempo médio por execução selecionada: 0.15s ± 0.00s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.4695, F1_test=0.4554, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=02, seed=2, F1_val=0.5226, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=03, seed=3, F1_val=0.4975, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=04, seed=4, F1_val=0.4641, F1_test=0.4554, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=05, seed=5, F1_val=0.5141, F1_test=0.4554, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=06, seed=6, F1_val=0.4641, F1_test=0.4554, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=07, seed=7, F1_val=0.4901, F1_test=0.4554, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=08, seed=8, F1_val=0.4901, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=09, seed=9, F1_val=0.4975, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=10, seed=10, F1_val=0.5165, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=11, seed=11, F1_val=0.4939, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=12, seed=12, F1_val=0.4935, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=13, seed=13, F1_val=0.4935, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=14, seed=14, F1_val=0.4935, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=15, seed=15, F1_val=0.5019, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=16, seed=16, F1_val=0.4695, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=17, seed=17, F1_val=0.4935, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=18, seed=18, F1_val=0.4641, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=19, seed=19, F1_val=0.4695, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=20, seed=20, F1_val=0.4975, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=21, seed=21, F1_val=0.5165, F1_test=0.4844, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+
+==========================================================================================
+Dataset: MUSHROOM
+Algoritmo: Bernoulli RBM + Regressão Logística - Otimizado
+Classes: [0, 1]
+Tamanho da grade de parâmetros: 1
+Parâmetros testados:
+  1. {"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 0.9994 ± 0.0004
+  Precision : 0.9994 ± 0.0004
+  Recall    : 0.9994 ± 0.0004
+  F1        : 0.9994 ± 0.0004
+  Matriz de confusão agregada:
+    [26495, 7]
+    [25, 24650]
+
+VAL:
+  Accuracy  : 0.9993 ± 0.0008
+  Precision : 0.9993 ± 0.0008
+  Recall    : 0.9993 ± 0.0008
+  F1        : 0.9993 ± 0.0008
+  Matriz de confusão agregada:
+    [8836, 5]
+    [7, 8204]
+
+TEST:
+  Accuracy  : 0.9997 ± 0.0005
+  Precision : 0.9997 ± 0.0005
+  Recall    : 0.9997 ± 0.0005
+  F1        : 0.9997 ± 0.0005
+  Matriz de confusão agregada:
+    [8837, 4]
+    [1, 8231]
+
+Tempo médio por execução selecionada: 2.56s ± 0.04s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.9988, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=02, seed=2, F1_val=0.9988, F1_test=0.9988, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=03, seed=3, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=04, seed=4, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=05, seed=5, F1_val=0.9988, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=06, seed=6, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=07, seed=7, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=08, seed=8, F1_val=0.9988, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=09, seed=9, F1_val=0.9975, F1_test=0.9988, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=10, seed=10, F1_val=0.9988, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=11, seed=11, F1_val=0.9988, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=12, seed=12, F1_val=1.0000, F1_test=0.9988, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=13, seed=13, F1_val=0.9988, F1_test=0.9988, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=14, seed=14, F1_val=0.9975, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=15, seed=15, F1_val=1.0000, F1_test=0.9988, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=16, seed=16, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=17, seed=17, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=18, seed=18, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=19, seed=19, F1_val=0.9988, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=20, seed=20, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+  run=21, seed=21, F1_val=1.0000, F1_test=1.0000, params={"learning_rate": 0.05, "logistic_C": 10.0, "n_components": 128, "n_iter": 20}
+
+Arquivos complementares gerados:
+- resultados[2]/rbm_optimized/resultados_rbm_optimized_melhores.csv
+- resultados[2]/rbm_optimized/resultados_rbm_optimized_todos.csv
+- resultados[2]/rbm_optimized/resultados_rbm_optimized_detalhado.json

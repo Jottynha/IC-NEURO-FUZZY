@@ -64,6 +64,26 @@ Resultados agregados e arquivos de estudo estão em `resultados[2]/` (ex.: `resu
 - [ ] Espaço testado
 - [ ] Valores otimizados e justificativa
 
+Versão otimizada e estudo concluído
+- Estudo univariado em `resultados[2]/rbm_hyperparameter_study/`.
+- Configuração final adotada: `n_components=128`, `n_iter=20`, `learning_rate=0.05`, `logistic_C=10.0`.
+- Execução final salva em `resultados[2]/rbm_optimized/`.
+
+Resumo comparativo da RBM otimizada
+
+| Dataset | F1 validação (orig.) | F1 validação (otim.) | F1 teste (orig.) | F1 teste (otim.) | Tempo médio orig. | Tempo médio otim. |
+|---|---:|---:|---:|---:|---:|---:|
+| Adult | 0.4402 | 0.4403 | 0.4449 | 0.4456 | 69.33s | 45.70s |
+| Bank Marketing | 0.8557 | 0.8596 | 0.8573 | 0.8621 | 8.46s | 19.29s |
+| Heart Disease | 0.4514 | 0.4911 | 0.3844 | 0.4775 | 0.05s | 0.15s |
+| Mushroom | 0.9967 | 0.9993 | 0.9990 | 0.9997 | 1.98s | 2.56s |
+
+Observações
+- Em `adult`, o ganho em F1 foi muito pequeno, mas com redução do tempo médio por execução.
+- Em `bank_marketing`, houve melhora moderada de F1, com maior custo computacional.
+- Em `heart_disease`, a otimização trouxe o maior ganho relativo de generalização.
+- Em `mushroom`, o desempenho já era muito alto; a melhoria foi marginal, como esperado.
+
 4.3. Sistema Fuzzy de Mamdani
 - Implementação: `src/mamdani_fuzzy_classifier.py` (classificador por similaridade com MFs triangulares).
 
@@ -94,6 +114,7 @@ Arquivos de resultados resumidos gerados pelo estudo:
 
 - Exemplo (MLP, dataset `adult`): grade fina apresentou melhoria marginal em F1 de validação (+0.0038) e de teste (+0.0026) com tempo médio inalterado.
 - Interpretação: pequenas melhorias indicam que a configuração original estava próxima de um ótimo local; a adição de L2 e teste de arquiteturas maiores forneceu ganho de generalização moderado.
+- RBM + Logistic (estudo otimizado): o comportamento foi dependente do dataset. Houve ganhos modestos em `adult`, ganhos moderados em `bank_marketing` e `mushroom`, e ganho expressivo em `heart_disease`, com aumento de custo apenas nos datasets maiores e redução de tempo em `adult`.
 
 Seção completa de resultados (tabelas e gráficos) será preenchida no relatório final a partir de arquivos em `resultados/`.
 
