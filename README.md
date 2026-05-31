@@ -94,9 +94,25 @@ Observações
 4.4. ANFIS (Adaptive Neuro-Fuzzy Inference System)
 - Implementação: `src/anfis_classifier.py` (versão simplificada com MFs gaussianas e PCA prévio opcional).
 
->> Hiperparâmetros (otimização pendente):
-- [ ] Espaço testado
-- [ ] Valores otimizados e justificativa
+Versão otimizada e estudo concluído
+- Estudo univariado em `resultados[2]/anfis_hyperparameter_study/`.
+- Configuração final adotada: `n_membership_functions=4`, `learning_rate=0.05`, `n_epochs=50`, `pca_components=2`, `max_train_samples=150`.
+- Execução final salva em `resultados[2]/anfis_optimized/`.
+
+Resumo comparativo do ANFIS otimizado
+
+| Dataset | F1 validação (orig.) | F1 validação (otim.) | F1 teste (orig.) | F1 teste (otim.) | Tempo médio orig. | Tempo médio otim. |
+|---|---:|---:|---:|---:|---:|---:|
+| Adult | 0.3409 | 0.4208 | 0.3408 | 0.4220 | 0.85s | 2.46s |
+| Bank Marketing | 0.8281 | 0.8281 | 0.8281 | 0.8281 | 0.71s | 2.34s |
+| Heart Disease | 0.3798 | 0.5788 | 0.3798 | 0.5322 | 0.10s | 0.87s |
+| Mushroom | 0.8954 | 0.8839 | 0.9004 | 0.8965 | 0.44s | 1.00s |
+
+Observações
+- Em `adult`, o ANFIS otimizado trouxe ganho claro de generalização, com aumento substancial de F1.
+- Em `heart_disease`, a melhoria foi ainda mais expressiva, indicando que a redução de dimensão e o aumento de regras ajudaram na separação.
+- Em `bank_marketing`, os resultados ficaram praticamente estáveis.
+- Em `mushroom`, houve pequena queda em validação e leve perda em teste, sugerindo que a versão original já estava bem ajustada para essa base.
 
 ## 5) Estudo de Hiperparâmetros (procedimento)
 
@@ -115,6 +131,7 @@ Arquivos de resultados resumidos gerados pelo estudo:
 - Exemplo (MLP, dataset `adult`): grade fina apresentou melhoria marginal em F1 de validação (+0.0038) e de teste (+0.0026) com tempo médio inalterado.
 - Interpretação: pequenas melhorias indicam que a configuração original estava próxima de um ótimo local; a adição de L2 e teste de arquiteturas maiores forneceu ganho de generalização moderado.
 - RBM + Logistic (estudo otimizado): o comportamento foi dependente do dataset. Houve ganhos modestos em `adult`, ganhos moderados em `bank_marketing` e `mushroom`, e ganho expressivo em `heart_disease`, com aumento de custo apenas nos datasets maiores e redução de tempo em `adult`.
+- ANFIS (estudo otimizado): houve ganho expressivo em `adult` e `heart_disease`, estabilidade em `bank_marketing` e pequena perda em `mushroom`; o custo computacional aumentou em todos os datasets devido à maior profundidade do modelo e ao número de épocas.
 
 Seção completa de resultados (tabelas e gráficos) será preenchida no relatório final a partir de arquivos em `resultados/`.
 
