@@ -155,37 +155,75 @@ Arquivos de resultados resumidos gerados pelo estudo:
 
 Seção completa de resultados (tabelas e gráficos) será preenchida no relatório final a partir de arquivos em `resultados/`.
 
-## 7) Reprodutibilidade
+## 7) Como rodar os experimentos
 
-Passos principais para reproduzir os experimentos:
-
-1. Instalar dependências:
+### Instalação
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Gerar dados processados (one-hot, normalização):
+### Execução completa (orquestrador principal)
 
 ```bash
-python3 src/preprocessing.py
+python3 src/main.py
 ```
 
-3. Executar um algoritmo específico (ex.: MLP no dataset `adult`):
+Essa execução chama, por dataset selecionado:
+1. `src/preprocessing.py`
+2. `src/mlp_classifier.py`
+3. `src/rbm_logistic_classifier.py`
+4. `src/mamdani_fuzzy_classifier.py`
+5. `src/anfis_classifier.py`
+
+### Execução completa com filtros
+
+```bash
+# Rodar só em dois datasets
+python3 src/main.py --datasets adult,heart_disease
+
+# Rodar só dois algoritmos
+python3 src/main.py --algorithms mlp,rbm
+
+# Definir pares dataset=algoritmos
+python3 src/main.py --run adult=mlp,rbm --run mushroom=anfis
+
+# Pular pré-processamento
+python3 src/main.py --skip-preprocessing --datasets adult --algorithms mamdani
+```
+
+### Execução por algoritmo (baseline)
 
 ```bash
 python3 src/mlp_classifier.py --dataset adult
+python3 src/rbm_logistic_classifier.py --dataset bank_marketing
+python3 src/mamdani_fuzzy_classifier.py --dataset heart_disease
+python3 src/anfis_classifier.py --dataset mushroom
 ```
 
-4. Rodar estudo incremental (scripts específicos salvo em `src/`): consultar `resultados[2]/` para saídas resumidas.
+### Estudo de hiperparâmetros (unificado)
 
 ```bash
-# Exemplo: estudo rápido de hiperparâmetros (5 seeds) para ANFIS no Adult
+python3 src/hyperparameter_study.py --algorithm mlp --dataset adult --seeds 5
+python3 src/hyperparameter_study.py --algorithm rbm --dataset adult --seeds 5
+python3 src/hyperparameter_study.py --algorithm mamdani --dataset adult --seeds 5
 python3 src/hyperparameter_study.py --algorithm anfis --dataset adult --seeds 5
-
-# Exemplo: execução otimizada (21 seeds) para Mamdani em todos os datasets
-python3 src/optimized_experiments.py --algorithm mamdani
 ```
+
+### Execuções otimizadas (unificado, 21 seeds)
+
+```bash
+python3 src/optimized_experiments.py --algorithm mlp
+python3 src/optimized_experiments.py --algorithm rbm
+python3 src/optimized_experiments.py --algorithm mamdani
+python3 src/optimized_experiments.py --algorithm anfis
+```
+
+### Arquivos de saída
+
+- Baselines: `resultados/`
+- Estudo e versões otimizadas: `resultados[2]/`
+- Resumos comparativos: `resultados[2]/comparacao_*.json`
 
 ## 8) Organização dos diretórios e arquivos importantes
 
