@@ -1,7 +1,4 @@
-"""
-Runner único para estudos incrementais de hiperparâmetros (variação univariada).
-Substitui os scripts *_hyperparameter_study.py individuais.
-"""
+"""Estudo unificado de hiperparâmetros (variação univariada)."""
 
 import argparse
 import json

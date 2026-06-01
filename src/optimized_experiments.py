@@ -1,7 +1,4 @@
-"""
-Runner único para executar versões otimizadas dos algoritmos.
-Substitui scripts *_optimized.py individuais.
-"""
+"""Executa versões otimizadas dos algoritmos (runner unificado)."""
 
 import argparse
 import time

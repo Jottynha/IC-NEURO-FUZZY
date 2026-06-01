@@ -43,6 +43,23 @@ Os dados processados (one-hot, normalização e splits estratificados) estão em
 - Para cada algoritmo: executar busca em grade limitada; para cada `random_state` testar toda a grade e escolher a configuração com maior F1 na validação. Repetir para 21 seeds (arquivo `experiment_utils.py`).
 - Métricas: Accuracy, Precision (weighted), Recall (weighted) e F1 (weighted). Matrizes de confusão agregadas são salvas.
 
+### 3.1) Métricas de Avaliação
+
+As métricas usadas para avaliar os resultados finais e para selecionar configurações são as seguintes:
+
+- **Accuracy:** proporção de previsões corretas sobre o total.
+- **Precision (weighted):** precisão ponderada pelas proporções das classes; penaliza falsos positivos considerando o balanceamento das classes.
+- **Recall (weighted):** recall (sensibilidade) ponderado pelas proporções das classes; penaliza falsos negativos considerando o balanceamento das classes.
+- **F1 (weighted):** média harmônica ponderada entre Precision e Recall por classe. Usamos a versão *weighted* para lidar com desbalanceamento de classes.
+- **Matrizes de confusão agregadas:** somamos as matrizes de confusão das réplicas (seeds) para inspecionar padrões de erro por classe.
+- **Tempo de execução (seconds):** tempo médio por execução (e desvio padrão) registrado para comparação de custo computacional entre métodos.
+
+Observações sobre uso das métricas no fluxo experimental:
+
+- A seleção de hiperparâmetros por `random_state` é feita a partir do maior **F1** no conjunto de validação.
+- Para estimar variabilidade e obter estimativas robustas, repetimos cada experimento em 21 seeds (exceto estudos exploratórios com menos seeds). Relatamos média e desvio-padrão das métricas ao final.
+- Em resumos e gráficos usamos principalmente `val_f1_mean`, `test_f1_mean`, `val_f1_std`, `test_f1_std` e `time_seconds_mean`/`time_seconds_std`.
+
 ## 4) Algoritmos (implementação e parâmetros)
 
 4.1. MLP (Perceptron Multicamadas)

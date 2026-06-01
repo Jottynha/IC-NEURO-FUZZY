@@ -1,5 +1,3 @@
-# Experimentos com MLP: grade de parâmetros, 21 execuções e matriz de confusão.
-
 import argparse
 from pathlib import Path
 from typing import Any, Dict

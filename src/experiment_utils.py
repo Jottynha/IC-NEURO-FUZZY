@@ -1,8 +1,4 @@
-"""Funções comuns para experimentos com múltiplas execuções.
-
-Este módulo centraliza carregamento dos dados, cálculo de métricas,
-agregação de resultados e escrita dos relatórios em TXT/CSV/JSON.
-"""
+"""Utilitários para carregar dados, calcular métricas e gerar relatórios."""
 
 from __future__ import annotations
 

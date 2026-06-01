@@ -1,5 +1,3 @@
-# Experimentos com Sistema Fuzzy de Mamdani: grade, 21 execuções e matriz de confusão.
-
 import argparse
 from pathlib import Path
 from typing import Any, Dict, Tuple
