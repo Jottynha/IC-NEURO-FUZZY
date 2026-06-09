@@ -1,9 +1,10 @@
 {
   "dataset": "bank_marketing",
   "uci_id": 222,
-  "n_samples": 45211,
+  "n_samples": 13563,
   "n_features": 38,
   "n_classes": 2,
+  "sample_fraction": 0.3,
   "split": {
     "train": 0.6,
     "val": 0.2,

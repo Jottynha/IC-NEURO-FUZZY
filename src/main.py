@@ -43,7 +43,10 @@ def run_script(path: str, extra_args: list[str] | None = None) -> int:
         cmd.extend(extra_args)
     result = subprocess.run(cmd, cwd=ROOT)
     elapsed = time.time() - start
-    print(f"<<< Concluído: {path} (tempo {elapsed:.1f}s)")
+    if result.returncode == 0:
+        print(f"<<< Concluído: {path} (tempo {elapsed:.1f}s)")
+    else:
+        print(f"<<< Falhou: {path} (código {result.returncode}, tempo {elapsed:.1f}s)")
     return result.returncode
 
 

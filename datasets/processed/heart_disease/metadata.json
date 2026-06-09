@@ -4,6 +4,7 @@
   "n_samples": 303,
   "n_features": 13,
   "n_classes": 5,
+  "sample_fraction": 1.0,
   "split": {
     "train": 0.6,
     "val": 0.2,

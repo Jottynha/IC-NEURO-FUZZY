@@ -1,9 +1,10 @@
 {
   "dataset": "adult",
   "uci_id": 2,
-  "n_samples": 48842,
+  "n_samples": 14652,
   "n_features": 100,
-  "n_classes": 4,
+  "n_classes": 2,
+  "sample_fraction": 0.3,
   "split": {
     "train": 0.6,
     "val": 0.2,
