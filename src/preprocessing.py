@@ -85,7 +85,16 @@ def preprocess_dataset(
         print(f"Após amostragem: {X.shape[0]} amostras ({sample_fraction:.2%})")
 
     # Tratamento de valores faltantes e codificação das variáveis explicativas.
-    X = X.ffill().fillna(X.mode().iloc[0])
+    # Evita chained assignment e deixa o preenchimento compatível com pandas 3.x.
+    X = X.replace("?", np.nan)
+    for col in X.columns:
+        if X[col].isna().any():
+            if pd.api.types.is_numeric_dtype(X[col]):
+                fill_value = X[col].median()
+            else:
+                mode_values = X[col].mode(dropna=True)
+                fill_value = mode_values.iloc[0] if not mode_values.empty else ""
+            X.loc[:, col] = X[col].fillna(fill_value)
     X = pd.get_dummies(X, drop_first=True)
 
     # Codificação da variável-alvo.

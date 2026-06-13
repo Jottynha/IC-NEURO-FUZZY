@@ -4,6 +4,7 @@ import argparse
 import subprocess
 import sys
 import time
+from collections import defaultdict
 from pathlib import Path
 from typing import Iterable
 
@@ -73,6 +74,21 @@ def build_dataset_algorithm_map(args) -> tuple[list[str], dict[str, list[str]]]:
     return selected_datasets, dataset_algorithm_map
 
 
+def group_datasets_by_algorithm(dataset_algorithm_map: dict[str, list[str]]) -> dict[str, list[str]]:
+    """Inverte o mapa dataset -> algoritmos para algoritmo -> datasets.
+
+    Os scripts dos classificadores já aceitam uma lista de datasets separados por vírgula.
+    Portanto, cada algoritmo deve ser chamado uma única vez com todos os datasets
+    selecionados. Isso impede que arquivos como resultados/resumo_mlp.csv sejam
+    sobrescritos a cada dataset executado individualmente.
+    """
+    grouped: dict[str, list[str]] = defaultdict(list)
+    for dataset_name, algorithms in dataset_algorithm_map.items():
+        for algorithm in algorithms:
+            grouped[algorithm].append(dataset_name)
+    return dict(grouped)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Orquestrador principal de experimentos")
     parser.add_argument("--random-state", type=int, default=42)
@@ -119,13 +135,16 @@ def main() -> None:
                 print(f"Pré-processamento de {dataset_name} retornou código {rc}. Interrompendo.")
                 return
 
-    for dataset_name, algorithms in dataset_algorithm_map.items():
-        for algorithm in algorithms:
-            script = ALGORITHM_SCRIPTS[algorithm]
-            rc = run_script(script, ["--dataset", dataset_name])
-            if rc != 0:
-                print(f"Script {script} retornou código {rc}. Interrompendo.")
-                return
+    # Importante: executar por algoritmo, não por dataset.
+    # Assim cada classificador recebe todos os datasets de uma vez e salva relatórios consolidados.
+    algorithm_dataset_map = group_datasets_by_algorithm(dataset_algorithm_map)
+    for algorithm, datasets in algorithm_dataset_map.items():
+        script = ALGORITHM_SCRIPTS[algorithm]
+        dataset_arg = ",".join(datasets)
+        rc = run_script(script, ["--dataset", dataset_arg])
+        if rc != 0:
+            print(f"Script {script} retornou código {rc}. Interrompendo.")
+            return
 
 
 if __name__ == "__main__":

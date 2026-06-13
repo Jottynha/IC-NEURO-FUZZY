@@ -2,7 +2,7 @@
   "dataset": "adult",
   "uci_id": 2,
   "n_samples": 14652,
-  "n_features": 100,
+  "n_features": 97,
   "n_classes": 2,
   "sample_fraction": 0.3,
   "split": {

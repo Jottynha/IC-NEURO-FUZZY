@@ -1,0 +1,6396 @@
+[
+  {
+    "dataset": "mushroom",
+    "algorithm": "Sistema Fuzzy de Mamdani",
+    "labels": [
+      0,
+      1
+    ],
+    "param_grid": [
+      {
+        "n_membership_functions": 2,
+        "max_train_samples": 300
+      },
+      {
+        "n_membership_functions": 3,
+        "max_train_samples": 300
+      },
+      {
+        "n_membership_functions": 5,
+        "max_train_samples": 300
+      },
+      {
+        "n_membership_functions": 3,
+        "max_train_samples": 500
+      }
+    ],
+    "runs": [
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 1,
+        "random_state": 1,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5460408001672477,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              247,
+              0
+            ],
+            [
+              0,
+              253
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9951237762673817,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950746694306267,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997552462834273,
+          "recall": 0.997539975399754,
+          "f1": 0.9975401766013297,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 2,
+        "random_state": 2,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5373230001423508,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              246,
+              0
+            ],
+            [
+              0,
+              254
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9951202549985511,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950728737542189,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.991389913899139,
+          "precision": 0.99153073306434,
+          "recall": 0.991389913899139,
+          "f1": 0.9913866247821107,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              7,
+              385
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 3,
+        "random_state": 3,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2572317000012845,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              156,
+              0
+            ],
+            [
+              0,
+              144
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938784781221928,
+          "recall": 0.993849938499385,
+          "f1": 0.9938506650023119,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 4,
+        "random_state": 4,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2681857000570744,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              157,
+              0
+            ],
+            [
+              0,
+              143
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997552462834273,
+          "recall": 0.997539975399754,
+          "f1": 0.9975401766013297,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 5,
+        "random_state": 5,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5419154001865536,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              259,
+              0
+            ],
+            [
+              0,
+              241
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9963054187192119,
+          "precision": 0.99630809757873,
+          "recall": 0.9963054187192119,
+          "f1": 0.9963052447596478,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 6,
+        "random_state": 6,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.541969999903813,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              268,
+              0
+            ],
+            [
+              0,
+              232
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9913793103448276,
+          "precision": 0.9913830803257263,
+          "recall": 0.9913793103448276,
+          "f1": 0.9913796899938193,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963132941034972,
+          "recall": 0.996309963099631,
+          "f1": 0.9963101196027827,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 7,
+        "random_state": 7,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5541616000700742,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              254,
+              0
+            ],
+            [
+              0,
+              246
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 8,
+        "random_state": 8,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5902168999891728,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              255,
+              0
+            ],
+            [
+              0,
+              245
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938459250695351,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938426357098711,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963360718512846,
+          "recall": 0.996309963099631,
+          "f1": 0.9963094263222594,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 9,
+        "random_state": 9,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.27511729998514056,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              162,
+              0
+            ],
+            [
+              0,
+              138
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 10,
+        "random_state": 10,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.25972050009295344,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              158,
+              0
+            ],
+            [
+              0,
+              142
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 11,
+        "random_state": 11,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5539210999850184,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              251,
+              0
+            ],
+            [
+              0,
+              249
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9926108374384236,
+          "precision": 0.9926241498703413,
+          "recall": 0.9926108374384236,
+          "f1": 0.9926114657685734,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 12,
+        "random_state": 12,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2839013999328017,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              155,
+              0
+            ],
+            [
+              0,
+              145
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9975369458128078,
+          "precision": 0.997548591459083,
+          "recall": 0.9975369458128078,
+          "f1": 0.9975367063616777,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987729024209674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987699317960714,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 13,
+        "random_state": 13,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5364075999241322,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              235,
+              0
+            ],
+            [
+              0,
+              265
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.9975516067217409,
+          "recall": 0.997539975399754,
+          "f1": 0.997539744309335,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              2,
+              390
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 14,
+        "random_state": 14,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.26147629995830357,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              156,
+              0
+            ],
+            [
+              0,
+              144
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987729024209674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987699317960714,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 15,
+        "random_state": 15,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5417486000806093,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              264,
+              0
+            ],
+            [
+              0,
+              236
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 16,
+        "random_state": 16,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5662501999177039,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              257,
+              0
+            ],
+            [
+              0,
+              243
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938448039404079,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938420745994129,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.991389913899139,
+          "precision": 0.9914144565731441,
+          "recall": 0.991389913899139,
+          "f1": 0.9913886614186055,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              5,
+              387
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 17,
+        "random_state": 17,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5429071001708508,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              262,
+              0
+            ],
+            [
+              0,
+              238
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 18,
+        "random_state": 18,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2710082000121474,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              155,
+              0
+            ],
+            [
+              0,
+              145
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9975369458128078,
+          "precision": 0.9975369458128078,
+          "recall": 0.9975369458128078,
+          "f1": 0.9975369458128078,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 19,
+        "random_state": 19,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2701284000650048,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              166,
+              0
+            ],
+            [
+              0,
+              134
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938534707048269,
+          "recall": 0.993849938499385,
+          "f1": 0.9938501993379711,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              2,
+              390
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 20,
+        "random_state": 20,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2676315000280738,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              167,
+              0
+            ],
+            [
+              0,
+              133
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9926108374384236,
+          "precision": 0.9927225124393543,
+          "recall": 0.9926108374384236,
+          "f1": 0.9926124526343787,
+          "confusion_matrix": [
+            [
+              415,
+              6
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.995079950799508,
+          "precision": 0.9950928107708564,
+          "recall": 0.995079950799508,
+          "f1": 0.9950803532026596,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 21,
+        "random_state": 21,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.544438999844715,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              249,
+              0
+            ],
+            [
+              0,
+              251
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9951202549985511,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950728737542189,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997539975399754,
+          "recall": 0.997539975399754,
+          "f1": 0.997539975399754,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      }
+    ],
+    "tried": [
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 1,
+        "random_state": 1,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2636563000269234,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              170,
+              0
+            ],
+            [
+              0,
+              130
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9901477832512315,
+          "precision": 0.9901477832512315,
+          "recall": 0.9901477832512315,
+          "f1": 0.9901477832512315,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938784781221928,
+          "recall": 0.993849938499385,
+          "f1": 0.9938506650023119,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 1,
+        "random_state": 1,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3505780999548733,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              170,
+              0
+            ],
+            [
+              0,
+              130
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9901477832512315,
+          "precision": 0.9901477832512315,
+          "recall": 0.9901477832512315,
+          "f1": 0.9901477832512315,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938784781221928,
+          "recall": 0.993849938499385,
+          "f1": 0.9938506650023119,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 1,
+        "random_state": 1,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.53687489987351,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              170,
+              0
+            ],
+            [
+              0,
+              130
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9901477832512315,
+          "precision": 0.9901477832512315,
+          "recall": 0.9901477832512315,
+          "f1": 0.9901477832512315,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938784781221928,
+          "recall": 0.993849938499385,
+          "f1": 0.9938506650023119,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 1,
+        "random_state": 1,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5460408001672477,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              247,
+              0
+            ],
+            [
+              0,
+              253
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9951237762673817,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950746694306267,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997552462834273,
+          "recall": 0.997539975399754,
+          "f1": 0.9975401766013297,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 2,
+        "random_state": 2,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2740917999763042,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              141,
+              0
+            ],
+            [
+              0,
+              159
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938448039404079,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938420745994129,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9939273951933475,
+          "recall": 0.993849938499385,
+          "f1": 0.9938510560269482,
+          "confusion_matrix": [
+            [
+              416,
+              5
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 2,
+        "random_state": 2,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3752453001216054,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              141,
+              0
+            ],
+            [
+              0,
+              159
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938448039404079,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938420745994129,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9939273951933475,
+          "recall": 0.993849938499385,
+          "f1": 0.9938510560269482,
+          "confusion_matrix": [
+            [
+              416,
+              5
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 2,
+        "random_state": 2,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5517530001234263,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              141,
+              0
+            ],
+            [
+              0,
+              159
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938448039404079,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938420745994129,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9939273951933475,
+          "recall": 0.993849938499385,
+          "f1": 0.9938510560269482,
+          "confusion_matrix": [
+            [
+              416,
+              5
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 2,
+        "random_state": 2,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5373230001423508,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              246,
+              0
+            ],
+            [
+              0,
+              254
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9951202549985511,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950728737542189,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.991389913899139,
+          "precision": 0.99153073306434,
+          "recall": 0.991389913899139,
+          "f1": 0.9913866247821107,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              7,
+              385
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 3,
+        "random_state": 3,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2572317000012845,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              156,
+              0
+            ],
+            [
+              0,
+              144
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938784781221928,
+          "recall": 0.993849938499385,
+          "f1": 0.9938506650023119,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 3,
+        "random_state": 3,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.35059829987585545,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              156,
+              0
+            ],
+            [
+              0,
+              144
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938784781221928,
+          "recall": 0.993849938499385,
+          "f1": 0.9938506650023119,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 3,
+        "random_state": 3,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5301916999742389,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              156,
+              0
+            ],
+            [
+              0,
+              144
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938784781221928,
+          "recall": 0.993849938499385,
+          "f1": 0.9938506650023119,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 3,
+        "random_state": 3,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5339610001537949,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              261,
+              0
+            ],
+            [
+              0,
+              239
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950850283361925,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950734127233555,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 4,
+        "random_state": 4,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2681857000570744,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              157,
+              0
+            ],
+            [
+              0,
+              143
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997552462834273,
+          "recall": 0.997539975399754,
+          "f1": 0.9975401766013297,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 4,
+        "random_state": 4,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.36549189989455044,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              157,
+              0
+            ],
+            [
+              0,
+              143
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997552462834273,
+          "recall": 0.997539975399754,
+          "f1": 0.9975401766013297,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 4,
+        "random_state": 4,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.6202177000232041,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              157,
+              0
+            ],
+            [
+              0,
+              143
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997552462834273,
+          "recall": 0.997539975399754,
+          "f1": 0.9975401766013297,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 4,
+        "random_state": 4,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5971770999021828,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              268,
+              0
+            ],
+            [
+              0,
+              232
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963379886963426,
+          "recall": 0.996309963099631,
+          "f1": 0.9963103990013871,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 5,
+        "random_state": 5,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2852842998690903,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              158,
+              0
+            ],
+            [
+              0,
+              142
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950850283361925,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950734127233555,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938752642122143,
+          "recall": 0.993849938499385,
+          "f1": 0.9938490438704324,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              4,
+              388
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 5,
+        "random_state": 5,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3773793000727892,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              158,
+              0
+            ],
+            [
+              0,
+              142
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950850283361925,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950734127233555,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938752642122143,
+          "recall": 0.993849938499385,
+          "f1": 0.9938490438704324,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              4,
+              388
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 5,
+        "random_state": 5,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5530109999235719,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              158,
+              0
+            ],
+            [
+              0,
+              142
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950850283361925,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950734127233555,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938752642122143,
+          "recall": 0.993849938499385,
+          "f1": 0.9938490438704324,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              4,
+              388
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 5,
+        "random_state": 5,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5419154001865536,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              259,
+              0
+            ],
+            [
+              0,
+              241
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9963054187192119,
+          "precision": 0.99630809757873,
+          "recall": 0.9963054187192119,
+          "f1": 0.9963052447596478,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 6,
+        "random_state": 6,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2611867000814527,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              144,
+              0
+            ],
+            [
+              0,
+              156
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9913793103448276,
+          "precision": 0.9914500851814478,
+          "recall": 0.9913793103448276,
+          "f1": 0.9913770180227861,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              6,
+              385
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.995079950799508,
+          "precision": 0.9950910900271032,
+          "recall": 0.995079950799508,
+          "f1": 0.9950794886186701,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 6,
+        "random_state": 6,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.34985819994471967,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              144,
+              0
+            ],
+            [
+              0,
+              156
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9913793103448276,
+          "precision": 0.9914500851814478,
+          "recall": 0.9913793103448276,
+          "f1": 0.9913770180227861,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              6,
+              385
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.995079950799508,
+          "precision": 0.9950910900271032,
+          "recall": 0.995079950799508,
+          "f1": 0.9950794886186701,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 6,
+        "random_state": 6,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5382824002299458,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              144,
+              0
+            ],
+            [
+              0,
+              156
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9913793103448276,
+          "precision": 0.9914500851814478,
+          "recall": 0.9913793103448276,
+          "f1": 0.9913770180227861,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              6,
+              385
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.995079950799508,
+          "precision": 0.9950910900271032,
+          "recall": 0.995079950799508,
+          "f1": 0.9950794886186701,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 6,
+        "random_state": 6,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.541969999903813,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              268,
+              0
+            ],
+            [
+              0,
+              232
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9913793103448276,
+          "precision": 0.9913830803257263,
+          "recall": 0.9913793103448276,
+          "f1": 0.9913796899938193,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963132941034972,
+          "recall": 0.996309963099631,
+          "f1": 0.9963101196027827,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 7,
+        "random_state": 7,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2625228997785598,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              153,
+              0
+            ],
+            [
+              0,
+              147
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9864532019704434,
+          "precision": 0.9864834868945991,
+          "recall": 0.9864532019704434,
+          "f1": 0.9864548680282167,
+          "confusion_matrix": [
+            [
+              414,
+              7
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963379886963426,
+          "recall": 0.996309963099631,
+          "f1": 0.9963103990013871,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 7,
+        "random_state": 7,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3662759999278933,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              153,
+              0
+            ],
+            [
+              0,
+              147
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9864532019704434,
+          "precision": 0.9864834868945991,
+          "recall": 0.9864532019704434,
+          "f1": 0.9864548680282167,
+          "confusion_matrix": [
+            [
+              414,
+              7
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963379886963426,
+          "recall": 0.996309963099631,
+          "f1": 0.9963103990013871,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 7,
+        "random_state": 7,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5329965001437813,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              153,
+              0
+            ],
+            [
+              0,
+              147
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9864532019704434,
+          "precision": 0.9864834868945991,
+          "recall": 0.9864532019704434,
+          "f1": 0.9864548680282167,
+          "confusion_matrix": [
+            [
+              414,
+              7
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963379886963426,
+          "recall": 0.996309963099631,
+          "f1": 0.9963103990013871,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 7,
+        "random_state": 7,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5541616000700742,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              254,
+              0
+            ],
+            [
+              0,
+              246
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 8,
+        "random_state": 8,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.27774720010347664,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              165,
+              0
+            ],
+            [
+              0,
+              135
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938676969557014,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938414384381634,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963360718512846,
+          "recall": 0.996309963099631,
+          "f1": 0.9963094263222594,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 8,
+        "random_state": 8,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3747235999908298,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              165,
+              0
+            ],
+            [
+              0,
+              135
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938676969557014,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938414384381634,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963360718512846,
+          "recall": 0.996309963099631,
+          "f1": 0.9963094263222594,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 8,
+        "random_state": 8,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5473748999647796,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              165,
+              0
+            ],
+            [
+              0,
+              135
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938676969557014,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938414384381634,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963360718512846,
+          "recall": 0.996309963099631,
+          "f1": 0.9963094263222594,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 8,
+        "random_state": 8,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5902168999891728,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              255,
+              0
+            ],
+            [
+              0,
+              245
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938459250695351,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938426357098711,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963360718512846,
+          "recall": 0.996309963099631,
+          "f1": 0.9963094263222594,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 9,
+        "random_state": 9,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.27511729998514056,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              162,
+              0
+            ],
+            [
+              0,
+              138
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 9,
+        "random_state": 9,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.35901040001772344,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              162,
+              0
+            ],
+            [
+              0,
+              138
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 9,
+        "random_state": 9,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5532477998640388,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              162,
+              0
+            ],
+            [
+              0,
+              138
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 9,
+        "random_state": 9,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5382043998688459,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              261,
+              0
+            ],
+            [
+              0,
+              239
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 10,
+        "random_state": 10,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.25972050009295344,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              158,
+              0
+            ],
+            [
+              0,
+              142
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 10,
+        "random_state": 10,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3476509000174701,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              158,
+              0
+            ],
+            [
+              0,
+              142
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 10,
+        "random_state": 10,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5279539998155087,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              158,
+              0
+            ],
+            [
+              0,
+              142
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 10,
+        "random_state": 10,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5367256000172347,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              269,
+              0
+            ],
+            [
+              0,
+              231
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9951237762673817,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950746694306267,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997552462834273,
+          "recall": 0.997539975399754,
+          "f1": 0.9975401766013297,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 11,
+        "random_state": 11,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2699372998904437,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              148,
+              0
+            ],
+            [
+              0,
+              152
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9839901477832512,
+          "precision": 0.9841442792602263,
+          "recall": 0.9839901477832512,
+          "f1": 0.9839940602415391,
+          "confusion_matrix": [
+            [
+              411,
+              10
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.9876998769987699,
+          "precision": 0.9877514515280319,
+          "recall": 0.9876998769987699,
+          "f1": 0.9877017396829167,
+          "confusion_matrix": [
+            [
+              414,
+              7
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 11,
+        "random_state": 11,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3514990999829024,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              148,
+              0
+            ],
+            [
+              0,
+              152
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9839901477832512,
+          "precision": 0.9841442792602263,
+          "recall": 0.9839901477832512,
+          "f1": 0.9839940602415391,
+          "confusion_matrix": [
+            [
+              411,
+              10
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.9876998769987699,
+          "precision": 0.9877514515280319,
+          "recall": 0.9876998769987699,
+          "f1": 0.9877017396829167,
+          "confusion_matrix": [
+            [
+              414,
+              7
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 11,
+        "random_state": 11,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.556264900136739,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              148,
+              0
+            ],
+            [
+              0,
+              152
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9839901477832512,
+          "precision": 0.9841442792602263,
+          "recall": 0.9839901477832512,
+          "f1": 0.9839940602415391,
+          "confusion_matrix": [
+            [
+              411,
+              10
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.9876998769987699,
+          "precision": 0.9877514515280319,
+          "recall": 0.9876998769987699,
+          "f1": 0.9877017396829167,
+          "confusion_matrix": [
+            [
+              414,
+              7
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 11,
+        "random_state": 11,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5539210999850184,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              251,
+              0
+            ],
+            [
+              0,
+              249
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9926108374384236,
+          "precision": 0.9926241498703413,
+          "recall": 0.9926108374384236,
+          "f1": 0.9926114657685734,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 12,
+        "random_state": 12,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2839013999328017,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              155,
+              0
+            ],
+            [
+              0,
+              145
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9975369458128078,
+          "precision": 0.997548591459083,
+          "recall": 0.9975369458128078,
+          "f1": 0.9975367063616777,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987729024209674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987699317960714,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 12,
+        "random_state": 12,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3591971998102963,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              155,
+              0
+            ],
+            [
+              0,
+              145
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9975369458128078,
+          "precision": 0.997548591459083,
+          "recall": 0.9975369458128078,
+          "f1": 0.9975367063616777,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987729024209674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987699317960714,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 12,
+        "random_state": 12,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5735307999420911,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              155,
+              0
+            ],
+            [
+              0,
+              145
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9975369458128078,
+          "precision": 0.997548591459083,
+          "recall": 0.9975369458128078,
+          "f1": 0.9975367063616777,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987729024209674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987699317960714,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 12,
+        "random_state": 12,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5732445002067834,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              267,
+              0
+            ],
+            [
+              0,
+              233
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9963054187192119,
+          "precision": 0.996308769813344,
+          "recall": 0.9963054187192119,
+          "f1": 0.9963055814259224,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997552462834273,
+          "recall": 0.997539975399754,
+          "f1": 0.9975401766013297,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 13,
+        "random_state": 13,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.3098100998904556,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              163,
+              0
+            ],
+            [
+              0,
+              137
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 13,
+        "random_state": 13,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3557460999581963,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              163,
+              0
+            ],
+            [
+              0,
+              137
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 13,
+        "random_state": 13,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5373702000360936,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              163,
+              0
+            ],
+            [
+              0,
+              137
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 13,
+        "random_state": 13,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5364075999241322,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              235,
+              0
+            ],
+            [
+              0,
+              265
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.9975516067217409,
+          "recall": 0.997539975399754,
+          "f1": 0.997539744309335,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              2,
+              390
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 14,
+        "random_state": 14,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.26147629995830357,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              156,
+              0
+            ],
+            [
+              0,
+              144
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987729024209674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987699317960714,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 14,
+        "random_state": 14,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.34896499989554286,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              156,
+              0
+            ],
+            [
+              0,
+              144
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987729024209674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987699317960714,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 14,
+        "random_state": 14,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5281392000615597,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              156,
+              0
+            ],
+            [
+              0,
+              144
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950868151550281,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950743105123823,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987729024209674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987699317960714,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 14,
+        "random_state": 14,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5377507000230253,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              240,
+              0
+            ],
+            [
+              0,
+              260
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9926108374384236,
+          "precision": 0.9926613800311002,
+          "recall": 0.9926108374384236,
+          "f1": 0.99261200414594,
+          "confusion_matrix": [
+            [
+              416,
+              5
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963379886963426,
+          "recall": 0.996309963099631,
+          "f1": 0.9963103990013871,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 15,
+        "random_state": 15,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2647320998366922,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              159,
+              0
+            ],
+            [
+              0,
+              141
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9963054187192119,
+          "precision": 0.99630809757873,
+          "recall": 0.9963054187192119,
+          "f1": 0.9963052447596478,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997539975399754,
+          "recall": 0.997539975399754,
+          "f1": 0.997539975399754,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 15,
+        "random_state": 15,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3696361999027431,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              159,
+              0
+            ],
+            [
+              0,
+              141
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9963054187192119,
+          "precision": 0.99630809757873,
+          "recall": 0.9963054187192119,
+          "f1": 0.9963052447596478,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997539975399754,
+          "recall": 0.997539975399754,
+          "f1": 0.997539975399754,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 15,
+        "random_state": 15,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5541701999027282,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              159,
+              0
+            ],
+            [
+              0,
+              141
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9963054187192119,
+          "precision": 0.99630809757873,
+          "recall": 0.9963054187192119,
+          "f1": 0.9963052447596478,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997539975399754,
+          "recall": 0.997539975399754,
+          "f1": 0.997539975399754,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 15,
+        "random_state": 15,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5417486000806093,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              264,
+              0
+            ],
+            [
+              0,
+              236
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9987684729064039,
+          "precision": 0.9987713912170524,
+          "recall": 0.9987684729064039,
+          "f1": 0.9987684149198826,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 16,
+        "random_state": 16,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.27339269989170134,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              153,
+              0
+            ],
+            [
+              0,
+              147
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9864532019704434,
+          "precision": 0.9867981435869367,
+          "recall": 0.9864532019704434,
+          "f1": 0.9864439120971932,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              11,
+              380
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.977859778597786,
+          "precision": 0.9785730288287838,
+          "recall": 0.977859778597786,
+          "f1": 0.9778355869223027,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              17,
+              375
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 16,
+        "random_state": 16,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3667821998242289,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              153,
+              0
+            ],
+            [
+              0,
+              147
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9864532019704434,
+          "precision": 0.9867981435869367,
+          "recall": 0.9864532019704434,
+          "f1": 0.9864439120971932,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              11,
+              380
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.977859778597786,
+          "precision": 0.9785730288287838,
+          "recall": 0.977859778597786,
+          "f1": 0.9778355869223027,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              17,
+              375
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 16,
+        "random_state": 16,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.566043000202626,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              153,
+              0
+            ],
+            [
+              0,
+              147
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9864532019704434,
+          "precision": 0.9867981435869367,
+          "recall": 0.9864532019704434,
+          "f1": 0.9864439120971932,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              11,
+              380
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.977859778597786,
+          "precision": 0.9785730288287838,
+          "recall": 0.977859778597786,
+          "f1": 0.9778355869223027,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              17,
+              375
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 16,
+        "random_state": 16,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5662501999177039,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              257,
+              0
+            ],
+            [
+              0,
+              243
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938448039404079,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938420745994129,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.991389913899139,
+          "precision": 0.9914144565731441,
+          "recall": 0.991389913899139,
+          "f1": 0.9913886614186055,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              5,
+              387
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 17,
+        "random_state": 17,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.26671570003964007,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              171,
+              0
+            ],
+            [
+              0,
+              129
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950738916256158,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950738916256158,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997539975399754,
+          "recall": 0.997539975399754,
+          "f1": 0.997539975399754,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 17,
+        "random_state": 17,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3622848999220878,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              171,
+              0
+            ],
+            [
+              0,
+              129
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950738916256158,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950738916256158,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997539975399754,
+          "recall": 0.997539975399754,
+          "f1": 0.997539975399754,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 17,
+        "random_state": 17,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5473611000925303,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              171,
+              0
+            ],
+            [
+              0,
+              129
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950738916256158,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950738916256158,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997539975399754,
+          "recall": 0.997539975399754,
+          "f1": 0.997539975399754,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 17,
+        "random_state": 17,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5429071001708508,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              262,
+              0
+            ],
+            [
+              0,
+              238
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.998769987699877,
+          "precision": 0.9987731175021674,
+          "recall": 0.998769987699877,
+          "f1": 0.9987700398675943,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 18,
+        "random_state": 18,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2710082000121474,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              155,
+              0
+            ],
+            [
+              0,
+              145
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9975369458128078,
+          "precision": 0.9975369458128078,
+          "recall": 0.9975369458128078,
+          "f1": 0.9975369458128078,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 18,
+        "random_state": 18,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.3566936000715941,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              155,
+              0
+            ],
+            [
+              0,
+              145
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9975369458128078,
+          "precision": 0.9975369458128078,
+          "recall": 0.9975369458128078,
+          "f1": 0.9975369458128078,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 18,
+        "random_state": 18,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5448936999309808,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              155,
+              0
+            ],
+            [
+              0,
+              145
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9975369458128078,
+          "precision": 0.9975369458128078,
+          "recall": 0.9975369458128078,
+          "f1": 0.9975369458128078,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 18,
+        "random_state": 18,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.553277499973774,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              252,
+              0
+            ],
+            [
+              0,
+              248
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9950738916256158,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950738916256158,
+          "confusion_matrix": [
+            [
+              419,
+              2
+            ],
+            [
+              2,
+              389
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.995079950799508,
+          "precision": 0.9951262571449243,
+          "recall": 0.995079950799508,
+          "f1": 0.9950789666107245,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              4,
+              388
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 19,
+        "random_state": 19,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2701284000650048,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              166,
+              0
+            ],
+            [
+              0,
+              134
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938534707048269,
+          "recall": 0.993849938499385,
+          "f1": 0.9938501993379711,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              2,
+              390
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 19,
+        "random_state": 19,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.40055939997546375,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              166,
+              0
+            ],
+            [
+              0,
+              134
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938534707048269,
+          "recall": 0.993849938499385,
+          "f1": 0.9938501993379711,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              2,
+              390
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 19,
+        "random_state": 19,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.6093502000439912,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              166,
+              0
+            ],
+            [
+              0,
+              134
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9938423645320197,
+          "precision": 0.9938710342602206,
+          "recall": 0.9938423645320197,
+          "f1": 0.9938431218310075,
+          "confusion_matrix": [
+            [
+              417,
+              4
+            ],
+            [
+              1,
+              390
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.993849938499385,
+          "precision": 0.9938534707048269,
+          "recall": 0.993849938499385,
+          "f1": 0.9938501993379711,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              2,
+              390
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 19,
+        "random_state": 19,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.562411299906671,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              270,
+              0
+            ],
+            [
+              0,
+              230
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9876847290640394,
+          "precision": 0.9878656951223801,
+          "recall": 0.9876847290640394,
+          "f1": 0.98767903846917,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              9,
+              382
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.976629766297663,
+          "precision": 0.9774333294017871,
+          "recall": 0.976629766297663,
+          "f1": 0.9766020279057073,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              18,
+              374
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 20,
+        "random_state": 20,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.2676315000280738,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              167,
+              0
+            ],
+            [
+              0,
+              133
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9926108374384236,
+          "precision": 0.9927225124393543,
+          "recall": 0.9926108374384236,
+          "f1": 0.9926124526343787,
+          "confusion_matrix": [
+            [
+              415,
+              6
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.995079950799508,
+          "precision": 0.9950928107708564,
+          "recall": 0.995079950799508,
+          "f1": 0.9950803532026596,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 20,
+        "random_state": 20,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.38271929998882115,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              167,
+              0
+            ],
+            [
+              0,
+              133
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9926108374384236,
+          "precision": 0.9927225124393543,
+          "recall": 0.9926108374384236,
+          "f1": 0.9926124526343787,
+          "confusion_matrix": [
+            [
+              415,
+              6
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.995079950799508,
+          "precision": 0.9950928107708564,
+          "recall": 0.995079950799508,
+          "f1": 0.9950803532026596,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 20,
+        "random_state": 20,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5419890999328345,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              167,
+              0
+            ],
+            [
+              0,
+              133
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9926108374384236,
+          "precision": 0.9927225124393543,
+          "recall": 0.9926108374384236,
+          "f1": 0.9926124526343787,
+          "confusion_matrix": [
+            [
+              415,
+              6
+            ],
+            [
+              0,
+              391
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.995079950799508,
+          "precision": 0.9950928107708564,
+          "recall": 0.995079950799508,
+          "f1": 0.9950803532026596,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 20,
+        "random_state": 20,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.5612854000646621,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              254,
+              0
+            ],
+            [
+              0,
+              246
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9926108374384236,
+          "precision": 0.9926108374384236,
+          "recall": 0.9926108374384236,
+          "f1": 0.9926108374384236,
+          "confusion_matrix": [
+            [
+              418,
+              3
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.996309963099631,
+          "precision": 0.9963360718512846,
+          "recall": 0.996309963099631,
+          "f1": 0.9963094263222594,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              3,
+              389
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 21,
+        "random_state": 21,
+        "params": {
+          "n_membership_functions": 2,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 2}",
+        "elapsed_seconds": 0.26054950011894107,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              165,
+              0
+            ],
+            [
+              0,
+              135
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9852216748768473,
+          "precision": 0.985335771745268,
+          "recall": 0.9852216748768473,
+          "f1": 0.9852249052687573,
+          "confusion_matrix": [
+            [
+              412,
+              9
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.992619926199262,
+          "precision": 0.9927311835932431,
+          "recall": 0.992619926199262,
+          "f1": 0.99262146827755,
+          "confusion_matrix": [
+            [
+              415,
+              6
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 21,
+        "random_state": 21,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.35546789993532,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              165,
+              0
+            ],
+            [
+              0,
+              135
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9852216748768473,
+          "precision": 0.985335771745268,
+          "recall": 0.9852216748768473,
+          "f1": 0.9852249052687573,
+          "confusion_matrix": [
+            [
+              412,
+              9
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.992619926199262,
+          "precision": 0.9927311835932431,
+          "recall": 0.992619926199262,
+          "f1": 0.99262146827755,
+          "confusion_matrix": [
+            [
+              415,
+              6
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 21,
+        "random_state": 21,
+        "params": {
+          "n_membership_functions": 5,
+          "max_train_samples": 300
+        },
+        "params_text": "{\"max_train_samples\": 300, \"n_membership_functions\": 5}",
+        "elapsed_seconds": 0.5460661998949945,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              165,
+              0
+            ],
+            [
+              0,
+              135
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9852216748768473,
+          "precision": 0.985335771745268,
+          "recall": 0.9852216748768473,
+          "f1": 0.9852249052687573,
+          "confusion_matrix": [
+            [
+              412,
+              9
+            ],
+            [
+              3,
+              388
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.992619926199262,
+          "precision": 0.9927311835932431,
+          "recall": 0.992619926199262,
+          "f1": 0.99262146827755,
+          "confusion_matrix": [
+            [
+              415,
+              6
+            ],
+            [
+              0,
+              392
+            ]
+          ]
+        }
+      },
+      {
+        "dataset": "mushroom",
+        "algorithm": "Sistema Fuzzy de Mamdani",
+        "run": 21,
+        "random_state": 21,
+        "params": {
+          "n_membership_functions": 3,
+          "max_train_samples": 500
+        },
+        "params_text": "{\"max_train_samples\": 500, \"n_membership_functions\": 3}",
+        "elapsed_seconds": 0.544438999844715,
+        "train": {
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              249,
+              0
+            ],
+            [
+              0,
+              251
+            ]
+          ]
+        },
+        "val": {
+          "accuracy": 0.9950738916256158,
+          "precision": 0.9951202549985511,
+          "recall": 0.9950738916256158,
+          "f1": 0.9950728737542189,
+          "confusion_matrix": [
+            [
+              421,
+              0
+            ],
+            [
+              4,
+              387
+            ]
+          ]
+        },
+        "test": {
+          "accuracy": 0.997539975399754,
+          "precision": 0.997539975399754,
+          "recall": 0.997539975399754,
+          "f1": 0.997539975399754,
+          "confusion_matrix": [
+            [
+              420,
+              1
+            ],
+            [
+              1,
+              391
+            ]
+          ]
+        }
+      }
+    ],
+    "summary": {
+      "train": {
+        "accuracy_mean": 1.0,
+        "accuracy_std": 0.0,
+        "precision_mean": 1.0,
+        "precision_std": 0.0,
+        "recall_mean": 1.0,
+        "recall_std": 0.0,
+        "f1_mean": 1.0,
+        "f1_std": 0.0,
+        "confusion_matrix_sum": [
+          [
+            4479,
+            0
+          ],
+          [
+            0,
+            4221
+          ]
+        ]
+      },
+      "val": {
+        "accuracy_mean": 0.9956603330987568,
+        "accuracy_std": 0.0024201637435884303,
+        "precision_mean": 0.9956793557911525,
+        "precision_std": 0.0024087357443785327,
+        "recall_mean": 0.9956603330987568,
+        "recall_std": 0.0024201637435884303,
+        "f1_mean": 0.9956604984503785,
+        "f1_std": 0.0024199062171208346,
+        "confusion_matrix_sum": [
+          [
+            8799,
+            42
+          ],
+          [
+            32,
+            8179
+          ]
+        ]
+      },
+      "test": {
+        "accuracy_mean": 0.9971299712997128,
+        "accuracy_std": 0.002618896174279845,
+        "precision_mean": 0.9971441531110931,
+        "precision_std": 0.002598859784536714,
+        "recall_mean": 0.9971299712997128,
+        "recall_std": 0.002618896174279845,
+        "f1_mean": 0.9971298183576458,
+        "f1_std": 0.0026193283555208924,
+        "confusion_matrix_sum": [
+          [
+            8817,
+            24
+          ],
+          [
+            25,
+            8207
+          ]
+        ]
+      },
+      "time_seconds_mean": 0.429128680976906,
+      "time_seconds_std": 0.1432922238309838
+    }
+  }
+]

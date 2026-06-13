@@ -9,6 +9,207 @@ Metodologia experimental:
 - As matrizes de confusão abaixo são somas das 21 execuções selecionadas.
 
 ==========================================================================================
+Dataset: ADULT
+Algoritmo: Sistema Fuzzy de Mamdani
+Classes: [0, 1]
+Tamanho da grade de parâmetros: 4
+Parâmetros testados:
+  1. {"max_train_samples": 300, "n_membership_functions": 2}
+  2. {"max_train_samples": 300, "n_membership_functions": 3}
+  3. {"max_train_samples": 300, "n_membership_functions": 5}
+  4. {"max_train_samples": 500, "n_membership_functions": 3}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 1.0000 ± 0.0000
+  Precision : 1.0000 ± 0.0000
+  Recall    : 1.0000 ± 0.0000
+  F1        : 1.0000 ± 0.0000
+  Matriz de confusão agregada:
+    [6613, 0]
+    [0, 2087]
+
+VAL:
+  Accuracy  : 0.7764 ± 0.0087
+  Precision : 0.7768 ± 0.0090
+  Recall    : 0.7764 ± 0.0087
+  F1        : 0.7762 ± 0.0080
+  Matriz de confusão agregada:
+    [39923, 6886]
+    [6875, 7846]
+
+TEST:
+  Accuracy  : 0.7703 ± 0.0084
+  Precision : 0.7675 ± 0.0095
+  Recall    : 0.7703 ± 0.0084
+  F1        : 0.7684 ± 0.0083
+  Matriz de confusão agregada:
+    [40055, 6775]
+    [7366, 7355]
+
+Tempo médio por execução selecionada: 1.51s ± 0.25s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.7689, F1_test=0.7603, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=02, seed=2, F1_val=0.7802, F1_test=0.7736, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=03, seed=3, F1_val=0.7710, F1_test=0.7592, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=04, seed=4, F1_val=0.7764, F1_test=0.7751, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=05, seed=5, F1_val=0.7760, F1_test=0.7733, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=06, seed=6, F1_val=0.7681, F1_test=0.7769, params={"max_train_samples": 300, "n_membership_functions": 3}
+  run=07, seed=7, F1_val=0.7804, F1_test=0.7675, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=08, seed=8, F1_val=0.7650, F1_test=0.7725, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=09, seed=9, F1_val=0.7952, F1_test=0.7757, params={"max_train_samples": 300, "n_membership_functions": 2}
+  run=10, seed=10, F1_val=0.7709, F1_test=0.7606, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=11, seed=11, F1_val=0.7767, F1_test=0.7758, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=12, seed=12, F1_val=0.7767, F1_test=0.7536, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=13, seed=13, F1_val=0.7856, F1_test=0.7628, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=14, seed=14, F1_val=0.7790, F1_test=0.7737, params={"max_train_samples": 300, "n_membership_functions": 3}
+  run=15, seed=15, F1_val=0.7793, F1_test=0.7528, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=16, seed=16, F1_val=0.7669, F1_test=0.7609, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=17, seed=17, F1_val=0.7656, F1_test=0.7660, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=18, seed=18, F1_val=0.7667, F1_test=0.7664, params={"max_train_samples": 300, "n_membership_functions": 3}
+  run=19, seed=19, F1_val=0.7818, F1_test=0.7713, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=20, seed=20, F1_val=0.7865, F1_test=0.7830, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=21, seed=21, F1_val=0.7830, F1_test=0.7756, params={"max_train_samples": 300, "n_membership_functions": 5}
+
+==========================================================================================
+Dataset: BANK_MARKETING
+Algoritmo: Sistema Fuzzy de Mamdani
+Classes: [0, 1]
+Tamanho da grade de parâmetros: 4
+Parâmetros testados:
+  1. {"max_train_samples": 300, "n_membership_functions": 2}
+  2. {"max_train_samples": 300, "n_membership_functions": 3}
+  3. {"max_train_samples": 300, "n_membership_functions": 5}
+  4. {"max_train_samples": 500, "n_membership_functions": 3}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 1.0000 ± 0.0000
+  Precision : 1.0000 ± 0.0000
+  Recall    : 1.0000 ± 0.0000
+  F1        : 1.0000 ± 0.0000
+  Matriz de confusão agregada:
+    [7536, 0]
+    [0, 964]
+
+VAL:
+  Accuracy  : 0.8561 ± 0.0084
+  Precision : 0.8300 ± 0.0053
+  Recall    : 0.8561 ± 0.0084
+  F1        : 0.8404 ± 0.0048
+  Matriz de confusão agregada:
+    [47488, 2807]
+    [5392, 1286]
+
+TEST:
+  Accuracy  : 0.8543 ± 0.0101
+  Precision : 0.8272 ± 0.0070
+  Recall    : 0.8543 ± 0.0101
+  F1        : 0.8381 ± 0.0065
+  Matriz de confusão agregada:
+    [47478, 2838]
+    [5461, 1196]
+
+Tempo médio por execução selecionada: 0.60s ± 0.06s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.8400, F1_test=0.8384, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=02, seed=2, F1_val=0.8478, F1_test=0.8466, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=03, seed=3, F1_val=0.8360, F1_test=0.8339, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=04, seed=4, F1_val=0.8403, F1_test=0.8358, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=05, seed=5, F1_val=0.8301, F1_test=0.8241, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=06, seed=6, F1_val=0.8381, F1_test=0.8289, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=07, seed=7, F1_val=0.8446, F1_test=0.8435, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=08, seed=8, F1_val=0.8445, F1_test=0.8474, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=09, seed=9, F1_val=0.8386, F1_test=0.8473, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=10, seed=10, F1_val=0.8416, F1_test=0.8377, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=11, seed=11, F1_val=0.8310, F1_test=0.8289, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=12, seed=12, F1_val=0.8356, F1_test=0.8307, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=13, seed=13, F1_val=0.8381, F1_test=0.8324, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=14, seed=14, F1_val=0.8447, F1_test=0.8357, params={"max_train_samples": 300, "n_membership_functions": 3}
+  run=15, seed=15, F1_val=0.8366, F1_test=0.8414, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=16, seed=16, F1_val=0.8410, F1_test=0.8404, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=17, seed=17, F1_val=0.8432, F1_test=0.8400, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=18, seed=18, F1_val=0.8437, F1_test=0.8404, params={"max_train_samples": 300, "n_membership_functions": 3}
+  run=19, seed=19, F1_val=0.8479, F1_test=0.8460, params={"max_train_samples": 300, "n_membership_functions": 3}
+  run=20, seed=20, F1_val=0.8412, F1_test=0.8409, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=21, seed=21, F1_val=0.8443, F1_test=0.8407, params={"max_train_samples": 500, "n_membership_functions": 3}
+
+==========================================================================================
+Dataset: HEART_DISEASE
+Algoritmo: Sistema Fuzzy de Mamdani
+Classes: [0, 1, 2, 3, 4]
+Tamanho da grade de parâmetros: 4
+Parâmetros testados:
+  1. {"max_train_samples": 300, "n_membership_functions": 2}
+  2. {"max_train_samples": 300, "n_membership_functions": 3}
+  3. {"max_train_samples": 300, "n_membership_functions": 5}
+  4. {"max_train_samples": 500, "n_membership_functions": 3}
+
+Resumo das 21 execuções selecionadas:
+
+TRAIN:
+  Accuracy  : 1.0000 ± 0.0000
+  Precision : 1.0000 ± 0.0000
+  Recall    : 1.0000 ± 0.0000
+  F1        : 1.0000 ± 0.0000
+  Matriz de confusão agregada:
+    [2058, 0, 0, 0, 0]
+    [0, 693, 0, 0, 0]
+    [0, 0, 441, 0, 0]
+    [0, 0, 0, 441, 0]
+    [0, 0, 0, 0, 168]
+
+VAL:
+  Accuracy  : 0.5738 ± 0.0000
+  Precision : 0.6131 ± 0.0000
+  Recall    : 0.5738 ± 0.0000
+  F1        : 0.5842 ± 0.0000
+  Matriz de confusão agregada:
+    [546, 126, 21, 0, 0]
+    [84, 84, 42, 0, 21]
+    [21, 105, 21, 0, 0]
+    [21, 21, 21, 84, 0]
+    [0, 21, 42, 0, 0]
+
+TEST:
+  Accuracy  : 0.5246 ± 0.0000
+  Precision : 0.5145 ± 0.0000
+  Recall    : 0.5246 ± 0.0000
+  F1        : 0.5191 ± 0.0000
+  Matriz de confusão agregada:
+    [567, 63, 21, 21, 21]
+    [63, 84, 21, 63, 0]
+    [42, 84, 0, 21, 21]
+    [21, 42, 42, 21, 21]
+    [0, 0, 21, 21, 0]
+
+Tempo médio por execução selecionada: 0.03s ± 0.00s
+Melhores parâmetros por execução:
+  run=01, seed=1, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=02, seed=2, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=03, seed=3, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=04, seed=4, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=05, seed=5, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=06, seed=6, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=07, seed=7, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=08, seed=8, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=09, seed=9, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=10, seed=10, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=11, seed=11, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=12, seed=12, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=13, seed=13, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=14, seed=14, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=15, seed=15, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=16, seed=16, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=17, seed=17, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=18, seed=18, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=19, seed=19, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=20, seed=20, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+  run=21, seed=21, F1_val=0.5842, F1_test=0.5191, params={"max_train_samples": 300, "n_membership_functions": 5}
+
+==========================================================================================
 Dataset: MUSHROOM
 Algoritmo: Sistema Fuzzy de Mamdani
 Classes: [0, 1]
@@ -27,37 +228,37 @@ TRAIN:
   Recall    : 1.0000 ± 0.0000
   F1        : 1.0000 ± 0.0000
   Matriz de confusão agregada:
-    [4479, 0]
-    [0, 4221]
+    [4395, 0]
+    [0, 4105]
 
 VAL:
-  Accuracy  : 0.9957 ± 0.0024
-  Precision : 0.9957 ± 0.0024
-  Recall    : 0.9957 ± 0.0024
-  F1        : 0.9957 ± 0.0024
+  Accuracy  : 0.9958 ± 0.0024
+  Precision : 0.9958 ± 0.0024
+  Recall    : 0.9958 ± 0.0024
+  F1        : 0.9958 ± 0.0024
   Matriz de confusão agregada:
-    [8799, 42]
-    [32, 8179]
+    [8800, 41]
+    [31, 8180]
 
 TEST:
-  Accuracy  : 0.9971 ± 0.0026
-  Precision : 0.9971 ± 0.0026
-  Recall    : 0.9971 ± 0.0026
-  F1        : 0.9971 ± 0.0026
+  Accuracy  : 0.9971 ± 0.0024
+  Precision : 0.9971 ± 0.0024
+  Recall    : 0.9971 ± 0.0024
+  F1        : 0.9971 ± 0.0024
   Matriz de confusão agregada:
-    [8817, 24]
-    [25, 8207]
+    [8810, 31]
+    [19, 8213]
 
-Tempo médio por execução selecionada: 0.43s ± 0.14s
+Tempo médio por execução selecionada: 0.41s ± 0.14s
 Melhores parâmetros por execução:
   run=01, seed=1, F1_val=0.9951, F1_test=0.9975, params={"max_train_samples": 500, "n_membership_functions": 3}
-  run=02, seed=2, F1_val=0.9951, F1_test=0.9914, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=02, seed=2, F1_val=0.9938, F1_test=0.9939, params={"max_train_samples": 300, "n_membership_functions": 2}
   run=03, seed=3, F1_val=0.9951, F1_test=0.9939, params={"max_train_samples": 300, "n_membership_functions": 2}
-  run=04, seed=4, F1_val=0.9938, F1_test=0.9975, params={"max_train_samples": 300, "n_membership_functions": 2}
+  run=04, seed=4, F1_val=0.9938, F1_test=0.9963, params={"max_train_samples": 500, "n_membership_functions": 3}
   run=05, seed=5, F1_val=0.9963, F1_test=1.0000, params={"max_train_samples": 500, "n_membership_functions": 3}
-  run=06, seed=6, F1_val=0.9914, F1_test=0.9963, params={"max_train_samples": 500, "n_membership_functions": 3}
-  run=07, seed=7, F1_val=0.9951, F1_test=0.9988, params={"max_train_samples": 500, "n_membership_functions": 3}
-  run=08, seed=8, F1_val=0.9938, F1_test=0.9963, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=06, seed=6, F1_val=0.9914, F1_test=0.9975, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=07, seed=7, F1_val=0.9963, F1_test=0.9963, params={"max_train_samples": 500, "n_membership_functions": 3}
+  run=08, seed=8, F1_val=0.9963, F1_test=0.9963, params={"max_train_samples": 300, "n_membership_functions": 2}
   run=09, seed=9, F1_val=0.9988, F1_test=1.0000, params={"max_train_samples": 300, "n_membership_functions": 2}
   run=10, seed=10, F1_val=0.9988, F1_test=0.9988, params={"max_train_samples": 300, "n_membership_functions": 2}
   run=11, seed=11, F1_val=0.9926, F1_test=0.9988, params={"max_train_samples": 500, "n_membership_functions": 3}
@@ -69,7 +270,7 @@ Melhores parâmetros por execução:
   run=17, seed=17, F1_val=1.0000, F1_test=0.9988, params={"max_train_samples": 500, "n_membership_functions": 3}
   run=18, seed=18, F1_val=0.9975, F1_test=1.0000, params={"max_train_samples": 300, "n_membership_functions": 2}
   run=19, seed=19, F1_val=0.9938, F1_test=0.9939, params={"max_train_samples": 300, "n_membership_functions": 2}
-  run=20, seed=20, F1_val=0.9926, F1_test=0.9951, params={"max_train_samples": 300, "n_membership_functions": 2}
+  run=20, seed=20, F1_val=0.9926, F1_test=0.9939, params={"max_train_samples": 300, "n_membership_functions": 2}
   run=21, seed=21, F1_val=0.9951, F1_test=0.9975, params={"max_train_samples": 500, "n_membership_functions": 3}
 
 Arquivos complementares gerados:

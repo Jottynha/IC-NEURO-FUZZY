@@ -1,0 +1,897 @@
+Jader@MSI MINGW64 ~/Documents/GitHub/IC-NEURO-FUZZY (main)
+$ python3 src/main.py
+
+>>> Executando: src/preprocessing.py
+
+============================================================
+Processando: ADULT
+============================================================
+Original: 48842 amostras, 14 atributos
+Após amostragem: 14652 amostras (30.00%)
+C:\Users\Jader\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\core\generic.py:7387: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  result[k] = res_k
+Após pré-proc: 14652 amostras, 100 atributos
+Split: treino 8791, val 2930, test 2931
+Salvo em: datasets\processed\adult
+
+============================================================
+Pré-processamento concluído para: adult
+============================================================
+
+<<< Concluído: src/preprocessing.py (tempo 6.0s)
+
+>>> Executando: src/preprocessing.py
+
+============================================================
+Processando: BANK_MARKETING
+============================================================
+Original: 45211 amostras, 16 atributos
+Após amostragem: 13563 amostras (30.00%)
+C:\Users\Jader\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\core\generic.py:7387: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  result[k] = res_k
+Após pré-proc: 13563 amostras, 38 atributos
+Split: treino 8137, val 2713, test 2713
+Salvo em: datasets\processed\bank_marketing
+
+============================================================
+Pré-processamento concluído para: bank_marketing
+============================================================
+
+<<< Concluído: src/preprocessing.py (tempo 5.3s)
+
+>>> Executando: src/preprocessing.py
+
+============================================================
+Processando: HEART_DISEASE
+============================================================
+Original: 303 amostras, 13 atributos
+C:\Users\Jader\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\core\generic.py:7387: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  result[k] = res_k
+Após pré-proc: 303 amostras, 13 atributos
+Split: treino 181, val 61, test 61
+Salvo em: datasets\processed\heart_disease
+
+============================================================
+Pré-processamento concluído para: heart_disease
+============================================================
+
+<<< Concluído: src/preprocessing.py (tempo 3.4s)
+
+>>> Executando: src/preprocessing.py
+
+============================================================
+Processando: MUSHROOM
+============================================================
+Original: 8124 amostras, 22 atributos
+Após amostragem: 4062 amostras (50.00%)
+C:\Users\Jader\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\core\generic.py:7387: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  result[k] = res_k
+Após pré-proc: 4062 amostras, 94 atributos
+Split: treino 2437, val 812, test 813
+Salvo em: datasets\processed\mushroom
+
+============================================================
+Pré-processamento concluído para: mushroom
+============================================================
+
+<<< Concluído: src/preprocessing.py (tempo 4.4s)
+
+>>> Executando: src/mlp_classifier.py
+
+[Treinando MLP para adult]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.8531 | F1_test=0.8383 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.8548 | F1_test=0.8376 | params={"activation": "relu", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.8537 | F1_test=0.8429 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.8574 | F1_test=0.8429 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.8575 | F1_test=0.8409 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.8524 | F1_test=0.8377 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.8566 | F1_test=0.8440 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.8543 | F1_test=0.8432 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.8532 | F1_test=0.8382 | params={"activation": "relu", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.8585 | F1_test=0.8513 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.8572 | F1_test=0.8415 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.8528 | F1_test=0.8395 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.8527 | F1_test=0.8384 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.8541 | F1_test=0.8418 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.8569 | F1_test=0.8442 | params={"activation": "relu", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.8558 | F1_test=0.8416 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.8585 | F1_test=0.8442 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.8549 | F1_test=0.8435 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.8550 | F1_test=0.8389 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.8585 | F1_test=0.8455 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.8545 | F1_test=0.8454 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+
+Resultados da MLP salvos em resultados/
+<<< Concluído: src/mlp_classifier.py (tempo 399.5s)
+
+>>> Executando: src/rbm_logistic_classifier.py
+
+[Treinando RBM + Regressão Logística para adult]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.8131 | F1_test=0.8128 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.8140 | F1_test=0.8144 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.8159 | F1_test=0.8113 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.8144 | F1_test=0.8098 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.8152 | F1_test=0.8104 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.8174 | F1_test=0.8117 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.8166 | F1_test=0.8132 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.8122 | F1_test=0.8097 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.8167 | F1_test=0.8108 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.8165 | F1_test=0.8123 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.8159 | F1_test=0.8153 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.8137 | F1_test=0.8083 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.8154 | F1_test=0.8132 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.8134 | F1_test=0.8150 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.8139 | F1_test=0.8197 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.8154 | F1_test=0.8141 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.8174 | F1_test=0.8133 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.8164 | F1_test=0.8120 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.8154 | F1_test=0.8165 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.8154 | F1_test=0.8101 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.8165 | F1_test=0.8173 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+
+Resultados da RBM + Regressão Logística salvos em resultados/
+<<< Concluído: src/rbm_logistic_classifier.py (tempo 390.0s)
+
+>>> Executando: src/mamdani_fuzzy_classifier.py
+
+[Treinando Fuzzy Mamdani para adult]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.7686 | F1_test=0.7517 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.7785 | F1_test=0.7755 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.7754 | F1_test=0.7601 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.7744 | F1_test=0.7696 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.7744 | F1_test=0.7707 | params={"max_train_samples": 300, "n_membership_functions": 3}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.7671 | F1_test=0.7743 | params={"max_train_samples": 300, "n_membership_functions": 3}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.7851 | F1_test=0.7771 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.7603 | F1_test=0.7694 | params={"max_train_samples": 300, "n_membership_functions": 3}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.7872 | F1_test=0.7774 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.7754 | F1_test=0.7672 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.7745 | F1_test=0.7805 | params={"max_train_samples": 300, "n_membership_functions": 3}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.7833 | F1_test=0.7563 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.7781 | F1_test=0.7589 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.7848 | F1_test=0.7693 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.7752 | F1_test=0.7620 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.7701 | F1_test=0.7660 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.7632 | F1_test=0.7658 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.7643 | F1_test=0.7709 | params={"max_train_samples": 300, "n_membership_functions": 3}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.7851 | F1_test=0.7695 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.7886 | F1_test=0.7851 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.7831 | F1_test=0.7786 | params={"max_train_samples": 300, "n_membership_functions": 3}
+
+Resultados do Mamdani salvos em resultados/
+<<< Concluído: src/mamdani_fuzzy_classifier.py (tempo 118.7s)
+
+>>> Executando: src/anfis_classifier.py
+
+[Treinando ANFIS para adult]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.7322 | F1_test=0.7262 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.6574 | F1_test=0.6575 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.6630 | F1_test=0.6631 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.6574 | F1_test=0.6575 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.6717 | F1_test=0.6677 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.6590 | F1_test=0.6575 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.6724 | F1_test=0.6777 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.6574 | F1_test=0.6575 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.6574 | F1_test=0.6575 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.6582 | F1_test=0.6583 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.6622 | F1_test=0.6599 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.6620 | F1_test=0.6623 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.6663 | F1_test=0.6639 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.6661 | F1_test=0.6692 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.6653 | F1_test=0.6621 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.6736 | F1_test=0.6729 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.6590 | F1_test=0.6583 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.6574 | F1_test=0.6575 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.6645 | F1_test=0.6605 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.6574 | F1_test=0.6575 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.6574 | F1_test=0.6575 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+
+Resultados do ANFIS salvos em resultados/
+<<< Concluído: src/anfis_classifier.py (tempo 55.8s)
+
+>>> Executando: src/mlp_classifier.py
+
+[Treinando MLP para bank_marketing]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.8922 | F1_test=0.8924 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.8935 | F1_test=0.8829 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.8919 | F1_test=0.8948 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.8911 | F1_test=0.8879 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.8910 | F1_test=0.8833 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.8944 | F1_test=0.8893 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.8925 | F1_test=0.8923 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.8906 | F1_test=0.8886 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.8892 | F1_test=0.8903 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.8922 | F1_test=0.8935 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.8951 | F1_test=0.8950 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.8896 | F1_test=0.8944 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.8905 | F1_test=0.8856 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.8931 | F1_test=0.8964 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.8912 | F1_test=0.8895 | params={"activation": "relu", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.8952 | F1_test=0.8869 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.8874 | F1_test=0.8856 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.8949 | F1_test=0.8948 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.8887 | F1_test=0.8900 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.8914 | F1_test=0.8926 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.8900 | F1_test=0.8851 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+
+Resultados da MLP salvos em resultados/
+<<< Concluído: src/mlp_classifier.py (tempo 507.3s)
+
+>>> Executando: src/rbm_logistic_classifier.py
+
+[Treinando RBM + Regressão Logística para bank_marketing]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.8398 | F1_test=0.8365 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.8343 | F1_test=0.8340 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.8336 | F1_test=0.8357 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.8345 | F1_test=0.8333 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.8362 | F1_test=0.8344 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.8329 | F1_test=0.8339 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.8311 | F1_test=0.8342 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.8345 | F1_test=0.8337 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.8355 | F1_test=0.8344 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.8383 | F1_test=0.8363 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.8336 | F1_test=0.8344 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.8379 | F1_test=0.8357 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.8327 | F1_test=0.8327 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.8313 | F1_test=0.8318 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.8326 | F1_test=0.8335 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.8352 | F1_test=0.8376 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.8381 | F1_test=0.8363 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.8358 | F1_test=0.8336 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.8368 | F1_test=0.8338 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.8340 | F1_test=0.8322 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.8360 | F1_test=0.8365 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+
+Resultados da RBM + Regressão Logística salvos em resultados/
+<<< Concluído: src/rbm_logistic_classifier.py (tempo 1435.5s)
+
+>>> Executando: src/mamdani_fuzzy_classifier.py
+
+[Treinando Fuzzy Mamdani para bank_marketing]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.8338 | F1_test=0.8366 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.8412 | F1_test=0.8377 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.8318 | F1_test=0.8272 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.8328 | F1_test=0.8349 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.8333 | F1_test=0.8260 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.8358 | F1_test=0.8279 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.8384 | F1_test=0.8413 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.8351 | F1_test=0.8422 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.8327 | F1_test=0.8410 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.8358 | F1_test=0.8350 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.8317 | F1_test=0.8269 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.8376 | F1_test=0.8304 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.8361 | F1_test=0.8301 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.8414 | F1_test=0.8343 | params={"max_train_samples": 300, "n_membership_functions": 3}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.8329 | F1_test=0.8381 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.8372 | F1_test=0.8350 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.8401 | F1_test=0.8338 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.8377 | F1_test=0.8443 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.8424 | F1_test=0.8365 | params={"max_train_samples": 300, "n_membership_functions": 3}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.8386 | F1_test=0.8347 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.8454 | F1_test=0.8391 | params={"max_train_samples": 500, "n_membership_functions": 3}
+
+Resultados do Mamdani salvos em resultados/
+<<< Concluído: src/mamdani_fuzzy_classifier.py (tempo 143.1s)
+
+>>> Executando: src/anfis_classifier.py
+
+[Treinando ANFIS para bank_marketing]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.8278 | F1_test=0.8284 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+
+Resultados do ANFIS salvos em resultados/
+<<< Concluído: src/anfis_classifier.py (tempo 144.6s)
+
+>>> Executando: src/mlp_classifier.py
+
+[Treinando MLP para heart_disease]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.5819 | F1_test=0.5353 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.6392 | F1_test=0.5529 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.6156 | F1_test=0.5272 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.6237 | F1_test=0.4747 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.6464 | F1_test=0.5483 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.5865 | F1_test=0.5515 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.5941 | F1_test=0.4693 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.5989 | F1_test=0.5400 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.6273 | F1_test=0.4912 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.5861 | F1_test=0.4345 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.6701 | F1_test=0.5254 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.6638 | F1_test=0.5421 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.6188 | F1_test=0.5814 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.6318 | F1_test=0.5408 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.5979 | F1_test=0.4982 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.5782 | F1_test=0.4717 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.6029 | F1_test=0.5041 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.5597 | F1_test=0.5075 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.01}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.5668 | F1_test=0.5104 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.6644 | F1_test=0.5091 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.6236 | F1_test=0.5520 | params={"activation": "relu", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+
+Resultados da MLP salvos em resultados/
+<<< Concluído: src/mlp_classifier.py (tempo 51.9s)
+
+>>> Executando: src/rbm_logistic_classifier.py
+
+[Treinando RBM + Regressão Logística para heart_disease]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.4385 | F1_test=0.3839 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.4752 | F1_test=0.3881 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 64, "n_iter": 20}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 64, "n_iter": 10}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.4519 | F1_test=0.3839 | params={"learning_rate": 0.01, "n_components": 64, "n_iter": 20}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.4752 | F1_test=0.3881 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.4752 | F1_test=0.3924 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.4752 | F1_test=0.3924 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.4385 | F1_test=0.3839 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.4752 | F1_test=0.3881 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.4429 | F1_test=0.3839 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.4385 | F1_test=0.3839 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.4752 | F1_test=0.3967 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.4385 | F1_test=0.3798 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.4730 | F1_test=0.3881 | params={"learning_rate": 0.01, "n_components": 32, "n_iter": 10}
+
+Resultados da RBM + Regressão Logística salvos em resultados/
+<<< Concluído: src/rbm_logistic_classifier.py (tempo 36.6s)
+
+>>> Executando: src/mamdani_fuzzy_classifier.py
+
+[Treinando Fuzzy Mamdani para heart_disease]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.5842 | F1_test=0.5191 | params={"max_train_samples": 300, "n_membership_functions": 5}
+
+Resultados do Mamdani salvos em resultados/
+<<< Concluído: src/mamdani_fuzzy_classifier.py (tempo 4.0s)
+
+>>> Executando: src/anfis_classifier.py
+
+[Treinando ANFIS para heart_disease]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.3798 | F1_test=0.3798 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 2, "pca_components": 6}
+
+Resultados do ANFIS salvos em resultados/
+<<< Concluído: src/anfis_classifier.py (tempo 72.4s)
+
+>>> Executando: src/mlp_classifier.py
+
+[Treinando MLP para mushroom]
+  Execução 01/21 | seed=1
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 02/21 | seed=2
+    melhor F1_val=1.0000 | F1_test=0.9975 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 03/21 | seed=3
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 04/21 | seed=4
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 05/21 | seed=5
+    melhor F1_val=1.0000 | F1_test=0.9963 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 06/21 | seed=6
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 07/21 | seed=7
+    melhor F1_val=1.0000 | F1_test=0.9988 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 08/21 | seed=8
+    melhor F1_val=1.0000 | F1_test=0.9988 | params={"activation": "relu", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 09/21 | seed=9
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 10/21 | seed=10
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "tanh", "hidden_layer_sizes": [100, 50], "learning_rate_init": 0.001}
+  Execução 11/21 | seed=11
+    melhor F1_val=1.0000 | F1_test=0.9963 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 12/21 | seed=12
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 13/21 | seed=13
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 14/21 | seed=14
+    melhor F1_val=1.0000 | F1_test=0.9975 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 15/21 | seed=15
+    melhor F1_val=1.0000 | F1_test=0.9988 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 16/21 | seed=16
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 17/21 | seed=17
+    melhor F1_val=1.0000 | F1_test=0.9975 | params={"activation": "tanh", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 18/21 | seed=18
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 19/21 | seed=19
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+  Execução 20/21 | seed=20
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [100], "learning_rate_init": 0.001}
+  Execução 21/21 | seed=21
+    melhor F1_val=1.0000 | F1_test=1.0000 | params={"activation": "relu", "hidden_layer_sizes": [50], "learning_rate_init": 0.001}
+
+Resultados da MLP salvos em resultados/
+<<< Concluído: src/mlp_classifier.py (tempo 362.0s)
+
+>>> Executando: src/rbm_logistic_classifier.py
+
+[Treinando RBM + Regressão Logística para mushroom]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.9926 | F1_test=0.9975 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.9901 | F1_test=0.9902 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.9975 | F1_test=0.9951 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.9951 | F1_test=0.9938 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.9975 | F1_test=0.9975 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.9988 | F1_test=0.9975 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.9975 | F1_test=0.9963 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.9975 | F1_test=0.9926 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.9951 | F1_test=0.9963 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.9963 | F1_test=1.0000 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.9951 | F1_test=0.9951 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.9975 | F1_test=0.9939 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.9926 | F1_test=0.9926 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.9938 | F1_test=0.9988 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.9951 | F1_test=0.9963 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.9926 | F1_test=0.9963 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.9938 | F1_test=0.9914 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.9926 | F1_test=0.9938 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.9914 | F1_test=0.9938 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.9852 | F1_test=0.9852 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.9975 | F1_test=0.9975 | params={"learning_rate": 0.05, "n_components": 64, "n_iter": 20}
+
+Resultados da RBM + Regressão Logística salvos em resultados/
+<<< Concluído: src/rbm_logistic_classifier.py (tempo 471.3s)
+
+>>> Executando: src/mamdani_fuzzy_classifier.py
+
+[Treinando Fuzzy Mamdani para mushroom]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.9951 | F1_test=0.9975 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.9951 | F1_test=0.9914 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.9951 | F1_test=0.9939 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.9938 | F1_test=0.9975 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.9963 | F1_test=1.0000 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.9914 | F1_test=0.9963 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.9951 | F1_test=0.9988 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.9938 | F1_test=0.9963 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.9988 | F1_test=1.0000 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.9988 | F1_test=0.9988 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.9926 | F1_test=0.9988 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.9975 | F1_test=0.9988 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.9988 | F1_test=0.9975 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.9951 | F1_test=0.9988 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.9988 | F1_test=0.9988 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.9938 | F1_test=0.9914 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 17/21 | seed=17
+    melhor F1_val=1.0000 | F1_test=0.9988 | params={"max_train_samples": 500, "n_membership_functions": 3}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.9975 | F1_test=1.0000 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.9938 | F1_test=0.9939 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.9926 | F1_test=0.9951 | params={"max_train_samples": 300, "n_membership_functions": 2}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.9951 | F1_test=0.9975 | params={"max_train_samples": 500, "n_membership_functions": 3}
+
+Resultados do Mamdani salvos em resultados/
+<<< Concluído: src/mamdani_fuzzy_classifier.py (tempo 38.5s)
+
+>>> Executando: src/anfis_classifier.py
+
+[Treinando ANFIS para mushroom]
+  Execução 01/21 | seed=1
+    melhor F1_val=0.8875 | F1_test=0.9004 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 02/21 | seed=2
+    melhor F1_val=0.8890 | F1_test=0.8957 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+  Execução 03/21 | seed=3
+    melhor F1_val=0.8860 | F1_test=0.9028 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 04/21 | seed=4
+    melhor F1_val=0.8888 | F1_test=0.8957 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 05/21 | seed=5
+    melhor F1_val=0.8874 | F1_test=0.8993 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 06/21 | seed=6
+    melhor F1_val=0.8928 | F1_test=0.9021 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  Execução 07/21 | seed=7
+    melhor F1_val=0.8862 | F1_test=0.9005 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  Execução 08/21 | seed=8
+    melhor F1_val=0.8850 | F1_test=0.8943 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 09/21 | seed=9
+    melhor F1_val=0.8875 | F1_test=0.8981 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 10/21 | seed=10
+    melhor F1_val=0.8850 | F1_test=0.8957 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 11/21 | seed=11
+    melhor F1_val=0.8912 | F1_test=0.9016 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 8}
+  Execução 12/21 | seed=12
+    melhor F1_val=0.8874 | F1_test=0.9041 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 13/21 | seed=13
+    melhor F1_val=0.8875 | F1_test=0.8981 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 14/21 | seed=14
+    melhor F1_val=0.8875 | F1_test=0.8969 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 15/21 | seed=15
+    melhor F1_val=0.8862 | F1_test=0.8943 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 16/21 | seed=16
+    melhor F1_val=0.8822 | F1_test=0.8978 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 17/21 | seed=17
+    melhor F1_val=0.8810 | F1_test=0.8991 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 18/21 | seed=18
+    melhor F1_val=0.8874 | F1_test=0.9042 | params={"learning_rate": 0.01, "max_train_samples": 300, "n_epochs": 10, "n_membership_functions": 3, "pca_components": 6}
+  Execução 19/21 | seed=19
+    melhor F1_val=0.8875 | F1_test=0.8968 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 20/21 | seed=20
+    melhor F1_val=0.8875 | F1_test=0.8993 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+  Execução 21/21 | seed=21
+    melhor F1_val=0.8835 | F1_test=0.8943 | params={"learning_rate": 0.05, "max_train_samples": 300, "n_epochs": 25, "n_membership_functions": 2, "pca_components": 6}
+
+Resultados do ANFIS salvos em resultados/
+<<< Concluído: src/anfis_classifier.py (tempo 39.6s)
